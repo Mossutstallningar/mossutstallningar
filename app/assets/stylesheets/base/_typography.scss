@@ -1,0 +1,19 @@
+html,
+input,
+button,
+select,
+textarea {
+  line-height: 1.5;
+  font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+  color: $base-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: $link-color;
+  &:hover {
+    color: darken($link-color, 10%);
+    text-decoration: none;
+  }
+}

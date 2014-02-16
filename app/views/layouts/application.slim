@@ -1,0 +1,30 @@
+doctype html
+html.no-js
+  head
+    meta charset="utf-8"
+    title=yield(:title).present? ? ("#{yield(:title)} / Mossutställningar") : 'Mossutställningar'
+    meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"
+    == stylesheet_link_tag 'application', media: nil
+    == javascript_include_tag 'libs/modernizr'
+    == csrf_meta_tags
+  body
+    == yield
+
+    | <!--[if lt IE 9]>
+    script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'
+    | <![endif]-->
+    | <!--[if gte IE 9]><!-->
+    script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js'
+    | <!--<![endif]-->
+
+    == javascript_include_tag 'application'
+
+    - if ENV['GOOGLE_ANALYTICS_ID'].present?
+      script
+        |
+          (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+          e.src='//www.google-analytics.com/analytics.js';
+          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+          ga('create','#{ENV['GOOGLE_ANALYTICS_ID']}');ga('send','pageview');

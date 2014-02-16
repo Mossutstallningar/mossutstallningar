@@ -1,0 +1,3 @@
+((win)->
+  win.App = {}
+)(window)
