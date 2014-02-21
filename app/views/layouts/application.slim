@@ -8,6 +8,9 @@ html.no-js
     == javascript_include_tag 'libs/modernizr'
     == csrf_meta_tags
   body
+    - if user_signed_in?
+      = link_to 'Admin', admin_root_path
+
     == yield
 
     | <!--[if lt IE 9]>
