@@ -15,7 +15,7 @@ html.no-js
       div
         = label_tag :q, 'Search:'
       div
-        = search_field_tag :q
+        = search_field_tag :q, params[:q]
       div
         = submit_tag 'Search', name: nil
 
