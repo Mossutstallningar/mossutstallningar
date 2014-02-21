@@ -1,6 +1,2 @@
 - if @projects.present?
-  ul
-    - @projects.each do |project|
-      li
-        h2 = project.title
-        p = project.body
+ = render 'projects/list', projects: @projects
