@@ -2,8 +2,6 @@ ActiveAdmin.register Project do
   actions :index, :update, :edit, :new, :create, :destroy
   menu priority: 1
 
-  index download_links: false
-
   form html: { enctype: 'multipart/form-data' } do |f|
     f.semantic_errors *f.object.errors.keys
     f.inputs 'Project details' do
@@ -22,7 +20,7 @@ ActiveAdmin.register Project do
     f.actions
   end
 
-  index do
+  index download_links: false do
     selectable_column
     column :id
     column :title
