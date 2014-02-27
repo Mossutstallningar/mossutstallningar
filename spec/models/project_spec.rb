@@ -11,4 +11,22 @@ describe Project do
       expect(FactoryGirl.build(:project, title: '')).not_to be_valid
     end
   end
+
+  describe '.search' do
+    describe 'when matching a title' do
+      it 'should return a search result' do
+        FactoryGirl.create(:project)
+        result = Project.search('Some')
+        expect(result.count).to eq(1)
+      end
+    end
+
+    describe 'when not matching any title' do
+      it 'should return a search result' do
+        FactoryGirl.create(:project)
+        result = Project.search('asdf')
+        expect(result.count).to eq(0)
+      end
+    end
+  end
 end
