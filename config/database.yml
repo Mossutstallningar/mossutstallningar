@@ -6,9 +6,9 @@
 development:
   adapter: postgresql
   host: localhost
-  username: fred
-  password:
-  database: mossutstallningar_development
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  database: <%= ENV['DB_DATABASE_DEV'] %>
   pool: 5
   timeout: 5000
 
@@ -19,9 +19,9 @@ development:
 test:
   adapter: postgresql
   host: localhost
-  username: fred
-  password:
-  database: mossutstallningar_test
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  database: <%= ENV['DB_DATABASE_TEST'] %>
   pool: 5
   timeout: 5000
 
