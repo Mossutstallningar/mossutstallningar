@@ -1,4 +1,5 @@
 ActiveAdmin.register User do
+  index download_links: false
 
   index do
     selectable_column
