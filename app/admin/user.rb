@@ -7,15 +7,15 @@ ActiveAdmin.register User do
     column :email
     column :current_sign_in_at
     column :sign_in_count
-    column "" do |admin_user|
+    column '' do |admin_user|
       if admin_user == current_user
-        link_to("Edit", edit_admin_user_path(admin_user))
+        link_to('Edit', edit_admin_user_path(admin_user))
       end
     end
   end
 
   form do |f|
-    f.inputs "Admin Details" do
+    f.inputs 'Admin Details' do
       f.input :email
       f.input :password
       f.input :password_confirmation

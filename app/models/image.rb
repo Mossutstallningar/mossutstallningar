@@ -2,11 +2,11 @@ class Image < ActiveRecord::Base
   belongs_to :project
 
   has_attached_file :attachment, styles: {
-    small: "800x450#",
-    large: "1600x900#",
+    small: '800x450#',
+    large: '1600x900#',
   },
   convert_options: {
-    large: "-quality 60"
+    large: '-quality 60'
   }
 
   validates :position, presence: true
