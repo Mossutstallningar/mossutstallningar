@@ -1,5 +1,4 @@
 ActiveAdmin.register User do
-  permit_params :email, :password, :password_confirmation
 
   index do
     selectable_column
@@ -7,8 +6,11 @@ ActiveAdmin.register User do
     column :email
     column :current_sign_in_at
     column :sign_in_count
-    column :created_at
-    actions
+    column "" do |admin_user|
+      if admin_user == current_user
+        link_to("Edit", edit_admin_user_path(admin_user))
+      end
+    end
   end
 
   form do |f|
@@ -20,4 +22,11 @@ ActiveAdmin.register User do
     f.actions
   end
 
+  controller do
+    def permitted_params
+      if (params[:id].to_i == current_user.id)
+        params.permit user: [:email, :password, :password_confirmation]
+      end
+    end
+  end
 end
