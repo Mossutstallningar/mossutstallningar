@@ -7,6 +7,14 @@ ActiveAdmin.register Project do
     f.inputs "Film Details" do
       f.input :title
       f.input :body
+      f.has_many :images do |image|
+        image.inputs "Image" do
+          image.input :description
+          image.input :credit
+          image.input :position
+          image.input :_destroy, as: :boolean, required: false, label: "Remove"
+        end
+      end
     end
     f.actions
   end
@@ -22,7 +30,14 @@ ActiveAdmin.register Project do
     def permitted_params
       params.permit project: [
         :title,
-        :body
+        :body,
+        images_attributes: [
+          :id,
+          :description,
+          :credit,
+          :position,
+          :_destroy
+        ]
       ]
     end
   end

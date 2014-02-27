@@ -3,3 +3,10 @@ ul
     li
       h2 = project.title
       p = project.body
+      h3 Images
+      - if project.images.present?
+        ul
+        - project.images.each do |image|
+          li
+            div = image.description
+            div = image.credit
