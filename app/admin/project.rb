@@ -12,6 +12,7 @@ ActiveAdmin.register Project do
           image.input :description
           image.input :credit
           image.input :position
+          image.input :attachment, as: :file, hint: image.template.image_tag(image.object.attachment.url(:small)), required: true
           image.input :_destroy, as: :boolean, required: false, label: "Remove"
         end
       end
@@ -36,6 +37,7 @@ ActiveAdmin.register Project do
           :description,
           :credit,
           :position,
+          :attachment,
           :_destroy
         ]
       ]
