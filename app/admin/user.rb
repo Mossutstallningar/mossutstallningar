@@ -2,7 +2,6 @@ ActiveAdmin.register User do
   index download_links: false
 
   index do
-    selectable_column
     id_column
     column :email
     column :current_sign_in_at
