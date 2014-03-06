@@ -1,5 +1,6 @@
 h2 = @project.title
-p = @project.body
+- if @project.body.present?
+  p = @project.body
 
 - if @project.images.present?
   h3 Images
