@@ -1,7 +1,12 @@
+// Widths
+$site-width: 1000px;
+$site-padding: 0 20px;
+
 // Colors
 $base-color: #333;
 $link-color: #33f;
 
 // Breakpoints
+$large: $site-width;
 $medium: 650px;
 $small: 450px;
