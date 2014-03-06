@@ -1,0 +1,10 @@
+h2 = @project.title
+p = @project.body
+
+- if @project.images.present?
+  h3 Images
+  ul
+  - @project.images.each do |image|
+    li
+      div = image_tag image.attachment.url(:small), alt: image.description
+      div = image.credit

@@ -1,3 +1,4 @@
 ul.sitemap-category
   - projects.each do |project|
-    li.sitemap-category-item = project.title
+    li.sitemap-category-item
+      =  link_to project.title, project
