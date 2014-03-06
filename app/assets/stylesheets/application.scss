@@ -6,14 +6,16 @@
 // 1. Helpers
 // -----------------------------------------------------------------------------
 @import "helpers/variables";
+@import "helpers/mixins";
 
 
 // 1. Base
 // -----------------------------------------------------------------------------
 @import "base/normalize";
 @import "base/layout";
-@import "base/typography"
+@import "base/typography";
 
 
 // 3. Modules
 // -----------------------------------------------------------------------------
+@import "modules/sitemap";

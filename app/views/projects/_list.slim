@@ -1,12 +1,3 @@
-ul
+ul.sitemap-category
   - projects.each do |project|
-    li
-      h2 = project.title
-      p = project.body
-      h3 Images
-      - if project.images.present?
-        ul
-        - project.images.each do |image|
-          li
-            div = image_tag image.attachment.url(:small), alt: image.description
-            div = image.credit
+    li.sitemap-category-item = project.title
