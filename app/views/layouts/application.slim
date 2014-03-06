@@ -8,6 +8,7 @@ html.no-js
     == javascript_include_tag 'libs/modernizr'
     == csrf_meta_tags
   body
+    .loader Loading...
     .wrapper
       - if user_signed_in?
         = link_to 'Admin', admin_root_path
@@ -20,7 +21,8 @@ html.no-js
         div
           = submit_tag 'Search', name: nil
 
-      == yield
+      main#main
+        == yield
 
     | <!--[if lt IE 9]>
     script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'
