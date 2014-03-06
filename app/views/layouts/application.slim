@@ -8,18 +8,19 @@ html.no-js
     == javascript_include_tag 'libs/modernizr'
     == csrf_meta_tags
   body
-    - if user_signed_in?
-      = link_to 'Admin', admin_root_path
+    .wrapper
+      - if user_signed_in?
+        = link_to 'Admin', admin_root_path
 
-    = form_tag(search_path, method: 'get') do
-      div
-        = label_tag :q, 'Search:'
-      div
-        = search_field_tag :q, params[:q]
-      div
-        = submit_tag 'Search', name: nil
+      = form_tag(search_path, method: 'get') do
+        div
+          = label_tag :q, 'Search:'
+        div
+          = search_field_tag :q, params[:q]
+        div
+          = submit_tag 'Search', name: nil
 
-    == yield
+      == yield
 
     | <!--[if lt IE 9]>
     script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'
