@@ -15,9 +15,8 @@ html.no-js
         .wrapper
           = render 'shared/header'
           = render 'shared/sitemap'
-      .page-wrapper
-        .page
-          == yield
+      .page
+        == yield
 
     | <!--[if lt IE 9]>
     script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'
