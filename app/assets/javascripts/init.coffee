@@ -1,2 +1,2 @@
 $ =>
-  App.SuperTurbo.init() if Modernizr.history
+  App.Pages.init() if Modernizr.history

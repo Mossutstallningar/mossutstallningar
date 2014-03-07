@@ -1,6 +1,6 @@
 ((win, doc, $) ->
 
-  SuperTurbo =
+  Pages =
 
     init: ->
       @$doc = $ doc
@@ -147,6 +147,6 @@
     scrollToTop: ->
       $('html, body').scrollTop 0
 
-  win.App.SuperTurbo = SuperTurbo
+  win.App.Pages = Pages
 
 )(window, document, jQuery)
