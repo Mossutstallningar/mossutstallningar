@@ -24,8 +24,8 @@
 
     onClick: (e) ->
       e.preventDefault()
-      x = e.pageX
-      y = e.pageY
+      x = e.pageX * 2
+      y = e.pageY * 2
 
       if @lastX && @lastY
         @drawLine x, y
@@ -38,8 +38,8 @@
       height = $(win).height()
 
       @$canvas
-        .attr 'width', width
-        .attr 'height', height
+        .attr 'width', width * 2
+        .attr 'height', height * 2
         .css(
           width: width,
           height: height
@@ -49,7 +49,7 @@
       @ctx.beginPath()
       @ctx.moveTo @lastX, @lastY
       @ctx.lineCap = 'round'
-      @ctx.lineWidth = 10
+      @ctx.lineWidth = 20
       @ctx.lineTo x ,y
       @ctx.strokeStyle = @getRandomColor()
       @ctx.stroke()
