@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 3136ccb910e8d1dba929514c6e9df2b190cacd6d
+  revision: 739b93bf9d22c89c099cb25a3eeb770726575a13
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -117,7 +117,7 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
-    multi_json (1.8.4)
+    multi_json (1.9.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
