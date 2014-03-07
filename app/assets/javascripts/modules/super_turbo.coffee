@@ -4,8 +4,12 @@
 
     init: ->
       @$doc = $ doc
+      @$reset = $ '.page-reset'
       @$loader = $ '.loader'
-      @$main = $ '#main'
+      @$pages = $ '.pages'
+      @frontZIndex = 0
+      @pageCount = $('.page').length
+      @pages = @getOpenPages()
       @isInitialPopstateEvent = true
       @eventListeners()
 
@@ -14,12 +18,31 @@
 
       @$doc.on 'click', '.internal', (e) ->
         e.preventDefault()
-        _.load $(this).attr('href')
+        $this = $ this
+        slug = $this.data 'page-slug'
+        href = $this.attr 'href'
+        if _.pageOpen slug
+          _.bringToFront $("##{slug}")
+        else
+          _.load $(this).attr('href')
+
+      @$doc.on 'click', '.page .close', (e) ->
+        e.preventDefault()
+        e.stopPropagation()
+        _.close $(this).closest('.page')
+
+      @$doc.on 'click', '.page', () ->
+        _.bringToFront $(this)
 
       $(win).on 'popstate', (e) ->
         if !_.isInitialPopstateEvent
           _.load win.location.href
         _.isInitialPopstateEvent = false
+
+      @$reset.click (e) ->
+        e.preventDefault()
+        _.reset()
+
 
     load: (href) ->
       @showLoader()
@@ -32,24 +55,69 @@
         error: (jqXHR, textStatus, errorThrown) ->
           window.location = href
 
+    getOpenPages: ->
+      pages = []
+
+      $('.page').each ->
+        pages.push $(this).attr('id')
+
+      pages
+
     onAjaxSuccess: (data, href) ->
+      if @pageCount > 5
+        @pageCount = 0
+
       $html = $('<div>').append($.parseHTML(data))
-      $main = $html.find '#main'
+      $page = $html.find '.page'
       title = $html.find('title').text()
       metaDescription = $html.find('meta[name="description"]').attr 'content'
       ogMetaImage = $html.find('meta[property="og:image"]').attr 'content'
+      id = $page.attr 'id'
 
       state =
         title: title
 
       history.pushState state, title, href
 
-      @$main.html $main.html()
+      $page.addClass("page-#{@pageCount}")
+
+      @$pages.append $page
+      @pages.push id
       @setTitle title
       @setMetaDescription metaDescription
       @setMetaImage ogMetaImage
       @setMetaUrl()
       @scrollToTop()
+      @pageCount++
+      @reArrangePositions()
+
+    pageOpen: (slug) ->
+      !!$("##{slug}").length
+
+    close: ($page) ->
+      id = $page.attr 'id'
+      @pages.splice $.inArray(id, @pages), 1
+      $page.remove()
+      if @pages.length
+        @reArrangePositions()
+      else
+        @reset()
+
+    bringToFront: ($page) ->
+      id = $page.attr 'id'
+      @pages.splice $.inArray(id, @pages), 1
+      @pages.push id
+
+      @reArrangePositions()
+
+    reArrangePositions: ->
+      for page, i in @pages
+        $("##{page}").css 'zIndex', i
+
+    reset: ->
+      @$pages.html ''
+      @pages = []
+      @pageCount = 0
 
     setTitle: (title) ->
       doc.title = title

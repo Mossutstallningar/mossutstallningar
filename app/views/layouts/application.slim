@@ -15,8 +15,8 @@ html.no-js
         .wrapper
           = render 'shared/header'
           = render 'shared/sitemap'
-      - unless current_page?(root_url)
-        .page
+      .pages
+        - unless current_page?(root_url)
           == yield
 
     | <!--[if lt IE 9]>

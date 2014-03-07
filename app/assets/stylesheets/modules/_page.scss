@@ -3,3 +3,9 @@
   border: 2px solid #000;
   background: #fff;
 }
+
+@for $i from 1 through 5 {
+  .page-#{$i} {
+    @include transform(translateX($i * 10px) translateY($i * 10px));
+  }
+}
