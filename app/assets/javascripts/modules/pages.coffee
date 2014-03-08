@@ -38,7 +38,10 @@
 
       $(win).on 'popstate', (e) ->
         if !_.isInitialPopstateEvent
-          _.load win.location.href
+          if _.pages.length
+            _.close $("##{_.pages[_.pages.length - 1]}")
+          else
+            _.load win.location.href
         _.isInitialPopstateEvent = false
 
       @$reset.click (e) ->
