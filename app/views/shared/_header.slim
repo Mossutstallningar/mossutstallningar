@@ -2,7 +2,7 @@
 - if user_signed_in?
   = link_to 'Admin', admin_root_path
 
-= form_tag(search_path, method: 'get') do
+= form_tag search_path, method: 'get', class: 'internal-form', data: { :'page-slug' => "page-id-search" } do
   div
     = label_tag :q, 'Search:'
   div

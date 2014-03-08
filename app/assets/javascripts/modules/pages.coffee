@@ -28,6 +28,18 @@
         else
           _.load $(this).attr('href')
 
+      @$doc.on 'submit', '.internal-form', (e) ->
+        e.preventDefault()
+        $this = $ this
+        id = $this.data('page-slug')
+
+        _.close($("##{id}")) if ($("##{id}")).length
+
+        data =
+          q: $this.find('#q').val()
+
+        _.load($(this).attr('action'), data)
+
       @$doc.on 'click', '.page .close', (e) ->
         e.preventDefault()
         e.stopPropagation()
@@ -50,9 +62,10 @@
         _.reset()
 
 
-    load: (href) ->
+    load: (href, data = null) ->
       @showLoader()
       $.ajax
+        data: data
         url: href
         success: (data) =>
           @onAjaxSuccess data, href
