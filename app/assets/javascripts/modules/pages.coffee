@@ -46,6 +46,7 @@
 
       @$reset.click (e) ->
         e.preventDefault()
+        _.setZeroPagesState()
         _.reset()
 
 
@@ -101,13 +102,7 @@
         @reArrangePositions()
         @setPageState $("##{@pages[@pages.length - 1]}").data('state')
       else
-        # todo: make dynamic
-        state =
-          title: 'Mossutställningar'
-          metaDescription: 'Mossutställningar'
-          ogMetaImage: ''
-          href: '/'
-        @setPageState state
+        @setZeroPagesState()
         @reset()
 
     bringToFront: ($page) ->
@@ -125,6 +120,15 @@
       @$pages.html ''
       @pages = []
       @pageCount = 0
+
+    setZeroPagesState: ->
+      # todo: make dynamic
+      state =
+        title: 'Mossutställningar'
+        metaDescription: 'Mossutställningar'
+        ogMetaImage: ''
+        href: '/'
+      @setPageState state
 
     getInitialPageState: ->
       $html = $ 'html'
