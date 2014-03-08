@@ -11,6 +11,8 @@
       @pageCount = $('.page').length
       @pages = @getOpenPages()
       @isInitialPopstateEvent = true
+      @initialPageState = @getInitialPageState()
+      @setInitialPageState() if !!@pageCount
       @eventListeners()
 
     eventListeners: ->
@@ -69,24 +71,18 @@
 
       $html = $('<div>').append($.parseHTML(data))
       $page = $html.find '.page'
-      title = $html.find('title').text()
-      metaDescription = $html.find('meta[name="description"]').attr 'content'
-      ogMetaImage = $html.find('meta[property="og:image"]').attr 'content'
       id = $page.attr 'id'
 
-      state =
-        title: title
+      state = @getPageState $html
+      state.href = href
 
-      history.pushState state, title, href
-
-      $page.addClass("page-#{@pageCount}")
+      $page.addClass("page-#{@pageCount}").data 'state', state
 
       @$pages.append $page
       @pages.push id
-      @setTitle title
-      @setMetaDescription metaDescription
-      @setMetaImage ogMetaImage
-      @setMetaUrl()
+
+      @setPageState state
+
       @scrollToTop()
       @pageCount++
       @reArrangePositions()
@@ -100,14 +96,22 @@
       $page.remove()
       if @pages.length
         @reArrangePositions()
+        @setPageState $("##{@pages[@pages.length - 1]}").data('state')
       else
+        # todo: make dynamic
+        state =
+          title: 'Mossutställningar'
+          metaDescription: 'Mossutställningar'
+          ogMetaImage: ''
+          href: '/'
+        @setPageState state
         @reset()
 
     bringToFront: ($page) ->
       id = $page.attr 'id'
       @pages.splice $.inArray(id, @pages), 1
       @pages.push id
-
+      @setPageState $page.data 'state'
       @reArrangePositions()
 
     reArrangePositions: ->
@@ -118,6 +122,34 @@
       @$pages.html ''
       @pages = []
       @pageCount = 0
+
+    getInitialPageState: ->
+      $html = $ 'html'
+      state = @getPageState $html
+      state.href = win.location.pathname
+
+      state
+
+    setInitialPageState: ->
+      $html = $ 'html'
+      $page = $ '.page'
+
+      state = @getInitialPageState $html
+
+      $page.data 'state', state
+
+    getPageState: ($html) ->
+      state =
+        title: $html.find('title').text()
+        metaDescription: $html.find('meta[name="description"]').attr 'content'
+        ogMetaImage: $html.find('meta[property="og:image"]').attr 'content'
+
+    setPageState: (state) ->
+      @setTitle state.title
+      @setMetaDescription state.stateDescription
+      @setMetaImage state.ogMetaImage
+      @setMetaUrl()
+      history.pushState state, state.title, state.href
 
     setTitle: (title) ->
       doc.title = title
