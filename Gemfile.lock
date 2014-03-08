@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 739b93bf9d22c89c099cb25a3eeb770726575a13
+  revision: 746d1d918053b65b2dfa4724eb158acb532fdd3e
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -175,7 +175,8 @@ GEM
       rspec-expectations (= 3.0.0.beta1)
       rspec-mocks (= 3.0.0.beta1)
     rspec-support (3.0.0.beta1)
-    sass (3.2.14)
+    sass (3.3.0)
+      rake
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
