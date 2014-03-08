@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @projects = Project.search(params[:q])
+    @result = Project.search(params[:q])
 
     respond_to do |format|
       format.html

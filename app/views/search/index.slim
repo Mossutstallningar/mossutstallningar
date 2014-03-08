@@ -1,2 +1,8 @@
-- if @projects.present?
- = render 'projects/list', projects: @projects
+.page.page-0 id="page-id-search"
+  button.close Close
+  - if @result.present?
+    ul
+      - @result.each do |project|
+        li = link_to project.title, project, class: 'internal', data: { :'page-slug' => "page-id-#{project.id}" }
+  - else
+    = "Nothing found"
