@@ -6,6 +6,6 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :images, allow_destroy: true
 
   def self.search(query)
-    where('lower(title) LIKE ?', "%#{query.downcase}%")
+    where('lower(title) LIKE ?', "%#{query.downcase}%") if query.present?
   end
 end
