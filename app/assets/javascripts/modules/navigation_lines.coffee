@@ -16,22 +16,29 @@
       @ctx.moveTo 0, 0
 
     eventListeners: ->
-      @$doc.on 'click', '.internal', (e) =>
-        @onClick e
+      _ = @
+
+      @$doc.on 'click', '.internal', (e) ->
+        _.onClick e, $(@)
 
       $(win).resize =>
-        @setCanvasSize()
+        _.setCanvasSize()
 
-    onClick: (e) ->
+    onClick: (e, $el) ->
       e.preventDefault()
-      x = e.pageX * 2
-      y = e.pageY * 2
 
-      if @lastX && @lastY
-        @drawLine x, y
-      else
-        @lastX = x
-        @lastY = y
+      unless $el.hasClass 'navigation-lines-last'
+        x = e.pageX * 2
+        y = e.pageY * 2
+
+        if @lastX && @lastY
+          @drawLine x, y
+        else
+          @lastX = x
+          @lastY = y
+
+      $('.navigation-lines-last').removeClass 'navigation-lines-last'
+      $el.addClass 'navigation-lines-last'
 
     setCanvasSize: ->
       width = $(win).width()
