@@ -32,13 +32,14 @@
         e.preventDefault()
         $this = $ this
         id = $this.data('page-slug')
+        action = $this.attr 'action'
+        data = $this.serialize()
 
         _.close($("##{id}")) if ($("##{id}")).length
 
-        data =
-          q: $this.find('#q').val()
+        href = "#{action}?#{data}"
 
-        _.load($(this).attr('action'), data)
+        _.load(href)
 
       @$doc.on 'click', '.page .close', (e) ->
         e.preventDefault()
@@ -62,10 +63,9 @@
         _.reset()
 
 
-    load: (href, data = null) ->
+    load: (href) ->
       @showLoader()
       $.ajax
-        data: data
         url: href
         success: (data) =>
           @onAjaxSuccess data, href
