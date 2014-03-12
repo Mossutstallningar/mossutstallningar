@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 746d1d918053b65b2dfa4724eb158acb532fdd3e
+  revision: 9ca081f47ab447793afbd0cb2ba1eded68c26f10
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -175,8 +175,7 @@ GEM
       rspec-expectations (= 3.0.0.beta1)
       rspec-mocks (= 3.0.0.beta1)
     rspec-support (3.0.0.beta1)
-    sass (3.3.0)
-      rake
+    sass (3.3.2)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
@@ -205,7 +204,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.38)
+    tzinfo (0.3.39)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
