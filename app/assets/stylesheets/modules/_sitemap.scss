@@ -1,12 +1,20 @@
 .sitemap {
+  font-size: 30px;
   @include at-breakpoint($small) {
     @include columns(2);
     @include column-gap(20px);
   }
 
-  @include at-breakpoint($medium) {
+  @include at-breakpoint($medium-large) {
+    @include columns(3);
+  }
+
+  @include at-breakpoint($large) {
     @include columns(4);
-    @include column-gap(50px);
+  }
+
+  @include at-breakpoint($x-large) {
+    font-size: 2.5vw;
   }
 }
 
@@ -20,4 +28,8 @@
 
 .sitemap-category-item {
   line-height: 2;
+}
+
+.sitemap-link {
+  color: $green;
 }

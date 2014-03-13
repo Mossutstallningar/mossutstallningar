@@ -2,4 +2,11 @@
   border-top: 1px solid #000;
   font-family: $mossbook;
   text-align: center;
+  font-size: 20px;
+  @include at-breakpoint($medium) {
+    font-size: 25px;
+  }
+  @include at-breakpoint($x-large) {
+    font-size: 1.9vw;
+  }
 }

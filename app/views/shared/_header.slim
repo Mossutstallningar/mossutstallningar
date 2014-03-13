@@ -1,9 +1,9 @@
 #encoding: utf-8
 
 header.header
-  = link_to 'Mossutställningar', root_path, class: 'page-reset logotype'
+  = link_to 'Mossutställningar', root_path, class: 'page-reset logotype dynamic-font-size'
 
-  nav.header-nav
+  nav.header-nav.dynamic-font-size
     ul.header-nav-list
       li.header-nav-list-item
         - if user_signed_in?
