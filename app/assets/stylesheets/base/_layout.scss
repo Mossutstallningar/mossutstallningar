@@ -14,7 +14,6 @@ body {
 }
 
 .wrapper {
-  max-width: $site-width;
   padding: $site-padding;
   margin: 0 auto;
 }
@@ -26,10 +25,8 @@ body {
   left: 20px;
   right: 20px;
   @include at-breakpoint($large - 20) {
-    left: 50%;
-    right: auto;
-    width: $site-width - 60;
-    margin-left: -($site-width - 60) / 2;
+    left: 12.5%;
+    right: 12.5%;
   }
 }
 
