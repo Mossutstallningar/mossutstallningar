@@ -5,7 +5,6 @@ html.no-js
     title=yield(:title).present? ? ("#{yield(:title)} / Mossutställningar") : 'Mossutställningar'
     meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"
     == stylesheet_link_tag 'application', media: nil
-    == stylesheet_link_tag '//fonts.googleapis.com/css?family=Josefin+Sans', media: nil
     == javascript_include_tag 'libs/modernizr'
     == csrf_meta_tags
   body

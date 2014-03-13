@@ -7,3 +7,23 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Miso regular";
+  src: asset-url("miso/regular/miso_reg.eot");
+  src: asset-url("miso/regular/miso_reg.eot?#iefix") format("embedded-opentype"),
+       asset-url("miso/regular/miso_reg.woff") format("woff"),
+       asset-url("miso/regular/miso_reg.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Miso regular italic";
+  src: asset-url("miso/regular_italic/miso_reg_italic.eot");
+  src: asset-url("miso/regular_italic/miso_reg_italic.eot?#iefix") format("embedded-opentype"),
+       asset-url("miso/regular_italic/miso_reg_italic.woff") format("woff"),
+       asset-url("miso/regular_italic/miso_reg_italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
