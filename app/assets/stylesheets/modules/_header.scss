@@ -1,6 +1,10 @@
 .header {
   @extend %clearfix;
   border-bottom: 2px solid $green;
+  padding: 0 0 15px;
+  @include at-breakpoint($x-large) {
+    padding: 0 0 0.3%;
+  }
 }
 
 .logotype {
@@ -8,6 +12,7 @@
   font-family: $mossbook;
   font-size: 30px;
   letter-spacing: 2px;
+  color: $green;
   @include at-breakpoint($small) {
     letter-spacing: 3px;
   }
@@ -25,6 +30,7 @@
     letter-spacing: 9px;
   }
   &:hover {
+    color: #000;
     text-decoration: none;
   }
 }

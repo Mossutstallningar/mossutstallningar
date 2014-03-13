@@ -2,7 +2,6 @@
 
 footer.footer.dynamic-font-size
   .contact-row
-    = "Mossutställningar c/o Studio Verksamma Tillsammans"
+    = 'Mossutställningar c/o Studio Verksamma Tillsammans'
   .contact-row
-    = "Hangövägen 18, 115 41 Stockholm"
-    = mail_to "info@mossutstallningar.com"
+    = "Hangövägen 18, 115 41 Stockholm, #{content_tag(:span, mail_to('info@mossutstallningar.com'), class: 'contact-row-email')}".html_safe

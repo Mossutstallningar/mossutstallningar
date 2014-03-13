@@ -1,4 +1,5 @@
 .sitemap {
+  padding: 4% 0;
   font-size: 30px;
   @include at-breakpoint($small) {
     @include columns(2);
@@ -27,9 +28,23 @@
 }
 
 .sitemap-category-item {
-  line-height: 2;
+  line-height: 1.2;
 }
 
 .sitemap-link {
   color: $green;
+  .fa {
+    position: relative;
+    top: -3px;
+    padding: 0 5px 0 0;
+    font-size: 15px;
+    @include at-breakpoint($x-large) {
+      padding: 0 7px 0 0;
+      font-size: 1.5vw;
+    }
+  }
+  &:hover {
+    color: #000;
+    text-decoration: none;
+  }
 }
