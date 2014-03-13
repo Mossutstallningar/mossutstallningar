@@ -1,4 +1,4 @@
 ul.sitemap-category
   - projects.each do |project|
     li.sitemap-category-item
-      = link_to project.title, project, class: 'internal', data: { :'page-slug' => "page-id-#{project.id}" }
+      = link_to fa_icon('chevron-right', text: project.title), project, class: 'internal', data: { :'page-slug' => "page-id-#{project.id}" }

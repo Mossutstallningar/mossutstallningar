@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'slim'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'paperclip'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
