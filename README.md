@@ -15,10 +15,21 @@ Create a development and test database, and quit psql:
 
 3. Populate .env file with these variables
 
+        AUTHENTICATE=false
+        HTTP_AUTH_USER=admin
+        HTTP_AUTH_PASS=lifeonmars?
+
         DB_USERNAME=<username>
         DB_PASSWORD=<password>
         DB_DATABASE_DEV=<database_development>
         DB_DATABASE_TEST=<database_test>
+
+        AWS_HOST_NAME=<aws host name>
+        AWS_BUCKET=<aws bucket>
+        AWS_ACCESS_KEY_ID=<aws access key id>
+        AWS_SECRET_ACCESS_KEY=<aws secret access key>
+
+        SHOW_NAVIGATION_LINES=<true/false>
 
 4. Install gems `bundle install`
 5. Migrate database `rake db:migrate`
