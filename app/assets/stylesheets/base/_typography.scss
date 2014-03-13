@@ -12,9 +12,10 @@ textarea {
 
 a {
   color: $link-color;
+  text-decoration: none;
   &:hover {
     color: darken($link-color, 10%);
-    text-decoration: none;
+    text-decoration: underline;
   }
 }
 
