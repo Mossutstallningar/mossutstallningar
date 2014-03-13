@@ -3,14 +3,15 @@
   NavigationLines =
 
     init: ->
-      @$doc = $ doc
       @$canvas = $ '#navigation-lines'
-      @ctx = @$canvas.get(0).getContext '2d'
-      @lastX = null
-      @lastY = null
-      @setCanvasSize()
-      @eventListeners()
-      @setupPath()
+      if !!@$canvas.length
+        @$doc = $ doc
+        @ctx = @$canvas.get(0).getContext '2d'
+        @lastX = null
+        @lastY = null
+        @setCanvasSize()
+        @eventListeners()
+        @setupPath()
 
     setupPath: ->
       @ctx.moveTo 0, 0
