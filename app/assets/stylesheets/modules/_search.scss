@@ -1,0 +1,51 @@
+.search-form {
+  .search-closed & {
+    display: none;
+    &.no-js {
+      display: block;
+    }
+  }
+
+  .search-open & {
+    display: block;
+  }
+}
+
+.search-opener {
+  .search-closed & {
+    display: block;
+    .no-js & {
+      display: none;
+    }
+  }
+
+  .search-open & {
+    display: none;
+  }
+}
+
+
+.search-label {
+  @extend %visuallyhidden;
+}
+
+.search-query {
+  background: transparent;
+  border: none;
+  .search-open & {
+    background: #fff;
+  }
+}
+
+.search-submit {
+  .search-closed & {
+    display: none;
+    .no-js & {
+      display: block;
+    }
+  }
+
+  .search-open & {
+    display: block;
+  }
+}
