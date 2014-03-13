@@ -32,8 +32,8 @@ Create a development and test database, and quit psql:
         SHOW_NAVIGATION_LINES=<true/false>
 
 4. Install gems `bundle install`
-5. Migrate database `rake db:migrate`
-6. Setup test database `rake db:test:setup`
+5. Migrate database `foreman run rake db:migrate`
+6. Setup test database `foreman run rake db:test:prepare`
 
 ## Commands you probably need
 Start server:
