@@ -22,6 +22,8 @@
 
 // 3. Modules
 // -----------------------------------------------------------------------------
+@import "modules/header";
+@import "modules/search_form";
 @import "modules/navigation_lines";
 @import "modules/page";
 @import "modules/loader";

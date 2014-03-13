@@ -1,11 +1,15 @@
-= link_to 'Mossutställningar', root_path, class: 'page-reset'
-- if user_signed_in?
-  = link_to 'Admin', admin_root_path
+#encoding: utf-8
 
-= form_tag search_path, method: 'get', class: 'internal-form', data: { :'page-slug' => "page-id-search" } do
-  div
-    = label_tag :q, 'Search:'
-  div
-    = search_field_tag :q, params[:q]
-  div
-    = submit_tag 'Search', name: nil
+header.header
+  = link_to 'Mossutställningar', root_path, class: 'page-reset logotype'
+
+  nav.header-nav
+    ul.header-nav-list
+      li.header-nav-list-item
+        - if user_signed_in?
+          = link_to 'Admin', admin_root_path
+      li.header-nav-list-item
+        = form_tag search_path, method: 'get', class: 'search-form internal-form', data: { :'page-slug' => "page-id-search" } do
+          = label_tag :q, 'Search:', class: 'search-form-label'
+          = search_field_tag :q, params[:q], placeholder: 'Sök', class: 'search-form-query'
+          = submit_tag 'Search', name: nil, class: 'search-form-submit'

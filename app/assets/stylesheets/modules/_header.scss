@@ -1,0 +1,25 @@
+.header {
+  @extend %clearfix;
+  border-bottom: 1px solid $base-color;
+}
+
+.logotype {
+  float: left;
+  font-family: $mossbook;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.header-nav {
+  float: right;
+}
+
+
+.header-nav-list {
+  @include reset-list;
+}
+
+.header-nav-list-item {
+  float: left;
+}
