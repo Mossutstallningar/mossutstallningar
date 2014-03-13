@@ -9,6 +9,12 @@ header.header
         - if user_signed_in?
           = link_to 'Admin', admin_root_path
       li.header-nav-list-item
+        = link_to 'Ge', '#'
+        = '&'
+        = link_to 'Ta', '#'
+      li.header-nav-list-item
+        = link_to 'Translate', '#'
+      li.header-nav-list-item
         .search.search-closed
           button.search-opener = "Sök"
           = form_tag search_path, method: 'get', class: 'search-form internal-form', data: { :'page-slug' => "page-id-search" } do
