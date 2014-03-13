@@ -4,9 +4,12 @@
   @include box-sizing(border-box);
 }
 
+html {
+  background: #0f6;
+}
+
 html,
-body,
-.dashboard {
+body {
   height: 100%;
 }
 
