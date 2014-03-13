@@ -16,6 +16,7 @@ html.no-js
         .wrapper
           = render 'shared/header'
           = render 'shared/sitemap'
+          = render 'shared/footer'
       .pages
         - unless current_page?(root_url)
           == yield
