@@ -9,3 +9,8 @@
     @content;
   }
 }
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + ($opacity * 100) +")";
+}

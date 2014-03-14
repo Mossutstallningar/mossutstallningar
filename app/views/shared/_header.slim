@@ -6,9 +6,6 @@ header.header
   nav.header-nav.dynamic-font-size
     ul.header-nav-list
       li.header-nav-list-item
-        - if user_signed_in?
-          = link_to 'Admin', admin_root_path
-      li.header-nav-list-item
         = link_to 'Ge', '#'
         = '&'
         = link_to 'Ta', '#'
