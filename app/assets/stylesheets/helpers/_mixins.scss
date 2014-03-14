@@ -14,3 +14,29 @@
   opacity: $opacity;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + ($opacity * 100) +")";
 }
+
+@mixin button-as-link($color, $hover-color, $underline: false) {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: $color;
+  background: transparent;
+  font: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  -moz-user-select: text;
+
+  @if $underline {
+    text-decoration: underline;
+  }
+
+  &:hover,
+  &:focus {
+    color: $hover-color;
+  }
+
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+}

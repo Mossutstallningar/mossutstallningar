@@ -1,5 +1,6 @@
 .header {
   @extend %clearfix;
+  position: relative;
   border-bottom: 2px solid $green;
   padding: 0 0 10px;
   @include at-breakpoint($medium) {
@@ -12,7 +13,6 @@
 
 .logotype {
   @extend %green-link;
-  float: left;
   font-family: $mossbook;
   font-size: 30px;
   letter-spacing: 2px;
@@ -35,18 +35,38 @@
 }
 
 .header-nav {
-  float: right;
   font-size: 30px;
+  color: $green;
+  @include at-breakpoint($medium-large) {
+    position: absolute;
+    right: 0;
+    bottom: 4px;
+  }
+  @include at-breakpoint($large) {
+    bottom: 15px;
+  }
   @include at-breakpoint($x-large) {
     font-size: 2.5vw;
   }
 }
 
-
 .header-nav-list {
+  @extend %clearfix;
   @include reset-list;
 }
 
 .header-nav-list-item {
   float: left;
+  margin: 0 20px 0 0;
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.header-nav-link {
+  @extend %green-link;
+}
+
+.search-opener {
+  @include button-as-link($green, #000);
 }

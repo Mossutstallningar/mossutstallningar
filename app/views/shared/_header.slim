@@ -6,14 +6,14 @@ header.header
   nav.header-nav.dynamic-font-size
     ul.header-nav-list
       li.header-nav-list-item
-        = link_to 'Ge', '#'
-        = '&'
-        = link_to 'Ta', '#'
+        = link_to 'Ge', '#', class: 'header-nav-link'
+        = ' & '
+        = link_to 'Ta', '#', class: 'header-nav-link'
       li.header-nav-list-item
-        = link_to 'Translate', '#'
+        = link_to 'Translate', '#', class: 'header-nav-link'
       li.header-nav-list-item
         .search.search-closed
-          button.search-opener = "Sök"
+          button.search-opener.header-nav-link = "Sök"
           = form_tag search_path, method: 'get', class: 'search-form internal-form', data: { :'page-slug' => "page-id-search" } do
             = label_tag :q, 'Sök:', class: 'search-label'
             = search_field_tag :q, params[:q], placeholder: 'Sök', class: 'search-query'
