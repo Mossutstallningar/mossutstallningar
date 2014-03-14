@@ -32,10 +32,10 @@
 }
 
 .sitemap-link {
+  @extend %green-link;
   display: inline-block;
   position: relative;
   padding: 0 0 0 17px;
-  color: $green;
   @include at-breakpoint($x-large) {
     padding: 0 0 0 30px;
   }
@@ -48,9 +48,5 @@
       top: 15px;
       font-size: 1.5vw;
     }
-  }
-  &:hover {
-    color: #000;
-    text-decoration: none;
   }
 }

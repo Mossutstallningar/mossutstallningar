@@ -27,11 +27,7 @@
 }
 
 .footer-contact-link {
-  color: $green;
-  &:hover {
-    text-decoration: none;
-    color: #000;
-  }
+  @extend %green-link;
 }
 
 .additional-links {
@@ -40,9 +36,5 @@
 }
 
 .additional-link {
-  color: $green;
-  &:hover {
-    text-decoration: none;
-    color: #000;
-  }
+  @extend %green-link;
 }

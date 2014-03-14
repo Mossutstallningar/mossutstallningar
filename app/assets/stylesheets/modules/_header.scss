@@ -11,11 +11,11 @@
 }
 
 .logotype {
+  @extend %green-link;
   float: left;
   font-family: $mossbook;
   font-size: 30px;
   letter-spacing: 2px;
-  color: $green;
   @include at-breakpoint($small) {
     letter-spacing: 3px;
   }
@@ -31,10 +31,6 @@
   }
   @include at-breakpoint($x-large) {
     letter-spacing: 9px;
-  }
-  &:hover {
-    color: #000;
-    text-decoration: none;
   }
 }
 
