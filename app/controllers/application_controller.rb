@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
   end
 
   def load_global_resources
-    @about_category = PageCategory.find(1)
-    @svt_category = PageCategory.find(2)
+    @about_category = PageCategory.find_by_id(1)
+    @svt_category = PageCategory.find_by_id(2)
     @projects = Project.all
   end
 end
