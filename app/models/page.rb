@@ -1,7 +1,5 @@
 class Page < ActiveRecord::Base
-  validates :title, presence: true
+  include Searchable
 
-  def self.search(query)
-    where('lower(title) LIKE ?', "%#{query.downcase}%") if query.present?
-  end
+  validates :title, presence: true
 end
