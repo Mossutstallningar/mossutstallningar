@@ -40,6 +40,10 @@ Start server:
 
     foreman start
 
+Migrate database:
+
+    foreman run rake db:migrate
+
 Run console:
 
     foreman run rails console
