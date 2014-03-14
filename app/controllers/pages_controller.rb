@@ -1,6 +1,6 @@
-class ProjectsController < ApplicationController
+class PagesController < ApplicationController
   def show
-    @page = Project.find params[:id]
+    @page = Page.find params[:id]
 
     respond_to do |format|
       format.html
