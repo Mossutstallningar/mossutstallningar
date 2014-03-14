@@ -1,7 +1,10 @@
 .header {
   @extend %clearfix;
   border-bottom: 2px solid $green;
-  padding: 0 0 15px;
+  padding: 0 0 10px;
+  @include at-breakpoint($medium) {
+    padding: 0 0 0.7%;
+  }
   @include at-breakpoint($x-large) {
     padding: 0 0 0.3%;
   }
