@@ -5,6 +5,7 @@ Mossutstallningar::Application.routes.draw do
   root 'static_pages#start'
 
   resources :projects, only: [:show]
+  resources :pages, only: [:show]
 
   get 'search', to: 'search#index', as: 'search'
 end

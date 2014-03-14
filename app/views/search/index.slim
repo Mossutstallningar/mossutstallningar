@@ -2,7 +2,7 @@
   button.close Close
   - if @result.present?
     ul
-      - @result.each do |project|
-        li = link_to project.title, project, class: 'internal', data: { :'page-slug' => "page-id-#{project.id}" }
+      - @result.each do |item|
+        li = link_to item.title, item, class: 'internal', data: { :'page-slug' => "page-id-#{item.id}" }
   - else
     = "Nothing found"
