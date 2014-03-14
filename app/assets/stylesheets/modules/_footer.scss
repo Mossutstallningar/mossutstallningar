@@ -13,7 +13,7 @@
     font-size: 25px;
     letter-spacing: 3px;
   }
-  @include at-breakpoint($x-large) {
+  @include at-breakpoint($xx-large) {
     font-size: 1.9vw;
     letter-spacing: 5px;
   }

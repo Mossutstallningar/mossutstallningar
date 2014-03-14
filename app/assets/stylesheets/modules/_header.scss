@@ -6,7 +6,7 @@
   @include at-breakpoint($medium) {
     padding: 0 0 0.7%;
   }
-  @include at-breakpoint($x-large) {
+  @include at-breakpoint($xx-large) {
     padding: 0 0 0.3%;
   }
 }
@@ -29,7 +29,7 @@
   @include at-breakpoint($large) {
     letter-spacing: 8px;
   }
-  @include at-breakpoint($x-large) {
+  @include at-breakpoint($xx-large) {
     letter-spacing: 9px;
   }
 }
@@ -45,7 +45,7 @@
   @include at-breakpoint($large) {
     bottom: 15px;
   }
-  @include at-breakpoint($x-large) {
+  @include at-breakpoint($xx-large) {
     font-size: 2.5vw;
   }
 }
