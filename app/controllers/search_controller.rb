@@ -1,10 +1,12 @@
 class SearchController < ApplicationController
   def index
-    @result = Project.search(params[:q]) + Page.search(params[:q])
+    q = params[:q]
+
+    @result = Project.search(q) + Page.search(q) if q.present?
 
     respond_to do |format|
       format.html
-      format.json { render json: @projects }
+      format.json { render json: @result }
     end
   end
 end
