@@ -1,3 +1,10 @@
 .sitemap.dynamic-font-size
+  - if @about_category.present?
+    h2.sitemap-category-headline = @about_category.name
+    = render 'shared/sitemap_list', items: @about_category.pages
   - if @projects.present?
-    = render 'projects/list', projects: @projects
+    h2.sitemap-category-headline = 'Konst'
+    = render 'shared/sitemap_list', items: @projects
+  - if @svt_category.present?
+    h2.sitemap-category-headline = @svt_category.name
+    = render 'shared/sitemap_list', items: @svt_category.pages
