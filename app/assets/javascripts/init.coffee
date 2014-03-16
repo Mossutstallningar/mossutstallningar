@@ -3,3 +3,4 @@ $ =>
   App.NavigationLines.init() if Modernizr.canvas
   App.Search.init()
   App.DynamicFontSize.init()
+  App.PageDrag.init()

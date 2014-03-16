@@ -103,6 +103,7 @@
       @scrollToTop()
       @pageCount++
       @reArrangePositions()
+      @$doc.trigger 'PageAdd', $page
 
     pageOpen: (slug) ->
       !!$("##{slug}").length

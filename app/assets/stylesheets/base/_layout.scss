@@ -24,9 +24,10 @@ body {
   top: 250px;
   left: 20px;
   right: 20px;
-  @include at-breakpoint($large - 20) {
+  @include at-breakpoint($large) {
     left: 16.5%;
-    right: 16.5%;
+    right: auto;
+    width: 67%; // 100 - (16.5 * 2)
   }
 }
 
