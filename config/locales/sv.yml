@@ -1,0 +1,5 @@
+sv:
+  routes:
+    projects: projekt
+    pages: sidor
+    search: sök

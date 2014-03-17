@@ -15,6 +15,7 @@ gem 'slim'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'paperclip'
 gem 'font-awesome-rails'
+gem 'route_translator'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
