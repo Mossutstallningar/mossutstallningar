@@ -50,7 +50,9 @@
         _.close $(this).closest('.page')
 
       @$doc.on 'mousedown', '.page', () ->
-        _.bringToFront $(this)
+        $page = $(this)
+        _.bringToFront $page
+        _.setTabsFocusTo $page
 
       $(win).on 'popstate', (e) ->
         if !_.isInitialPopstateEvent
@@ -118,8 +120,10 @@
       @pages.splice $.inArray(id, @pages), 1
       $page.remove()
       if @pages.length
+        $newFrontPage = $("##{@pages[@pages.length - 1]}")
         @reArrangePositions()
-        @setPageState $("##{@pages[@pages.length - 1]}").data('state')
+        @setPageState $newFrontPage.data('state')
+        @setTabsFocusTo $newFrontPage
       else
         @setZeroPagesState()
         @reset()
