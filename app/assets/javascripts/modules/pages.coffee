@@ -49,7 +49,7 @@
         e.stopPropagation()
         _.close $(this).closest('.page')
 
-      @$doc.on 'click', '.page', () ->
+      @$doc.on 'mousedown', '.page', () ->
         _.bringToFront $(this)
 
       $(win).on 'popstate', (e) ->
