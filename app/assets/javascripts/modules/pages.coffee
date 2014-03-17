@@ -7,12 +7,15 @@
       @$reset = $ '.page-reset'
       @$loader = $ '.loader'
       @$pages = $ '.pages'
+      @$page = $ '.page'
       @frontZIndex = 0
-      @pageCount = $('.page').length
+      @pageCount = @$page.length
       @pages = @getOpenPages()
       @isInitialPopstateEvent = true
       @initialPageState = @getInitialPageState()
-      @setInitialPageState() if !!@pageCount
+      if !!@pageCount
+        @setInitialPageState()
+        @setTabsFocusTo @$page
       @eventListeners()
 
     eventListeners: ->
@@ -77,7 +80,7 @@
     getOpenPages: ->
       pages = []
 
-      $('.page').each ->
+      @$page.each ->
         pages.push $(this).attr('id')
 
       pages
@@ -104,6 +107,7 @@
       @pageCount++
       @reArrangePositions()
       @$doc.trigger 'PageAdd', $page
+      @setTabsFocusTo $page
 
     pageOpen: (slug) ->
       !!$("##{slug}").length
@@ -199,6 +203,10 @@
 
     scrollToTop: ->
       $('html, body').scrollTop 0
+
+    setTabsFocusTo: ($page) ->
+      $page.focus()
+
 
   win.App.Pages = Pages
 

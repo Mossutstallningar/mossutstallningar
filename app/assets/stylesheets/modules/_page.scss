@@ -2,4 +2,7 @@
   padding: 20px;
   border: 2px solid #000;
   background: #fff;
+  &:focus {
+    outline: none;
+  }
 }
