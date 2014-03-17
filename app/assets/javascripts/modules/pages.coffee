@@ -108,6 +108,7 @@
       @reArrangePositions()
       @$doc.trigger 'PageAdd', $page
       @setTabsFocusTo $page
+      @setStartPos $page
 
     pageOpen: (slug) ->
       !!$("##{slug}").length
@@ -206,6 +207,16 @@
 
     setTabsFocusTo: ($page) ->
       $page.focus()
+
+    setStartPos: ($page) ->
+      offset = $page.offset()
+      min = -50
+      max = 50
+
+      $page.css(
+        left: offset.left + App.Utils.getRandomInt(min, max)
+        top: offset.top + App.Utils.getRandomInt(min, max)
+      )
 
 
   win.App.Pages = Pages

@@ -2,6 +2,7 @@
 
 #= require plugins/jquery-ui-1.10.4.custom
 
+#= require modules/utils
 #= require modules/pages
 #= require modules/navigation_lines
 #= require modules/search
