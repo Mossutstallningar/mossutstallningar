@@ -2,7 +2,7 @@
   = @project.title
 
 .page id="page-id-#{@project.id}" tabindex="-1"
-  button.close Close
+  = render 'shared/close'
   h2 = @project.title
   - if @project.body.present?
     p = @project.body

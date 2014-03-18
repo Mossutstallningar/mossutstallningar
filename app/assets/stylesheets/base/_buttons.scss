@@ -2,4 +2,24 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  font-size: 40px;
+  background: transparent;
+  line-height: 0;
+  text-align: center;
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+}
+
+.close-icon {
+  color: $teal;
+}
+
+.close-text {
+  @extend %visuallyhidden;
 }
