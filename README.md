@@ -26,7 +26,7 @@ Create a development and test database, and quit psql:
 
         AWS_HOST_NAME=<aws host name>
         AWS_BUCKET=<aws bucket>
-        AWS_ACCESS_KEY_ID=<aws access key id>
+        AWS_ACCESS_KEY=<aws access key id>
         AWS_SECRET_ACCESS_KEY=<aws secret access key>
 
         SHOW_NAVIGATION_LINES=<true/false>
