@@ -2,7 +2,7 @@
   = "#{params[:q]} / Sök"
 
 .page id="page-id-search"
-  button.close Close
+  = render 'shared/close'
   - if @result.present?
     ul
       - @result.each do |item|
