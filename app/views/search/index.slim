@@ -1,3 +1,6 @@
+- content_for :title do
+  = "#{params[:q]} / Sök"
+
 .page id="page-id-search"
   button.close Close
   - if @result.present?

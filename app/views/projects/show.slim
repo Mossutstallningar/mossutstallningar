@@ -1,3 +1,6 @@
+- content_for :title do
+  = @project.title
+
 .page id="page-id-#{@project.id}" tabindex="-1"
   button.close Close
   h2 = @project.title
