@@ -105,12 +105,12 @@
 
       @setPageState state
 
-      @scrollToTop()
       @pageCount++
       @reArrangePositions()
       @$doc.trigger 'PageAdd', $page
       @setTabsFocusTo $page
       @setStartPos $page
+      @scrollToTop()
 
     pageOpen: (slug) ->
       !!$("##{slug}").length
