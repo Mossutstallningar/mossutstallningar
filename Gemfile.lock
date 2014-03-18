@@ -93,6 +93,8 @@ GEM
       thor (>= 0.13.6)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
+    friendly_id (5.0.3)
+      activerecord (>= 4.0.0)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -226,6 +228,7 @@ DEPENDENCIES
   factory_girl_rails
   font-awesome-rails
   foreman
+  friendly_id (~> 5.0.3)
   jbuilder (~> 1.2)
   jquery-rails
   paperclip

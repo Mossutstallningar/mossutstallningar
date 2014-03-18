@@ -20,6 +20,10 @@ ActiveAdmin.register Page do
   end
 
   controller do
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
+    end
+
     def permitted_params
       params.permit page: [
         :title,

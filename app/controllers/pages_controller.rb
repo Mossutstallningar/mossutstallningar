@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def show
-    @page = Page.find params[:id]
+    @page = Page.friendly.find params[:id]
 
     respond_to do |format|
       format.html
