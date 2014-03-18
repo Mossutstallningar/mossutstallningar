@@ -40,3 +40,7 @@
     border: 0;
   }
 }
+
+@mixin page-shadow($color) {
+  box-shadow: 7px 7px 5px $color;
+}
