@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :authenticate if ENV["AUTHENTICATE"] == "true"
+  before_filter :set_locale
   before_action :load_global_resources
 
   def authenticate
@@ -16,5 +17,11 @@ class ApplicationController < ActionController::Base
     @about_category = PageCategory.find_by_id(1)
     @svt_category = PageCategory.find_by_id(2)
     @projects = Project.all
+  end
+
+  def set_locale
+    # A hacky way to set activeadmin to english but keep rest of site in swedish
+    # todo: find a cleaner way to do this
+    I18n.locale = params[:controller].include?('admin/') ? :en : I18n.default_locale
   end
 end
