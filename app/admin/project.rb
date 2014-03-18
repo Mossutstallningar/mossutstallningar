@@ -20,7 +20,7 @@ ActiveAdmin.register Project do
     f.actions
   end
 
-  index download_links: false do
+  index do
     selectable_column
     column :id
     column :title

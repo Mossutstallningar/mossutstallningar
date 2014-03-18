@@ -2,7 +2,7 @@ ActiveAdmin.register PageCategory do
   actions :index, :update, :edit, :new, :create, :destroy
   menu priority: 3
 
-  index download_links: false do
+  index do
     selectable_column
     column :id
     column :name
