@@ -11,9 +11,10 @@
         @lastY = null
         @setCanvasSize()
         @eventListeners()
-        @setupPath()
+        @setup()
 
-    setupPath: ->
+    setup: ->
+      @ctx.globalAlpha = 0.5
       @ctx.moveTo 0, 0
 
     eventListeners: ->
@@ -24,16 +25,19 @@
 
       $(win).resize =>
         _.setCanvasSize()
+        _.setup()
 
     onClick: (e, $el) ->
       e.preventDefault()
+
+      color = $el.data 'color'
 
       unless $el.hasClass 'navigation-lines-last'
         x = e.pageX * 2
         y = e.pageY * 2
 
         if @lastX && @lastY
-          @drawLine x, y
+          @drawLine x, y, color
         else
           @lastX = x
           @lastY = y
@@ -53,24 +57,17 @@
           height: height
         )
 
-    drawLine: (x, y) ->
+    drawLine: (x, y, color) ->
       @ctx.beginPath()
       @ctx.moveTo @lastX, @lastY
       @ctx.lineCap = 'round'
       @ctx.lineWidth = 20
       @ctx.lineTo x ,y
-      @ctx.strokeStyle = @getRandomColor()
+      @ctx.strokeStyle = color
       @ctx.stroke()
 
       @lastX = x
       @lastY = y
-
-    getRandomColor: ->
-      color = 'rgba('
-      color += Math.floor(Math.random() * 255) + ',' for [1..3]
-      color += '0.5)'
-
-      color
 
   App.NavigationLines = NavigationLines
 
