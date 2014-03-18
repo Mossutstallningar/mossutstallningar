@@ -137,7 +137,7 @@
 
     reArrangePositions: ->
       for page, i in @pages
-        $("##{page}").css 'zIndex', i
+        $("##{page}").css 'zIndex', i+1
 
     reset: ->
       @$pages.html ''
