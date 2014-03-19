@@ -3,12 +3,12 @@
 
 .page.page-page id="page-id-#{@project.id}" tabindex="-1"
   = render 'shared/close'
-  h2 = @project.title
+  h1 = @project.title
   - if @project.body.present?
     p = @project.body
 
   - if @project.images.present?
-    h3 Images
+    h2 Images
     ul
     - @project.images.each do |image|
       li

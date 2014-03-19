@@ -1,7 +1,10 @@
 #encoding: utf-8
 
 header.header
-  = link_to 'Mossutställningar', root_path, class: 'page-reset logotype dynamic-font-size'
+  - if current_page?(root_url)
+    h1 = render 'shared/logotype'
+  - else
+    = render 'shared/logotype'
 
   nav.header-nav.dynamic-font-size
     ul.header-nav-list

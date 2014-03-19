@@ -3,6 +3,6 @@
 
 .page.page-project id="page-id-#{@page.id}" tabindex="-1"
   = render 'shared/close'
-  h2 = @page.title
+  h1 = @page.title
   - if @page.body.present?
     p = @page.body
