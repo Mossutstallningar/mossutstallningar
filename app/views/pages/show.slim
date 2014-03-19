@@ -3,6 +3,7 @@
 
 .page.page-project id="page-id-#{@page.id}" tabindex="-1"
   = render 'shared/close'
-  h1 = @page.title
+  h1.page-title.dynamic-font-size = @page.title
   - if @page.body.present?
-    p = @page.body
+    .page-text.dynamic-font-size-children
+      p = @page.body

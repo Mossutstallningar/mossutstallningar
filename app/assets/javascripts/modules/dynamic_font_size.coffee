@@ -3,7 +3,8 @@
   DynamicFontSize =
 
     init: ->
-      @$el = $ '.dynamic-font-size'
+      @$els = $('.dynamic-font-size').add $('.dynamic-font-size-children').children()
+      @$elChilds = $ '.dynamic-font-size-children'
       @eventListeners()
 
     eventListeners: ->
@@ -11,7 +12,7 @@
         @rePaint()
 
     rePaint: ->
-      @$el.css 'zIndex', 'auto'
+      @$els.css 'zIndex', 'auto'
 
   App.DynamicFontSize = DynamicFontSize
 

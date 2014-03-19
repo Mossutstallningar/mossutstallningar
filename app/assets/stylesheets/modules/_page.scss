@@ -1,8 +1,13 @@
 .page {
   padding: 20px;
+  margin: 0 0 30px;
   border: 2px solid $teal;
   background: #fff;
   border-radius: 11px 6px 19px 8px / 443px 663px 151px 510px;
+  color: $teal;
+  @include at-breakpoint($small) {
+    padding: 3% 5%;
+  }
   &:focus {
     outline: none;
   }
@@ -18,4 +23,25 @@
 
 .page-search {
   @include page-shadow(rgba(0, 0, 0, 0.75));
+}
+
+.page-title {
+  font-size: 30px;
+  line-height: 0.9;
+  @include at-breakpoint($small) {
+    font-size: 5.8vw;
+  }
+}
+
+.page-text {
+  p,
+  ul,
+  ol,
+  table {
+    font-size: 16px;
+    line-height: 1.2;
+    @include at-breakpoint($small) {
+      font-size: 2.5vw;
+    }
+  }
 }

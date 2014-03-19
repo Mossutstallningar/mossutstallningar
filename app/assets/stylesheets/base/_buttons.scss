@@ -10,14 +10,14 @@
   background: transparent;
   line-height: 0;
   text-align: center;
+  color: $teal;
   &::-moz-focus-inner {
     padding: 0;
     border: 0;
   }
-}
-
-.close-icon {
-  color: $teal;
+  &:hover {
+    color: #000;
+  }
 }
 
 .close-text {
