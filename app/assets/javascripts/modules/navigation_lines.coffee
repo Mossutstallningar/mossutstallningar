@@ -28,8 +28,6 @@
         _.setup()
 
     onClick: (e, $el) ->
-      e.preventDefault()
-
       color = $el.data 'color'
 
       unless $el.hasClass 'navigation-lines-last'
