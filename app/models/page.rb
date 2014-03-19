@@ -8,6 +8,8 @@ class Page < ActiveRecord::Base
 
   belongs_to :page_category
 
+  default_scope  { order(created_at: :desc) }
+
   protected
 
   def should_generate_new_friendly_id?

@@ -10,6 +10,8 @@ class Project < ActiveRecord::Base
 
   accepts_nested_attributes_for :images, allow_destroy: true
 
+  default_scope  { order(created_at: :desc) }
+
   protected
 
   def should_generate_new_friendly_id?
