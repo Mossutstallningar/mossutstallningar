@@ -110,6 +110,7 @@
       @$doc.trigger 'PageAdd', $page
       @setTabsFocusTo $page
       @setStartPos $page
+      @setBorderRadius $page
       @scrollToTop()
 
     pageOpen: (slug) ->
@@ -211,6 +212,32 @@
 
     setTabsFocusTo: ($page) ->
       $page.focus()
+
+    setBorderRadius: ($page) ->
+      borders = []
+      borderRadius = ''
+
+      for i in [0..3]
+        borderBase = App.Utils.getRandomInt(500, 1000)
+
+        borders.push(
+          App.Utils.shuffle([
+            borderBase,
+            Math.round borderBase/10,
+          ])
+        )
+
+      for i in [0..3]
+        borderRadius += "#{borders[i][0]}px "
+
+      borderRadius += '/ '
+
+      for i in [0..3]
+        borderRadius += "#{borders[i][1]}px "
+
+      console.log borderRadius
+
+      $page.css 'borderRadius', borderRadius
 
     setStartPos: ($page) ->
       offset = $page.offset()
