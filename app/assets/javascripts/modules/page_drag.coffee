@@ -6,7 +6,6 @@
       @$win = $ win
       @$doc = $ doc
       @winWidth = @$win.width()
-      @dragAbove = 980
       @setupDrag $('.page')
       @eventListeners()
 
@@ -24,7 +23,7 @@
           @disableDrag $page
 
     allowDrag: ->
-      @winWidth >= @dragAbove
+      @winWidth >= App.Breakpoints.large
 
     enableDrag: ($el) ->
       $el.draggable 'enable'
