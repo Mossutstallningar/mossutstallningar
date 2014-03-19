@@ -27,13 +27,6 @@ ActiveAdmin.register Project do
     actions
   end
 
-  # Fix for broken projects index. hopefully fixed in future versions of Active
-  # Admin. Note that ordering columns are not working with this fix.
-  collection_action :index, method: :get do
-    scope = Project.scoped
-    @collection = scope.page params[:page]
-  end
-
   controller do
     def find_resource
       scoped_collection.friendly.find(params[:id])
