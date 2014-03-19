@@ -214,30 +214,20 @@
       $page.focus()
 
     setBorderRadius: ($page) ->
-      borders = []
-      borderRadius = ''
+      borders = [[], []]
 
       for i in [0..3]
-        borderBase = App.Utils.getRandomInt(500, 1000)
-
-        borders.push(
-          App.Utils.shuffle([
-            borderBase,
-            Math.round borderBase/10,
-          ])
-        )
+        borders[0].push "#{App.Utils.getRandomInt(5, 20)}px"
 
       for i in [0..3]
-        borderRadius += "#{borders[i][0]}px "
+        borders[1].push "#{App.Utils.getRandomInt(100, 700)}px"
 
-      borderRadius += '/ '
+      borders[0] = borders[0].join(' ')
+      borders[1] = borders[1].join(' ')
 
-      for i in [0..3]
-        borderRadius += "#{borders[i][1]}px "
+      App.Utils.shuffle borders
 
-      console.log borderRadius
-
-      $page.css 'borderRadius', borderRadius
+      $page.css 'borderRadius', borders.join('/ ')
 
     setStartPos: ($page) ->
       offset = $page.offset()
