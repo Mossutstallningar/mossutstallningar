@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318082109) do
+ActiveRecord::Schema.define(version: 20140319100730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,25 +25,33 @@ ActiveRecord::Schema.define(version: 20140318082109) do
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "page_categories", force: true do |t|
-    t.string "name"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pages", force: true do |t|
-    t.string  "title"
-    t.text    "body"
-    t.integer "page_category_id"
-    t.string  "slug"
+    t.string   "title"
+    t.text     "body"
+    t.integer  "page_category_id"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true, using: :btree
 
   create_table "projects", force: true do |t|
-    t.string "title"
-    t.text   "body"
-    t.string "slug"
+    t.string   "title"
+    t.text     "body"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "projects", ["slug"], name: "index_projects_on_slug", unique: true, using: :btree
@@ -59,6 +67,8 @@ ActiveRecord::Schema.define(version: 20140318082109) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
