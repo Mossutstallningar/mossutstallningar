@@ -1,4 +1,4 @@
 ul.sitemap-category
   - items.each do |item|
     li.sitemap-category-item
-      = link_to fa_icon('chevron-right', text: item.title), item, class: 'internal sitemap-link', data: { :'page-slug' => "page-id-#{item.id}", color: color }
+      = link_to fa_icon('chevron-right', text: item.title), item, class: 'internal navigation-lines-link sitemap-link', data: { :'page-slug' => "page-id-#{item.id}", color: color }

@@ -20,7 +20,7 @@
     eventListeners: ->
       _ = @
 
-      @$doc.on 'click', '.internal', (e) ->
+      @$doc.on 'click', '.navigation-lines-link', (e) ->
         _.onClick e, $(@)
 
       $(win).resize =>
