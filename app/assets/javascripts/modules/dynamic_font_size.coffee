@@ -3,13 +3,21 @@
   DynamicFontSize =
 
     init: ->
-      @$els = $('.dynamic-font-size').add $('.dynamic-font-size-children').children()
-      @$elChilds = $ '.dynamic-font-size-children'
+      @$doc = $ doc
+      @setElements()
       @eventListeners()
+
+    setElements: ->
+      @$els =
+        $('.dynamic-font-size')
+        .add $('.dynamic-font-size-children').children()
 
     eventListeners: ->
       $(win).resize =>
         @rePaint()
+
+      @$doc.on 'PageAdd': () =>
+        @setElements()
 
     rePaint: ->
       @$els.css 'zIndex', 'auto'
