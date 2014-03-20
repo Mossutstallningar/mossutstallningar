@@ -5,7 +5,6 @@
     init: ->
       @$doc = $ doc
       @$reset = $ '.page-reset'
-      @$loader = $ '.loader'
       @$pages = $ '.pages'
       @$page = $ '.page'
       @frontZIndex = 0
@@ -69,12 +68,11 @@
 
 
     load: (href) ->
-      @showLoader()
+      @$doc.trigger 'PageLoad'
       $.ajax
         url: href
         success: (data) =>
           @onAjaxSuccess data, href
-          @hideLoader()
 
         error: (jqXHR, textStatus, errorThrown) ->
           window.location = href
@@ -198,12 +196,6 @@
     setMetaUrl: ->
       ogMetaUrlSelector = 'meta[property="og:url"]'
       @$doc.find(ogMetaUrlSelector).attr 'content', win.location.href
-
-    showLoader: ->
-      @$loader.addClass 'loader-loading'
-
-    hideLoader: ->
-      @$loader.removeClass 'loader-loading'
 
     scrollToTop: ->
       $('html, body').scrollTop 0

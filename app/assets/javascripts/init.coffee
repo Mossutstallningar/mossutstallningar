@@ -5,3 +5,4 @@ $ =>
   App.DynamicFontSize.init()
   App.PageDrag.init()
   App.PageStyle.init()
+  App.Loader.init()
