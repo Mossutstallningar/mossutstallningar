@@ -45,7 +45,7 @@
 
     setCanvasSize: ->
       width = $(win).width()
-      height = $(win).height()
+      height = $(doc).height()
 
       @$canvas
         .attr 'width', width * 2
