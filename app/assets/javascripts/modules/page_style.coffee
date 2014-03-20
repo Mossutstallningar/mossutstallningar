@@ -12,7 +12,7 @@
 
     onPageAdd: ($page) ->
       @setBorderRadius $page
-      @setStartPos $page
+      @setStartPos $page if App.Breakpoints.isLarge
 
     setBorderRadius: ($page) ->
       borders = [[], []]
