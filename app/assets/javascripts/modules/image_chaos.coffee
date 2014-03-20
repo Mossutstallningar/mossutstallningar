@@ -3,45 +3,66 @@
   ImageChaos =
 
     init: ->
-      @$el = $ '.image-chaos'
-      @$items = @$el.find '.image-chaos-item'
-      @elWidth = @$el.width()
+      @$doc = $ doc
+      @els = $ '.image-chaos'
+
+      $imageChaos = $ '.image-chaos'
+
       @eventListeners()
-      @setupDrag()
-      @layoutWhenReady()
+      @setup $imageChaos if !!$imageChaos.length
 
     eventListeners: ->
-      _ = @
-
       $(win).resize =>
-        @elWidth = @$el.width()
-        @setLayout()
+        @onWinResize()
 
-      @$items.mousedown ->
-        _.bringToFront $(this)
+      @$doc.on 'PageAdd': (e, page) =>
+        @onPageAdd $(page)
 
-    setupDrag: ($page) ->
-      @$items.draggable(
+    onWinResize: ->
+      _ = @
+      $imageChaos = $ '.image-chaos'
+
+      $imageChaos.each ->
+        $el = $ @
+        $items = $el.find '.image-chaos-item'
+        _.setLayout $el, $items
+
+    onPageAdd: ($page) ->
+      $imageChaos = $page.find $('.image-chaos')
+      @setup $imageChaos if !!$imageChaos.length
+
+    setup: ($el) ->
+      _ = @
+      $items = $el.find '.image-chaos-item'
+
+      @setupDrag $items
+      @layoutWhenReady $el, $items
+
+      $items.mousedown ->
+        _.bringToFront $el, $(this)
+
+    bringToFront: ($el, $item) ->
+      $item.appendTo $el
+
+    setupDrag: ($items) ->
+      $items.draggable(
         {
           containment: 'document'
           scroll: false
         }
       )
 
-    bringToFront: ($item) ->
-      $item.appendTo @$el
+    layoutWhenReady: ($el, $items) ->
+      $items.imagesLoaded =>
+        @setLayout $el, $items
 
-    layoutWhenReady: ->
-      @$items.imagesLoaded =>
-        @setLayout()
+    setLayout: ($el, $items) ->
+      listWidth = $items.parent().width()
 
-    setLayout: ->
-      _ = @
-
-      @$items.each ->
+      $items.each ->
         $el = $ @
 
-        left = App.Utils.getRandomInt 0, _.elWidth - $el.width()
+        left = App.Utils.getRandomInt 0, listWidth - $el.width()
         top = App.Utils.getRandomInt 0, 100
 
         $el.css(
