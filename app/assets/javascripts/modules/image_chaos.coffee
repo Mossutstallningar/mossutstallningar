@@ -28,7 +28,7 @@
         _.setLayout $el, $items
 
     onPageAdd: ($page) ->
-      $imageChaos = $page.find $('.image-chaos')
+      $imageChaos = $page.find '.image-chaos'
       @setup $imageChaos if !!$imageChaos.length
 
     setup: ($el) ->
