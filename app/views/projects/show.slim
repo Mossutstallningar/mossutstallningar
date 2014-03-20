@@ -13,5 +13,5 @@
     ul
     - @project.images.each do |image|
       li
-        div = image_tag image.attachment.url(:small), alt: image.description
+        div = image_tag image.small, alt: image.description
         div = image.credit

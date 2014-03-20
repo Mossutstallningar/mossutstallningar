@@ -15,4 +15,16 @@ class Image < ActiveRecord::Base
   validates_attachment_content_type :attachment, :content_type => /\Aimage/
 
   default_scope { order(:position) }
+
+  def small
+    attachment.url(:small)
+  end
+
+  def medium
+    attachment.url(:medium)
+  end
+
+  def large
+    attachment.url(:large)
+  end
 end
