@@ -1,14 +1,26 @@
 .image-chaos {
   @include reset-list;
   position: relative;
-  height: 500px;
+  @include at-breakpoint($medium) {
+    height: 500px;
+  }
 }
 
 .image-chaos-item {
-  @include page-shadow(rgba(255, 0, 255, 0.75));
-  position: absolute;
+  position: static !important;
+  margin: 0 0 20px;
+  &:last-child {
+    margin: 0;
+  }
+  @include at-breakpoint($medium) {
+    position: absolute !important;
+    margin: 0;
+  }
 }
 
 .image-chaos-image {
-  max-width: none;
+  @include page-shadow(rgba(255, 0, 255, 0.75));
+  @include at-breakpoint($medium) {
+    max-width: none;
+  }
 }
