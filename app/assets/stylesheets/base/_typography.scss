@@ -4,7 +4,7 @@ button,
 select,
 textarea {
   line-height: 1.5;
-  font-family: "Miso regular", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+  font-family: $miso;
   color: $base-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
