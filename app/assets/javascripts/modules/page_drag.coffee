@@ -11,7 +11,7 @@
       @$doc.on 'PageAdd': (e, page) =>
         @setupDrag $(page)
 
-      $(win).resize =>
+      $(win).on 'debouncedresize', =>
         $page = $('.page')
 
         if @allowDrag() && !@hasDraggable

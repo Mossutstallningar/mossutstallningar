@@ -3,6 +3,7 @@
 #= require libs/imagesloaded
 
 #= require plugins/jquery-ui-1.10.4.custom
+#= require plugins/jquery.debouncedresize
 
 #= require modules/utils
 #= require modules/breakpoints

@@ -13,7 +13,7 @@
         .add $('.dynamic-font-size-children').children()
 
     eventListeners: ->
-      $(win).resize =>
+      $(win).on 'debouncedresize', =>
         @rePaint()
 
       @$doc.on 'PageAdd': () =>

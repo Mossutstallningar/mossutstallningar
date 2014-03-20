@@ -23,7 +23,7 @@
       @$doc.on 'click', '.navigation-lines-link', (e) ->
         _.onClick e, $(@)
 
-      $(win).resize =>
+      $(win).on 'debouncedresize', =>
         _.setCanvasSize()
         _.setup()
 

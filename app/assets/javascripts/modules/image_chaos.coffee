@@ -12,7 +12,7 @@
       @setup $imageChaos if !!$imageChaos.length
 
     eventListeners: ->
-      $(win).resize =>
+      $(win).on 'debouncedresize', =>
         @onWinResize()
 
       @$doc.on 'PageAdd': (e, page) =>
