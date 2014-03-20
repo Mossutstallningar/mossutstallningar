@@ -1,4 +1,4 @@
-((win)->
+((win, doc, $) ->
 
   Breakpoints =
 
@@ -22,4 +22,4 @@
 
   win.App.Breakpoints = Breakpoints
 
-)(window)
+)(window, document, jQuery)
