@@ -13,8 +13,8 @@
 
     eventListeners: ->
       @$win.resize =>
-        @winWidth = @$win.width()
         @setBreakpointBooleans()
+        @winWidth = @$win.width()
 
     setBreakpointBooleans: ->
       @isLarge = @winWidth >= @widths.large
