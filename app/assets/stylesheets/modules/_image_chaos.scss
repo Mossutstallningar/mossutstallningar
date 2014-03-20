@@ -1,0 +1,14 @@
+.image-chaos {
+  @include reset-list;
+  position: relative;
+  height: 500px;
+}
+
+.image-chaos-item {
+  @include page-shadow(rgba(255, 0, 255, 0.75));
+  position: absolute;
+}
+
+.image-chaos-image {
+  max-width: none;
+}

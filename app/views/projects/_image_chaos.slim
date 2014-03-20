@@ -1,0 +1,4 @@
+ul.image-chaos
+  - images.each do |image|
+    li.image-chaos-item
+      = image_tag image.small, alt: image.description, class: 'image-chaos-image'

@@ -9,9 +9,4 @@
       p = @project.body
 
   - if @project.images.present?
-    h2 Images
-    ul
-    - @project.images.each do |image|
-      li
-        div = image_tag image.small, alt: image.description
-        div = image.credit
+    = render 'image_chaos', images: @project.images

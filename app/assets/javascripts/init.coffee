@@ -7,3 +7,4 @@ $ =>
   App.PageDrag.init()
   App.PageStyle.init()
   App.Loader.init()
+  App.ImageChaos.init()
