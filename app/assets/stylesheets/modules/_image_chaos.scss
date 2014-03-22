@@ -2,7 +2,9 @@
   @include reset-list;
   position: relative;
   @include at-breakpoint($medium) {
-    height: 500px;
+    .js & {
+      height: 500px;
+    }
   }
 }
 
@@ -13,8 +15,10 @@
     margin: 0;
   }
   @include at-breakpoint($medium) {
-    position: absolute !important;
-    margin: 0;
+    .js & {
+      position: absolute !important;
+      margin: 0;
+    }
   }
 }
 
