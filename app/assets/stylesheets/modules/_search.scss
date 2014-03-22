@@ -2,7 +2,7 @@
   position: relative;
   .search-closed & {
     display: none;
-    &.no-js {
+    .no-js & {
       display: block;
     }
   }
