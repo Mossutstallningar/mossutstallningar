@@ -1,5 +1,6 @@
 #= require setup
 
+#= require libs/ie
 #= require libs/imagesloaded
 
 #= require plugins/jquery-ui-1.10.4.custom
