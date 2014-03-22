@@ -10,7 +10,10 @@
       @eventListeners()
 
     eventListeners: ->
-      @$opener.click =>
+      @$opener
+      .click =>
+        @open()
+      .focus =>
         @open()
 
       @$query.blur (e) =>
