@@ -8,3 +8,5 @@ $ =>
   App.PageStyle.init()
   App.Loader.init()
   App.ImageChaos.init()
+
+  App.FallbackColumns.init() unless Modernizr.csscolumns
