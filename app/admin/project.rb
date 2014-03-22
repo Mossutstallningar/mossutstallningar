@@ -7,6 +7,7 @@ ActiveAdmin.register Project do
     f.inputs 'Project details' do
       f.input :title
       f.input :body
+      f.input :published
       f.has_many :images do |image|
         image.inputs 'Image' do
           image.input :description
@@ -24,6 +25,7 @@ ActiveAdmin.register Project do
     selectable_column
     column :id
     column :title
+    column :published
     actions
   end
 
@@ -36,6 +38,7 @@ ActiveAdmin.register Project do
       params.permit project: [
         :title,
         :body,
+        :published,
         images_attributes: [
           :id,
           :description,

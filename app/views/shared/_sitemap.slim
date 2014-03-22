@@ -2,7 +2,7 @@ ul.sitemap.dynamic-font-size
   - if @about_category.present?
     li
       span.sitemap-category-headline = @about_category.name
-      = render 'shared/sitemap_list', items: @about_category.pages, color: '#fc1997'
+      = render 'shared/sitemap_list', items: @about_category.pages.published, color: '#fc1997'
   - if @projects.present?
     li
       span.sitemap-category-headline = 'Konst'
@@ -10,4 +10,4 @@ ul.sitemap.dynamic-font-size
   - if @svt_category.present?
     li
       span.sitemap-category-headline = @svt_category.name
-      = render 'shared/sitemap_list', items: @svt_category.pages, color: '#8a1fda'
+      = render 'shared/sitemap_list', items: @svt_category.pages.published, color: '#8a1fda'

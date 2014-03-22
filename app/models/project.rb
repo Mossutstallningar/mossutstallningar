@@ -1,20 +1,9 @@
 class Project < ActiveRecord::Base
-  include Searchable
   extend FriendlyId
-
-  friendly_id :title, use: :slugged
+  include Searchable
+  include Pageable
 
   has_many :images
 
-  validates :title, presence: true
-
   accepts_nested_attributes_for :images, allow_destroy: true
-
-  default_scope  { order(created_at: :desc) }
-
-  protected
-
-  def should_generate_new_friendly_id?
-    slug.blank? || title_changed?
-  end
 end
