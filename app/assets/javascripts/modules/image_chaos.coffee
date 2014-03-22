@@ -39,7 +39,8 @@
       @layoutWhenReady $el, $items
 
       $items.mousedown ->
-        _.bringToFront $el, $(this)
+        if App.Breakpoints.isMedium
+          _.bringToFront $el, $(this)
 
     bringToFront: ($el, $item) ->
       $item.appendTo $el

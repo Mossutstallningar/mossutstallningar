@@ -9,6 +9,8 @@ $miso: "Miso regular", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
 $mossbook: "mossbook", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
 
 // Breakpoints
+// If you update these - also update variables in
+// app/assets/javascripts/modules/breakpoints.coffee
 $xx-large: 1330px;
 $x-large: 1000px;
 $large: 980px;
