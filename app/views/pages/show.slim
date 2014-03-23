@@ -6,4 +6,4 @@
   h1.page-title.dynamic-font-size = @page.title
   - if @page.body.present?
     .page-text.dynamic-font-size-children
-      p = @page.body
+      = markdown @page.body
