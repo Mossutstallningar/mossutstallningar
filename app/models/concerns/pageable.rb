@@ -9,8 +9,7 @@ module Pageable
     validates :title, presence: true
 
     # scopes
-    default_scope { order(created_at: :desc) }
-    scope :published, -> { where(published: true) }
+    scope :published, -> { where(published: true).order(id: :desc) }
   end
 
   module ClassMethods
