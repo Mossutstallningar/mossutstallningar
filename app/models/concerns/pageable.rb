@@ -10,9 +10,7 @@ module Pageable
 
     # scopes
     scope :published, -> { where(published: true).order(id: :desc) }
-  end
 
-  module ClassMethods
     protected
 
     def should_generate_new_friendly_id?
