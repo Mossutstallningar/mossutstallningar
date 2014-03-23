@@ -3,6 +3,7 @@
   Pages =
 
     init: ->
+      @$win = $ win
       @$doc = $ doc
       @$reset = $ '.page-reset'
       @$pages = $ '.pages'
@@ -53,7 +54,7 @@
         _.bringToFront $page
         _.setTabsFocusTo $page
 
-      $(win).on 'popstate', (e) ->
+      @$win.on 'popstate', (e) ->
         if !_.isInitialPopstateEvent
           if _.pages.length
             _.close $("##{_.pages[_.pages.length - 1]}")
@@ -201,7 +202,9 @@
       $('html, body').scrollTop 0
 
     setTabsFocusTo: ($page) ->
+      prevScrollPos = @$win.scrollTop()
       $page.focus()
+      @$win.scrollTop prevScrollPos
 
   win.App.Pages = Pages
 
