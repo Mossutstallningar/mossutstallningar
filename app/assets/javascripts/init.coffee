@@ -1,9 +1,12 @@
 $ =>
   App.Breakpoints.init()
   App.Pages.init() if Modernizr.history
-  App.NavigationLines.init() if Modernizr.canvas
   App.Search.init()
   App.ImageChaos.init()
+
+  if Modernizr.canvas
+    App.NavigationLines.init()
+    App.Ghost.init()
 
   unless ie < 9
     App.DynamicFontSize.init()

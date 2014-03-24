@@ -150,6 +150,7 @@
         ogMetaImage: ''
         href: '/'
       @setPageState state
+      @$doc.trigger 'PageZero'
 
     getInitialPageState: ->
       $html = $ 'html'
@@ -205,6 +206,7 @@
       prevScrollPos = @$win.scrollTop()
       $page.focus()
       @$win.scrollTop prevScrollPos
+      @$doc.trigger 'PageFocus', $page
 
   win.App.Pages = Pages
 

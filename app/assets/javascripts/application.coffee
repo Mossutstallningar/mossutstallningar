@@ -2,6 +2,7 @@
 
 #= require libs/ie
 #= require libs/imagesloaded
+#= require libs/html2canvas
 
 #= require plugins/jquery-ui-1.10.4.custom
 #= require plugins/jquery.debouncedresize
@@ -18,5 +19,6 @@
 #= require modules/page_drag
 #= require modules/image_chaos
 #= require modules/fallback_columns
+#= require modules/ghost
 
 #= require init
