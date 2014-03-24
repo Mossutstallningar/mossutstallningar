@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def markdown(content)
-    markdown = Redcarpet::Markdown.new Redcarpet::Render::HTML, autolink: true
+    markdown = Redcarpet::Markdown.new CustomMarkdown
     markdown.render(content).html_safe
   end
 end

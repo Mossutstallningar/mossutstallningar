@@ -14,6 +14,7 @@ ActiveAdmin.register Project do
           image.input :credit
           image.input :position
           image.input :attachment, as: :file, hint: image.template.image_tag(image.object.attachment.url(:small)), required: true
+          image.input :large, label: 'URL', input_html: { disabled: true }
           image.input :_destroy, as: :boolean, required: false, label: 'Remove'
         end
       end
