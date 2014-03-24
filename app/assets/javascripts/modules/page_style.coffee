@@ -3,11 +3,10 @@
   PageStyle =
 
     init: ->
-      @$doc = $ doc
       @eventListeners()
 
     eventListeners: ->
-      @$doc.on 'PageAdd': (e, page) =>
+      App.$doc.on 'PageAdd': (e, page) =>
         @onPageAdd $(page)
 
     onPageAdd: ($page) ->

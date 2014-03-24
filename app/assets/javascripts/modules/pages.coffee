@@ -3,8 +3,6 @@
   Pages =
 
     init: ->
-      @$win = $ win
-      @$doc = $ doc
       @$reset = $ '.page-reset'
       @$pages = $ '.pages'
       @$page = $ '.page'
@@ -21,7 +19,7 @@
     eventListeners: ->
       _ = @
 
-      @$doc.on 'click', '.internal', (e) ->
+      App.$doc.on 'click', '.internal', (e) ->
         e.preventDefault()
         $this = $ this
         slug = $this.data 'page-slug'
@@ -31,7 +29,7 @@
         else
           _.load $(this).attr('href')
 
-      @$doc.on 'submit', '.internal-form', (e) ->
+      App.$doc.on 'submit', '.internal-form', (e) ->
         e.preventDefault()
         $this = $ this
         id = $this.data('page-slug')
@@ -44,17 +42,17 @@
 
         _.load(href)
 
-      @$doc.on 'click', '.page .close', (e) ->
+      App.$doc.on 'click', '.page .close', (e) ->
         e.preventDefault()
         e.stopPropagation()
         _.close $(this).closest('.page')
 
-      @$doc.on 'mousedown', '.page', () ->
+      App.$doc.on 'mousedown', '.page', () ->
         $page = $(this)
         _.bringToFront $page
         _.setTabsFocusTo $page
 
-      @$win.on 'popstate', (e) ->
+      App.$win.on 'popstate', (e) ->
         if !_.isInitialPopstateEvent
           if _.pages.length
             _.close $("##{_.pages[_.pages.length - 1]}")
@@ -69,7 +67,7 @@
 
 
     load: (href) ->
-      @$doc.trigger 'PageLoad'
+      App.$doc.trigger 'PageLoad'
       $.ajax
         url: href
         success: (data) =>
@@ -106,7 +104,7 @@
 
       @pageCount++
       @reArrangePositions()
-      @$doc.trigger 'PageAdd', $page
+      App.$doc.trigger 'PageAdd', $page
       @setTabsFocusTo $page
       @scrollToTop()
 
@@ -150,7 +148,7 @@
         ogMetaImage: ''
         href: '/'
       @setPageState state
-      @$doc.trigger 'PageZero'
+      App.$doc.trigger 'PageZero'
 
     getInitialPageState: ->
       $html = $ 'html'
@@ -187,26 +185,26 @@
       metaDescSelector = 'meta[name="description"]'
       ogMetaDescSelector = 'meta[property="og:description"]'
 
-      @$doc.find(metaDescSelector).attr 'content', metaDescription
-      @$doc.find(ogMetaDescSelector).attr 'content', metaDescription
+      App.$doc.find(metaDescSelector).attr 'content', metaDescription
+      App.$doc.find(ogMetaDescSelector).attr 'content', metaDescription
 
     setMetaImage: (imageSrc) ->
       ogMetaImageSelector = 'meta[property="og:image"]'
 
-      @$doc.find(ogMetaImageSelector).attr 'content', imageSrc
+      App.$doc.find(ogMetaImageSelector).attr 'content', imageSrc
 
     setMetaUrl: ->
       ogMetaUrlSelector = 'meta[property="og:url"]'
-      @$doc.find(ogMetaUrlSelector).attr 'content', win.location.href
+      App.$doc.find(ogMetaUrlSelector).attr 'content', win.location.href
 
     scrollToTop: ->
       $('html, body').scrollTop 0
 
     setTabsFocusTo: ($page) ->
-      prevScrollPos = @$win.scrollTop()
+      prevScrollPos = App.$win.scrollTop()
       $page.focus()
-      @$win.scrollTop prevScrollPos
-      @$doc.trigger 'PageFocus', $page
+      App.$win.scrollTop prevScrollPos
+      App.$doc.trigger 'PageFocus', $page
 
   win.App.Pages = Pages
 

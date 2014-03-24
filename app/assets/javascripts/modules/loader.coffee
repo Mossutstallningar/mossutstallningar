@@ -3,15 +3,14 @@
   Loader =
 
     init: ->
-      @$doc = $ doc
       @$el = $ '.loader'
       @eventListeners()
 
     eventListeners: ->
-      @$doc.on 'PageLoad': () =>
+      App.$doc.on 'PageLoad': () =>
         @onPageLoad()
 
-      @$doc.on 'PageAdd': () =>
+      App.$doc.on 'PageAdd': () =>
         @onPageAdd()
 
     onPageLoad: ->

@@ -5,7 +5,6 @@
     init: ->
       @$canvas = $ '#navigation-lines'
       if !!@$canvas.length
-        @$doc = $ doc
         @ctx = @$canvas.get(0).getContext '2d'
         @lastX = null
         @lastY = null
@@ -20,10 +19,10 @@
     eventListeners: ->
       _ = @
 
-      @$doc.on 'click', '.navigation-lines-link', (e) ->
+      App.$doc.on 'click', '.navigation-lines-link', (e) ->
         _.onClick e, $(@)
 
-      $(win).on 'debouncedresize', =>
+      App.$win.on 'debouncedresize', =>
         _.setCanvasSize()
         _.setup()
 
@@ -44,8 +43,8 @@
       $el.addClass 'navigation-lines-last'
 
     setCanvasSize: ->
-      width = $(win).width()
-      height = $(doc).height()
+      width = App.$win.width()
+      height = App.$doc.height()
 
       @$canvas
         .attr 'width', width * 2

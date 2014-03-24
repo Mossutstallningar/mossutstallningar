@@ -7,9 +7,6 @@
       fadeOutTime: 5000
 
     init: ->
-      @$win = $ win
-      @$doc = $ doc
-      @$body = $ 'body'
       @$page = $ '.page'
       @$ghost = $()
 
@@ -21,17 +18,17 @@
       @setupTimeout()
 
     eventListeners: ->
-      @$win.scroll =>
+      App.$win.scroll =>
         @clearAndFadeout()
 
-      @$doc.on 'PageFocus': (e, page) =>
+      App.$doc.on 'PageFocus': (e, page) =>
         @$page = $(page)
 
-      @$doc.on 'PageZero': () =>
+      App.$doc.on 'PageZero': () =>
         @$page = $()
         @fadeOutGhost() if @hasGhost()
 
-      @$doc.on 'PageDragDrag': () =>
+      App.$doc.on 'PageDragDrag': () =>
         @clearAndFadeout()
 
     setupTimeout: ->
@@ -65,7 +62,7 @@
       $canvas = $ canvas
 
       pageOffset = @$page.offset()
-      scrollOffset = @$win.scrollTop()
+      scrollOffset = App.$win.scrollTop()
 
       $canvas.attr('id', 'ghost').css(
         left: pageOffset.left
@@ -91,7 +88,7 @@
       )
 
     addGhost: ($canvas) ->
-      @$body.prepend $canvas
+      App.$body.prepend $canvas
       @$ghost = $ '#ghost'
 
     removeGhost: ->

@@ -3,7 +3,6 @@
   ImageChaos =
 
     init: ->
-      @$doc = $ doc
       @els = $ '.image-chaos'
 
       $imageChaos = $ '.image-chaos'
@@ -12,10 +11,10 @@
       @setup $imageChaos if !!$imageChaos.length
 
     eventListeners: ->
-      $(win).on 'debouncedresize', =>
+      App.$win.on 'debouncedresize', =>
         @onWinResize()
 
-      @$doc.on 'PageAdd': (e, page) =>
+      App.$doc.on 'PageAdd': (e, page) =>
         @onPageAdd $(page)
 
     onWinResize: ->

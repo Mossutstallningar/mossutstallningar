@@ -9,15 +9,14 @@
       medium: 650
 
     init: ->
-      @$win = $ win
-      @winWidth = @$win.width()
+      @winWidth = App.$win.width()
       @setBreakpointBooleans()
       @eventListeners()
 
     eventListeners: ->
-      @$win.resize =>
+      App.$win.resize =>
         @setBreakpointBooleans()
-        @winWidth = @$win.width()
+        @winWidth = App.$win.width()
 
     setBreakpointBooleans: ->
       @isLarge = @winWidth >= @widths.large
