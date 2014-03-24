@@ -43,7 +43,10 @@
 
     setupDrag: ($page) ->
       @hasDraggable = true
-      $page.draggable()
+      $page.draggable(
+        start: =>
+          @$doc.trigger 'PageDragStartDrag'
+      )
       @disableDrag $page unless @allowDrag()
 
   win.App.PageDrag = PageDrag

@@ -31,6 +31,9 @@
         @$page = $()
         @fadeOutGhost() if @hasGhost()
 
+      @$doc.on 'PageDragStartDrag': () =>
+        @fadeOutGhost() if @hasGhost()
+
     setupTimeout: ->
       clearTimeout @timeout
       @timeout = null
