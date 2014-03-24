@@ -26,6 +26,7 @@
 }
 
 .page-title {
+  margin: 0 0 30px;
   font-size: 70px;
   line-height: 0.9;
   @include at-breakpoint($xx-large) {
@@ -37,11 +38,30 @@
   p,
   ul,
   ol,
-  table {
+  table,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 0;
     font-size: 28px;
     line-height: 1.2;
     @include at-breakpoint($xx-large) {
       font-size: 2.5vw;
     }
+  }
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0;
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+  em {
+    color: $purple;
+    font-style: normal;
   }
 }
