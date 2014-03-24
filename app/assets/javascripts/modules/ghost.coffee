@@ -22,7 +22,7 @@
 
     eventListeners: ->
       @$win.scroll =>
-        @onWinScroll()
+        @clearAndFadeout()
 
       @$doc.on 'PageFocus': (e, page) =>
         @$page = $(page)
@@ -31,8 +31,8 @@
         @$page = $()
         @fadeOutGhost() if @hasGhost()
 
-      @$doc.on 'PageDragStartDrag': () =>
-        @fadeOutGhost() if @hasGhost()
+      @$doc.on 'PageDragDrag': () =>
+        @clearAndFadeout()
 
     setupTimeout: ->
       clearTimeout @timeout
@@ -45,7 +45,7 @@
 
       @
 
-    onWinScroll: ->
+    clearAndFadeout: ->
       unless @isCreatingGhost
         if @timeout
           clearTimeout @timeout

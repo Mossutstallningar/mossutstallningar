@@ -44,8 +44,8 @@
     setupDrag: ($page) ->
       @hasDraggable = true
       $page.draggable(
-        start: =>
-          @$doc.trigger 'PageDragStartDrag'
+        drag: =>
+          @$doc.trigger 'PageDragDrag'
       )
       @disableDrag $page unless @allowDrag()
 
