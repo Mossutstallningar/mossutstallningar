@@ -1,6 +1,7 @@
 ((win, doc, $) ->
-  win.App =
-    $win: $ win
-    $doc: $ doc
-    $body: $ 'body'
+  win.App ?= {}
+
+  win.App.$win = $ win
+  win.App.$doc = $ doc
+  win.App.$body = $ 'body'
 )(window, document, jQuery)

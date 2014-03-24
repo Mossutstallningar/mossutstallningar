@@ -5,8 +5,8 @@ $ =>
   App.ImageChaos.init()
 
   if Modernizr.canvas
-    App.NavigationLines.init()
-    App.Ghost.init()
+    App.NavigationLines.init() if App.options.showNavigationLines
+    App.Ghost.init() if App.options.showGhost
 
   unless ie < 9
     App.DynamicFontSize.init()

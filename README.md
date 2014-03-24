@@ -21,6 +21,7 @@ Create a development and test database, and quit psql:
         DB_DATABASE_TEST=<database_test>
 
         SHOW_NAVIGATION_LINES=<true/false>
+        SHOW_GHOST=<true/false>
 
         # Variables needed in staging & production
         AUTHENTICATE=<true/false>
