@@ -10,11 +10,10 @@
       @eventListeners()
 
     eventListeners: ->
-      @$opener
-      .click =>
-        @open()
-      .focus =>
-        @open()
+      @$opener.click =>
+        setTimeout =>
+          @open()
+        , 1
 
       @$query.blur (e) =>
         @onBlur()
