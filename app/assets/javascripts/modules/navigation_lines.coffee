@@ -4,13 +4,12 @@
 
     init: ->
       @$canvas = $ '#navigation-lines'
-      if !!@$canvas.length
-        @ctx = @$canvas.get(0).getContext '2d'
-        @lastX = null
-        @lastY = null
-        @setCanvasSize()
-        @eventListeners()
-        @setup()
+      @ctx = @$canvas.get(0).getContext '2d'
+      @lastX = null
+      @lastY = null
+      @setCanvasSize()
+      @eventListeners()
+      @setup()
 
     setup: ->
       @ctx.globalAlpha = 0.5
