@@ -14,9 +14,15 @@
       @eventListeners()
 
     eventListeners: ->
-      App.$doc.mousemove =>
-        @setupTimeout()
-        @fadeOut() if @active
+      App.$doc
+      .mousemove =>
+        @onMovement()
+      .on 'touchstart', =>
+        @onMovement()
+
+    onMovement: ->
+      @setupTimeout()
+      @fadeOut() if @active
 
     setupTimeout: ->
       clearTimeout @timeout
