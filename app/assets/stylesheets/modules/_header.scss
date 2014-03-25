@@ -1,7 +1,8 @@
 .header {
   @extend %clearfix;
   position: relative;
-  border-bottom: 2px solid $green;
+  border-bottom: 2px solid $base-color-fallback;
+  border-bottom: 2px solid $base-color;
   padding: 0 0 10px;
   @include at-breakpoint($medium) {
     padding: 0 0 0.7%;
@@ -12,7 +13,7 @@
 }
 
 .logotype {
-  @extend %green-link;
+  @extend %base-link;
   font-family: $mossbook;
   font-size: 30px;
   letter-spacing: 2px;
@@ -35,8 +36,8 @@
 }
 
 .header-nav {
+  @include base-color;
   font-size: 30px;
-  color: $green;
   @include at-breakpoint($medium-large) {
     position: absolute;
     right: 0;
@@ -64,9 +65,9 @@
 }
 
 .header-nav-link {
-  @extend %green-link;
+  @extend %base-link;
 }
 
 .search-opener {
-  @include button-as-link($green, #000);
+  @include button-as-link($base-color, $base-color-fallback, #000);
 }

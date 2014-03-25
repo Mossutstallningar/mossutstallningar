@@ -3,9 +3,9 @@ input,
 button,
 select,
 textarea {
+  @include base-color;
   line-height: 1.5;
   font-family: $miso;
-  color: $base-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

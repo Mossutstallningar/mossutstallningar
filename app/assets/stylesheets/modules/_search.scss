@@ -31,14 +31,14 @@
 }
 
 .search-query {
+  @include base-color;
   @include placeholder {
-    color: $green;
+    @include base-color;
   }
   display: inline-block;
   padding: 0 50px 0 0;
   border: none;
   background: transparent;
-  color: $green;
   font: inherit;
   line-height: inherit;
   .search-closed & {
@@ -56,7 +56,7 @@
 }
 
 .search-submit {
-  @include button-as-link($green, #000);
+  @include button-as-link($base-color, $base-color-fallback, #000);
   position: absolute;
   right: 0;
   top: 0;

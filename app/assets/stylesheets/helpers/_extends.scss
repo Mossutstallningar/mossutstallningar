@@ -20,8 +20,8 @@
   }
 }
 
-%green-link {
-  color: $green;
+%base-link {
+  @include base-color;
   &:hover {
     text-decoration: none;
     color: #000;

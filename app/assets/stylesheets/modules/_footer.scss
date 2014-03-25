@@ -1,8 +1,9 @@
 .footer {
+  @include base-color;
   padding: 40px 0 0;
-  border-top: 2px solid $green;
+  border-top: 2px solid $base-color-fallback;
+  border-top: 2px solid $base-color;
   text-align: center;
-  color: $green;
 }
 
 .contact-row {
@@ -27,7 +28,7 @@
 }
 
 .footer-contact-link {
-  @extend %green-link;
+  @extend %base-link;
 }
 
 .additional-links {
@@ -36,5 +37,5 @@
 }
 
 .additional-link {
-  @extend %green-link;
+  @extend %base-link;
 }

@@ -21,9 +21,9 @@
 }
 
 .sitemap-category-headline {
+  @include base-color;
   display: block;
   font: inherit;
-  color: $green;
   text-transform: uppercase;
   line-height: 1.1;
 }
@@ -50,7 +50,7 @@
 }
 
 .sitemap-link {
-  @extend %green-link;
+  @extend %base-link;
   display: inline-block;
   position: relative;
   padding: 0 0 0 17px;

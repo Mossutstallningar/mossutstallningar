@@ -15,7 +15,7 @@
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + ($opacity * 100) +")";
 }
 
-@mixin button-as-link($color, $hover-color, $underline: false) {
+@mixin button-as-link($color, $fallback-color, $hover-color, $underline: false) {
   margin: 0;
   padding: 0;
   border: 0;
@@ -43,4 +43,9 @@
 
 @mixin page-shadow($color) {
   box-shadow: 7px 7px 5px $color;
+}
+
+@mixin base-color {
+  color: $base-color-fallback;
+  color: $base-color;
 }
