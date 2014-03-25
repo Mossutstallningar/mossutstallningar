@@ -6,7 +6,4 @@
   h1.page-title.dynamic-font-size = @project.title
   - if @project.body.present?
     .page-text.dynamic-font-size-children
-      = markdown @project.body
-
-  - if @project.images.present?
-    = render 'image_chaos', images: @project.images
+      = markdown @project.body, @project
