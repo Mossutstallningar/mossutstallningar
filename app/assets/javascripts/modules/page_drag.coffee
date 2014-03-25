@@ -10,10 +10,14 @@
     # http://bugs.jqueryui.com/ticket/9315
     # https://forum.jquery.com/topic/jquery-draggable-bug-wrong-offset#14737000004925557
     fixDraggableScrollBug: ->
-      App.$body.draggable(
-        drag: ->
-          false
-      )
+      safariAgent = /Safari/.test(navigator.userAgent)
+      appleVendor = /Apple Computer/.test(navigator.vendor)
+
+      unless safariAgent && appleVendor
+        App.$body.draggable(
+          drag: ->
+            false
+        )
 
     eventListeners: ->
       App.$doc.on 'PageAdd': (e, page) =>
