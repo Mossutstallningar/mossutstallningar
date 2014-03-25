@@ -14,10 +14,8 @@
       appleVendor = /Apple Computer/.test(navigator.vendor)
 
       unless safariAgent && appleVendor
-        App.$body.draggable(
-          drag: ->
-            false
-        )
+        App.$body.draggable()
+        App.$body.draggable 'disable'
 
     eventListeners: ->
       App.$doc.on 'PageAdd': (e, page) =>
