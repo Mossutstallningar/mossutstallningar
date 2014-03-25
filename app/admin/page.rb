@@ -17,6 +17,16 @@ ActiveAdmin.register Page do
       f.input :body
       f.input :page_category_id, as: :select, collection: PageCategory.all.map {|f| [f.name, f.id]}
       f.input :published
+      f.has_many :images do |image|
+        image.inputs 'Image' do
+          image.input :description
+          image.input :credit
+          image.input :position
+          image.input :attachment, as: :file, hint: image.template.image_tag(image.object.attachment.url(:small)), required: true
+          image.input :large, label: 'URL', input_html: { disabled: true }
+          image.input :_destroy, as: :boolean, required: false, label: 'Remove'
+        end
+      end
     end
     f.actions
   end
@@ -31,7 +41,15 @@ ActiveAdmin.register Page do
         :title,
         :body,
         :published,
-        :page_category_id
+        :page_category_id,
+        images_attributes: [
+          :id,
+          :description,
+          :credit,
+          :position,
+          :attachment,
+          :_destroy
+        ]
       ]
     end
   end
