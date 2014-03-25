@@ -18,7 +18,7 @@
     eventListeners: ->
       _ = @
 
-      App.$doc.on 'click', '.navigation-lines-link', () ->
+      App.$doc.on 'click', '.navigation-lines-link', ->
         _.onClick $(@)
 
       App.$win.on 'debouncedresize', =>

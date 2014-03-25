@@ -21,20 +21,20 @@
 
       App.$doc.on 'click', '.internal', (e) ->
         e.preventDefault()
-        $this = $ this
-        slug = $this.data 'page-slug'
-        href = $this.attr 'href'
+        $el = $ @
+        slug = $el.data 'page-slug'
+        href = $el.attr 'href'
         if _.pageOpen slug
           _.bringToFront $("##{slug}")
         else
-          _.load $(this).attr('href')
+          _.load $el.attr('href')
 
       App.$doc.on 'submit', '.internal-form', (e) ->
         e.preventDefault()
-        $this = $ this
-        id = $this.data('page-slug')
-        action = $this.attr 'action'
-        data = $this.serialize()
+        $el = $ @
+        id = $el.data('page-slug')
+        action = $el.attr 'action'
+        data = $el.serialize()
 
         _.close($("##{id}")) if ($("##{id}")).length
 
@@ -45,12 +45,12 @@
       App.$doc.on 'click', '.page .close', (e) ->
         e.preventDefault()
         e.stopPropagation()
-        _.close $(this).closest('.page')
+        _.close $(@).closest('.page')
 
-      App.$doc.on 'mousedown', '.page', () ->
-        $page = $(this)
-        _.bringToFront $page
-        _.setTabsFocusTo $page
+      App.$doc.on 'mousedown', '.page', ->
+        $el = $(@)
+        _.bringToFront $el
+        _.setTabsFocusTo $el
 
       App.$win.on 'popstate', (e) ->
         if !_.isInitialPopstateEvent
@@ -80,7 +80,7 @@
       pages = []
 
       @$page.each ->
-        pages.push $(this).attr('id')
+        pages.push $(@).attr('id')
 
       pages
 

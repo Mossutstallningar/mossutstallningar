@@ -39,7 +39,7 @@
 
       $items.mousedown ->
         if App.Breakpoints.isMedium
-          _.bringToFront $el, $(this)
+          _.bringToFront $el, $(@)
 
     bringToFront: ($el, $item) ->
       $item.appendTo $el
