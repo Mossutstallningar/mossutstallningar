@@ -20,6 +20,9 @@ html.no-js
         - unless current_page?(root_url)
           == yield
 
+    - if ENV['SHOW_OVERLAY'] == 'true'
+      .overlay
+
     - if ENV['SHOW_NAVIGATION_LINES'] == 'true'
       canvas#navigation-lines
 
@@ -34,7 +37,8 @@ html.no-js
       App = {
         options: {
           showNavigationLines: #{ENV['SHOW_NAVIGATION_LINES']},
-          showGhost: #{ENV['SHOW_GHOST']}
+          showGhost: #{ENV['SHOW_GHOST']},
+          showOverlay: #{ENV['SHOW_OVERLAY']}
         }
       };
 

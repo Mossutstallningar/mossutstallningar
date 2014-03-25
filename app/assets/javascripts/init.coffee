@@ -3,6 +3,7 @@ $ =>
   App.Pages.init() if Modernizr.history
   App.Search.init()
   App.ImageChaos.init()
+  App.Overlay.init() if App.options.showOverlay
 
   if Modernizr.canvas
     App.NavigationLines.init() if App.options.showNavigationLines

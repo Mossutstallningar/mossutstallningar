@@ -20,5 +20,6 @@
 #= require modules/image_chaos
 #= require modules/fallback_columns
 #= require modules/ghost
+#= require modules/overlay
 
 #= require init

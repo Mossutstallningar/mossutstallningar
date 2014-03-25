@@ -5,7 +5,11 @@
 }
 
 html {
-  background: #0f6;
+  background: asset-url("background.jpg") repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   overflow-x: hidden;
 }
 
