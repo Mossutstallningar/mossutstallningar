@@ -28,3 +28,13 @@ h6 {
   margin: 0;
   font-weight: normal;
 }
+
+::-moz-selection {
+  background: $red;
+  color: #fff;
+}
+
+::selection {
+  background: $red;
+  color: #fff;
+}
