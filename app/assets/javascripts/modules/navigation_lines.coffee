@@ -18,19 +18,23 @@
     eventListeners: ->
       _ = @
 
-      App.$doc.on 'click', '.navigation-lines-link', (e) ->
-        _.onClick e, $(@)
+      App.$doc.on 'click', '.navigation-lines-link', () ->
+        _.onClick $(@)
 
       App.$win.on 'debouncedresize', =>
         @setCanvasSize()
         @setup()
 
-    onClick: (e, $el) ->
+    onClick: ($el) ->
       color = $el.data 'color'
 
       unless $el.hasClass 'navigation-lines-last'
-        x = e.pageX * 2
-        y = e.pageY * 2
+        offset = $el.offset()
+        paddingLeft = parseInt $el.css('paddingLeft'), 10
+        lineHeight = parseInt $el.css('lineHeight'), 10
+
+        x = Math.round (offset.left + paddingLeft + (paddingLeft / 3)) * 2
+        y = Math.round (offset.top + lineHeight - (lineHeight / 3)) * 2
 
         if @lastX && @lastY
           @drawLine x, y, color
