@@ -1,0 +1,17 @@
+.image-with-caption {
+  display: block;
+  text-align: center;
+}
+
+.image-with-caption-image {
+  display: inline-block;
+}
+
+.image-with-caption-caption {
+  display: block;
+  font-size: 20px;
+  color: $green;
+  @include at-breakpoint($xx-large) {
+    font-size: 2vw;
+  }
+}
