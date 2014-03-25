@@ -22,8 +22,8 @@
         _.onClick e, $(@)
 
       App.$win.on 'debouncedresize', =>
-        _.setCanvasSize()
-        _.setup()
+        @setCanvasSize()
+        @setup()
 
     onClick: (e, $el) ->
       color = $el.data 'color'
