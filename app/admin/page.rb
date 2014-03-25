@@ -22,9 +22,11 @@ ActiveAdmin.register Page do
           image.input :description
           image.input :credit
           image.input :position
-          image.input :attachment, as: :file, hint: image.template.image_tag(image.object.attachment.url(:small)), required: true
-          image.input :large, label: 'URL', input_html: { disabled: true }
-          image.input :_destroy, as: :boolean, required: false, label: 'Remove'
+          image.input :attachment, as: :file, hint: (image.object.new_record? ? nil : image.template.image_tag(image.object.attachment.url(:small))), required: true
+          unless image.object.new_record?
+            image.input :large, label: 'URL', input_html: { disabled: true }
+            image.input :_destroy, as: :boolean, required: false, label: 'Remove'
+          end
         end
       end
     end
