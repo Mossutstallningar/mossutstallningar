@@ -11,6 +11,12 @@ module Pageable
     # scopes
     scope :published, -> { where(published: true).order(id: :desc) }
 
+    # relations
+    has_many :images, as: :imageable
+
+    # nested attributes
+    accepts_nested_attributes_for :images, allow_destroy: true
+
     protected
 
     def should_generate_new_friendly_id?
