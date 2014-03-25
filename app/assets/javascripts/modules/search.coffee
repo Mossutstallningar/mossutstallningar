@@ -17,7 +17,7 @@
         @open()
 
       @$query.blur (e) =>
-       @onBlur()
+        @onBlur()
 
     onBlur: ->
       if @$query.val() == ''
