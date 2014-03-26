@@ -50,12 +50,12 @@
         contentA = $(a).data 'image-index'
         contentB = $(b).data 'image-index'
 
-        if contentA < contentB
+        if contentA > contentB
           1
         else
           -1
 
-      $($items.get().reverse()).each (i) ->
+      $items.each (i) ->
         $el = $ @
         $el.css 'zIndex', i + 1
         $el.data 'image-index', i + 1
