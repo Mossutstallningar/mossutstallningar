@@ -6,6 +6,7 @@ class CustomMarkdown < Redcarpet::Render::HTML
 
   def preprocess(content)
     content = content_with_image_chaos(content) if has_resource?
+    content = content_with_vimeo(content)
     content = content_with_caption_images(content)
 
     content
@@ -15,6 +16,13 @@ class CustomMarkdown < Redcarpet::Render::HTML
 
   def has_resource?
     @resource.present? && @resource.images.present?
+  end
+
+  def content_with_vimeo(content)
+    # match [vimeo:12345]
+    content.gsub(/\[vimeo:(.*)\]/) do
+      iframe("//player.vimeo.com/video/#{$1}")
+    end
   end
 
   def content_with_image_chaos(content)
@@ -46,5 +54,9 @@ class CustomMarkdown < Redcarpet::Render::HTML
 
       html
     end
+  end
+
+  def iframe(src)
+    %Q|<iframe src="#{src}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>|
   end
 end
