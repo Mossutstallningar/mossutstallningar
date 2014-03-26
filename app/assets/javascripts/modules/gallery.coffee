@@ -32,8 +32,7 @@
 
     onDocClick: (e) ->
       $target = $ e.target
-      $gallery = $target.closest '.gallery'
-      unless !!$gallery.length
+      unless !!$target.closest('.gallery-inner').length
         @destroy()
 
     positionImages: ->
