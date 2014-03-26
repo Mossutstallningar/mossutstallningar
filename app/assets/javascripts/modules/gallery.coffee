@@ -50,14 +50,14 @@
       )
 
       $el.append galleryHTML
-      $el.data 'hasInitalized', true
+      $el.data 'hasInitalizedGallery', true
 
       @setupNextButton $el.find('.gallery')
 
     destroy: ->
       $('.gallery').remove()
       App.$doc.off 'click.Gallery'
-      $el.data('hasInitalized', false) for $el in @els
+      $el.data('hasInitalizedGallery', false) for $el in @els
       @hasOpenImage = false
       @els = []
 
@@ -104,7 +104,7 @@
       )
 
     hasInitalized: ($el) ->
-      !!$el.data 'hasInitalized'
+      !!$el.data 'hasInitalizedGallery'
 
     setupNextButton: ($gallery) ->
       $button = $gallery.find '.gallery-next'

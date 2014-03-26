@@ -39,7 +39,7 @@
       @layoutWhenReady $el, $items
 
       $items.mousedown ->
-        if App.Breakpoints.isMedium
+        if App.Breakpoints.isMedium && !_.galleryOpen($el)
           _.bringToFront $items, $(@), count
 
     bringToFront: ($items, $item, count) ->
@@ -62,6 +62,7 @@
         images.push $el.data('image-large')
 
       $item.closest('.image-chaos').data 'images', images.reverse().join(',')
+      $item.data 'image-chaos-front', true
 
     setupItemEvents: ($el, $items) ->
       @setupDrag $items
@@ -76,13 +77,16 @@
       )
 
     setupClickEvents: ($el, $items) ->
-      $items.click (e) ->
-        e.stopPropagation()
-        data =
-          $el: $el
-          $item: $(@)
+      _ = @
 
-        App.$doc.trigger 'ImageChaosClick', data
+      $items.click (e) ->
+        unless _.galleryOpen $el
+          e.stopPropagation()
+          data =
+            $el: $el
+            $item: $(@)
+
+          App.$doc.trigger 'ImageChaosClick', data
 
     layoutWhenReady: ($el, $items) ->
       $items.imagesLoaded =>
@@ -101,6 +105,9 @@
           left: left
           top: top
         )
+
+    galleryOpen: ($el) ->
+      $el.data 'hasInitalizedGallery'
 
   win.App.ImageChaos = ImageChaos
 
