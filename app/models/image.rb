@@ -9,7 +9,7 @@ class Image < ActiveRecord::Base
 
   validates :position, presence: true
   validates_attachment_presence :attachment
-  validates_attachment_content_type :attachment, :content_type => /\Aimage/
+  validates_attachment_content_type :attachment, content_type: /\Aimage/
 
   default_scope { order(:position) }
 
