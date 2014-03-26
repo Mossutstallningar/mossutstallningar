@@ -85,6 +85,10 @@
 
       $button.click =>
         index = $gallery.data('image-index') + 1
+
+        unless images[index]
+          index = 0
+
         $gallery.data 'image-index', index
         @changeImage $gallery, images[index]
 
