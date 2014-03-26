@@ -7,9 +7,9 @@
   text-align: center;
 }
 
-.gallery-image-wrapper {
-  position: absolute;
-  text-align: center;
+.gallery-inner {
+  display: inline-block;
+  position: relative;
 }
 
 .gallery-image-image {

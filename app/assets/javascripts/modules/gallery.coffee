@@ -27,10 +27,7 @@
       _ = @
 
       $('.gallery').each ->
-        $gallery = $(@)
-        $imageWrapper = $gallery.find '.gallery-image-wrapper'
-
-        _.positionImage $gallery, $imageWrapper
+        _.positionImage $(@)
 
     setup: ($el) ->
       galleryHTML = App.Utils.template(
@@ -59,7 +56,7 @@
       $image = $imageWrapper.find '.gallery-image-image'
 
       $image.imagesLoaded =>
-        @positionImage $gallery, $imageWrapper
+        @positionImage $gallery
 
       @hasOpenImage = true
 
@@ -67,18 +64,18 @@
       $image = $gallery.find '.gallery-image-image'
       $image.attr 'src', newSrc
 
-    positionImage: ($gallery, $imageWrapper) ->
-      galleryWidth = $gallery.width()
+    positionImage: ($gallery) ->
+      parentWidth = $gallery.parent().width()
       windowWidth = App.$win.width()
       windowMargin = 40
 
       if (windowWidth - windowMargin) < @options.width
-        $imageWrapper.width(windowWidth - windowMargin)
+        $gallery.width(windowWidth - windowMargin)
       else
-        $imageWrapper.width(@options.width)
+        $gallery.width(@options.width)
 
-      $imageWrapper.css(
-        left: (galleryWidth - $imageWrapper.width()) / 2
+      $gallery.css(
+        left: (parentWidth - $gallery.width()) / 2
         visibility: 'visible'
       )
 
