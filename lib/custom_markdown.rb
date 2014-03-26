@@ -57,6 +57,11 @@ class CustomMarkdown < Redcarpet::Render::HTML
   end
 
   def iframe(src)
-    %Q|<iframe src="#{src}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>|
+    html = ''
+    html << '<div class="video-wrapper">'
+    html << %Q|<iframe src="#{src}" class="video-iframe" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>|
+    html << '</div>'
+
+    html
   end
 end
