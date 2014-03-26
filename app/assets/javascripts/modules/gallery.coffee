@@ -67,7 +67,7 @@
     positionImage: ($gallery) ->
       parentWidth = $gallery.parent().width()
       windowWidth = App.$win.width()
-      windowMargin = 40
+      windowMargin = 20
 
       if (windowWidth - windowMargin) < @options.width
         $gallery.width(windowWidth - windowMargin)
