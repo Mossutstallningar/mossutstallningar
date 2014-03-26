@@ -62,7 +62,6 @@
         images.push $el.data('image-large')
 
       $item.closest('.image-chaos').data 'images', images.reverse().join(',')
-      $item.data 'image-chaos-front', true
 
     setupItemEvents: ($el, $items) ->
       @setupDrag $items
