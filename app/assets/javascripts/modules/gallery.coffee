@@ -33,11 +33,10 @@
         _.positionImage $gallery, $imageWrapper
 
     setup: ($el) ->
-      galleryHTML =
-        '<div class="gallery" data-image-index="0" data-images="' + $el.data('images') + '">' +
-        '<button class="gallery-next">Next</button>' +
-        '<div class="gallery-image-wrapper"></div>' +
-        '</div>'
+      galleryHTML = App.Utils.template(
+        App.Templates.gallery,
+        {images: $el.data('images')}
+      )
 
       $el.append galleryHTML
       $el.data 'hasInitalized', true
@@ -45,9 +44,17 @@
       @setupNextButton $el.find('.gallery')
 
     display: ($gallery, $item) ->
+      image = App.Utils.template(
+        App.Templates.image,
+        {
+          src: $item.data('image-large')
+          alt: '',
+          class: 'gallery-image-image'
+        }
+      )
       $imageWrapper = $gallery.find '.gallery-image-wrapper'
       $imageWrapper.css 'visibility', 'none'
-      $imageWrapper.html '<img src="' + $item.data('image-large') + '" alt="" class="gallery-image-image">'
+      $imageWrapper.html image
 
       $image = $imageWrapper.find '.gallery-image-image'
 

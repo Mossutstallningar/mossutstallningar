@@ -9,6 +9,7 @@
 #= require plugins/jquery.columnizer
 
 #= require modules/utils
+#= require modules/templates
 #= require modules/breakpoints
 #= require modules/pages
 #= require modules/page_style

@@ -14,6 +14,14 @@
 
       arr
 
+    template: (template, data) ->
+      template.replace(/\{([\w\.]*)\}/g, (str, key) ->
+        keys = key.split('.')
+        v = data[keys.shift()]
+        v = key for key in keys
+        v ? ""
+      )
+
   win.App.Utils = Utils
 
 )(window, document, jQuery)
