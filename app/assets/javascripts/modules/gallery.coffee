@@ -31,7 +31,6 @@
         @onDocClick(e)
 
     onDocClick: (e) ->
-      console.log 'onDocClick'
       $target = $ e.target
       $gallery = $target.closest '.gallery'
       unless !!$gallery.length
