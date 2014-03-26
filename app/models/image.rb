@@ -5,9 +5,6 @@ class Image < ActiveRecord::Base
     small:  '400x400',
     medium: '800x450',
     large:  '1600x900'
-  },
-  convert_options: {
-    large: '-quality 60'
   }
 
   validates :position, presence: true
