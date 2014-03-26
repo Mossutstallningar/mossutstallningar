@@ -6,6 +6,7 @@
       width: 1000
 
     init: ->
+      @els = []
       @hasOpenImage = false
       @eventListeners()
 
@@ -20,8 +21,21 @@
       @positionImages() if @hasOpenImage
 
     onThumbClick: ($el, $item) ->
+      @els.push $el
       @setup $el unless @hasInitalized $el
       @display $el.find('.gallery'), $item
+      @setupClose()
+
+    setupClose: ->
+      App.$doc.on 'click.Gallery', (e) =>
+        @onDocClick(e)
+
+    onDocClick: (e) ->
+      console.log 'onDocClick'
+      $target = $ e.target
+      $gallery = $target.closest '.gallery'
+      unless !!$gallery.length
+        @destroy()
 
     positionImages: ->
       _ = @
@@ -39,6 +53,16 @@
       $el.data 'hasInitalized', true
 
       @setupNextButton $el.find('.gallery')
+
+    destroy: ->
+      $('.gallery').remove()
+      App.$doc.off 'click.Gallery'
+      $el.data('hasInitalized', false) for $el in @els
+      @hasOpenImage = false
+      @els = []
+
+    showGallery: ($gallery) ->
+      $gallery.hide()
 
     display: ($gallery, $item) ->
       image = App.Utils.template(

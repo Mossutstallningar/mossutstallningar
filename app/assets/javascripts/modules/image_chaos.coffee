@@ -76,7 +76,8 @@
       )
 
     setupClickEvents: ($el, $items) ->
-      $items.click ->
+      $items.click (e) ->
+        e.stopPropagation()
         data =
           $el: $el
           $item: $(@)
