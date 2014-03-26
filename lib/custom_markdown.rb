@@ -20,7 +20,7 @@ class CustomMarkdown < Redcarpet::Render::HTML
   end
 
   def content_with_vimeo(content)
-    # match [vimeo:12345]
+    # match [vimeo:video_id]
     content.gsub(/\[vimeo:(.*)\]/) do
       iframe("//player.vimeo.com/video/#{$1}?title=0&amp;byline=0&amp;portrait=0&amp;color=673ff9")
     end
