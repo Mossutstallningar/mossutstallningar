@@ -9,9 +9,10 @@
 
 .gallery-image-wrapper {
   position: absolute;
+  text-align: center;
 }
 
 .gallery-image-image {
-  max-width: none;
   @include page-shadow(rgba(255, 0, 255, 0.75));
+  display: inline-block;
 }

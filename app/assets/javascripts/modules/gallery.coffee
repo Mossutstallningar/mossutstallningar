@@ -2,6 +2,9 @@
 
   Gallery =
 
+    options:
+      width: 1000
+
     init: ->
       @hasOpenImage = false
       @eventListeners()
@@ -26,9 +29,8 @@
       $('.gallery').each ->
         $gallery = $(@)
         $imageWrapper = $gallery.find '.gallery-image-wrapper'
-        $image = $imageWrapper.find '.gallery-image-image'
 
-        _.positionImage $gallery, $imageWrapper, $image
+        _.positionImage $gallery, $imageWrapper
 
     setup: ($el) ->
       galleryHTML =
@@ -50,7 +52,7 @@
       $image = $imageWrapper.find '.gallery-image-image'
 
       $image.imagesLoaded =>
-        @positionImage $gallery, $imageWrapper, $image
+        @positionImage $gallery, $imageWrapper
 
       @hasOpenImage = true
 
@@ -59,19 +61,18 @@
       $image = $gallery.find '.gallery-image-image'
       $image.attr 'src', newSrc
 
-    positionImage: ($gallery, $imageWrapper, $image) ->
+    positionImage: ($gallery, $imageWrapper) ->
       galleryWidth = $gallery.width()
       windowWidth = App.$win.width()
-      imageWidth = $image.width()
       windowMargin = 40
 
-      if imageWidth > (windowWidth - windowMargin)
-        $image.width(windowWidth - windowMargin)
-        imageWidth = $image.width()
-
+      if (windowWidth - windowMargin) < @options.width
+        $imageWrapper.width(windowWidth - windowMargin)
+      else
+        $imageWrapper.width(@options.width)
 
       $imageWrapper.css(
-        left: (galleryWidth - imageWidth) / 2
+        left: (galleryWidth - $imageWrapper.width()) / 2
         visibility: 'visible'
       )
 
