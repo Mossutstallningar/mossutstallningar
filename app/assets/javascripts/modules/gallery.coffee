@@ -57,7 +57,6 @@
       @hasOpenImage = true
 
     changeImage: ($gallery, newSrc) ->
-      console.log 'newSrc', newSrc
       $image = $gallery.find '.gallery-image-image'
       $image.attr 'src', newSrc
 
@@ -82,7 +81,6 @@
     setupNextButton: ($gallery) ->
       $button = $gallery.find '.gallery-next'
       images = $gallery.data('images').split(',')
-      console.log images
 
       $button.click =>
         index = $gallery.data('image-index') + 1
