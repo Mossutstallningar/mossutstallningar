@@ -44,7 +44,10 @@
     setup: ($el) ->
       galleryHTML = App.Utils.template(
         App.Templates.gallery,
-        {images: $el.data('images')}
+        {
+          images: $el.data('images')
+          imageCredits: $el.data('image-credits')
+        }
       )
 
       $el.append galleryHTML
@@ -72,8 +75,10 @@
         }
       )
       $imageWrapper = $gallery.find '.gallery-image-wrapper'
+      $imageCredit = $gallery.find '.gallery-image-credit'
       $imageWrapper.css 'visibility', 'none'
       $imageWrapper.html image
+      $imageCredit.html $item.data 'image-credit'
 
       $image = $imageWrapper.find '.gallery-image-image'
 
@@ -82,9 +87,11 @@
 
       @hasOpenImage = true
 
-    changeImage: ($gallery, newSrc) ->
+    changeImage: ($gallery, src, credit) ->
       $image = $gallery.find '.gallery-image-image'
-      $image.attr 'src', newSrc
+      $credit = $gallery.find '.gallery-image-credit'
+      $image.attr 'src', src
+      $credit.html credit
 
     positionImage: ($gallery) ->
       parentWidth = $gallery.parent().width()
@@ -106,7 +113,8 @@
 
     setupNextButton: ($gallery) ->
       $button = $gallery.find '.gallery-next'
-      images = $gallery.data('images').split(',')
+      images = $gallery.data('images').split ','
+      imageCredits = $gallery.data('image-credits').split ','
 
       $button.click =>
         index = $gallery.data('image-index') + 1
@@ -115,7 +123,7 @@
           index = 0
 
         $gallery.data 'image-index', index
-        @changeImage $gallery, images[index]
+        @changeImage $gallery, images[index], imageCredits[index]
 
 
 

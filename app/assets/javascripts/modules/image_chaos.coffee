@@ -45,6 +45,7 @@
     bringToFront: ($items, $item, count) ->
       $item.data 'image-index', count + 1
       images = []
+      imageCredits = []
 
       $items.sort (a, b) ->
         contentA = $(a).data 'image-index'
@@ -60,8 +61,12 @@
         $el.css 'zIndex', i + 1
         $el.data 'image-index', i + 1
         images.push $el.data('image-large')
+        imageCredits.push $el.data('image-credit')
 
-      $item.closest('.image-chaos').data 'images', images.reverse().join(',')
+      $item
+        .closest('.image-chaos')
+        .data('images', images.reverse().join(','))
+        .data('image-credits', imageCredits.reverse().join(','))
 
     setupItemEvents: ($el, $items) ->
       @setupDrag $items

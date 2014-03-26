@@ -25,7 +25,7 @@ class CustomMarkdown < Redcarpet::Render::HTML
       html << '<ul class="image-chaos-items">'
 
       @resource.images.each_with_index do |image, i|
-        html << %Q|<li class="image-chaos-item" data-image-index="#{i}" data-image-large="#{image.large}">|
+        html << %Q|<li class="image-chaos-item" data-image-index="#{i}" data-image-large="#{image.large}" data-image-credit="#{image.credit}">|
         html << %Q|<img src="#{image.small}" alt="#{image.description}" class="image-chaos-image">|
         html << '</li>'
       end
