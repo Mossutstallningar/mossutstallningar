@@ -1,0 +1,17 @@
+.gallery {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 97;
+  width: 100%;
+  text-align: center;
+}
+
+.gallery-image-wrapper {
+  position: absolute;
+}
+
+.gallery-image-image {
+  max-width: none;
+  @include page-shadow(rgba(255, 0, 255, 0.75));
+}

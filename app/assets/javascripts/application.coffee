@@ -18,6 +18,7 @@
 #= require modules/dynamic_font_size
 #= require modules/page_drag
 #= require modules/image_chaos
+#= require modules/gallery
 #= require modules/fallback_columns
 #= require modules/ghost
 #= require modules/overlay

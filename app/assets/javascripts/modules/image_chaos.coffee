@@ -33,16 +33,39 @@
     setup: ($el) ->
       _ = @
       $items = $el.find '.image-chaos-item'
+      count = $items.length
 
-      @setupDrag $items
+      @setupItemEvents $el, $items
       @layoutWhenReady $el, $items
 
       $items.mousedown ->
         if App.Breakpoints.isMedium
-          _.bringToFront $el, $(@)
+          _.bringToFront $items, $(@), count
 
-    bringToFront: ($el, $item) ->
-      $item.appendTo $el
+    bringToFront: ($items, $item, count) ->
+      $item.data 'image-index', count + 1
+      images = []
+
+      $items.sort (a, b) ->
+        contentA = $(a).data 'image-index'
+        contentB = $(b).data 'image-index'
+
+        if contentA < contentB
+          1
+        else
+          -1
+
+      $($items.get().reverse()).each (i) ->
+        $el = $ @
+        $el.css 'zIndex', i + 1
+        $el.data 'image-index', i + 1
+        images.push $el.data('image-large')
+
+      $item.closest('.image-chaos').data 'images', images.reverse().join(',')
+
+    setupItemEvents: ($el, $items) ->
+      @setupDrag $items
+      @setupClickEvents $el, $items
 
     setupDrag: ($items) ->
       $items.draggable(
@@ -51,6 +74,14 @@
           scroll: false
         }
       )
+
+    setupClickEvents: ($el, $items) ->
+      $items.click ->
+        data =
+          $el: $el
+          $item: $(@)
+
+        App.$doc.trigger 'ImageChaosClick', data
 
     layoutWhenReady: ($el, $items) ->
       $items.imagesLoaded =>

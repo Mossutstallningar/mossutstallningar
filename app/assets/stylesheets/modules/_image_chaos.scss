@@ -1,11 +1,14 @@
 .image-chaos {
-  @include reset-list;
   position: relative;
   @include at-breakpoint($medium) {
     .js & {
       height: 500px;
     }
   }
+}
+
+.image-chaos-items {
+  @include reset-list;
 }
 
 .image-chaos-item {

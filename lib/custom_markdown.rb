@@ -21,15 +21,17 @@ class CustomMarkdown < Redcarpet::Render::HTML
     # match [images]
     content.gsub(/(\[images\])/) do
       html = ''
-      html << '<ul class="image-chaos">'
+      html << '<div class="image-chaos">'
+      html << '<ul class="image-chaos-items">'
 
-      @resource.images.each do |image|
-        html << '<li class="image-chaos-item">'
+      @resource.images.each_with_index do |image, i|
+        html << %Q|<li class="image-chaos-item" data-image-index="#{i}" data-image-large="#{image.large}">|
         html << %Q|<img src="#{image.small}" alt="#{image.description}" class="image-chaos-image">|
         html << '</li>'
       end
 
       html << '</ul>'
+      html << '</div>'
     end
   end
 
