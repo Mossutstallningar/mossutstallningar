@@ -7,10 +7,11 @@
 
     gallery:
       '<div class="gallery" data-image-index="0" data-images="{images}">' +
-      '<button class="button gallery-next">' +
-      '<i class="fa fa-chevron-right"></i><span class="button-text">Nästa</span>' +
-      '</button>' +
-      '<div class="gallery-image-wrapper"></div>' +
+        '<button class="button gallery-next">' +
+          '<i class="fa fa-chevron-right"></i>' +
+          '<span class="button-text">Nästa</span>' +
+        '</button>' +
+        '<div class="gallery-image-wrapper"></div>' +
       '</div>'
 
   win.App.Templates = Templates
