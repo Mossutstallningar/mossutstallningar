@@ -8,7 +8,6 @@ class SearchController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @result }
     end
   end
 end
