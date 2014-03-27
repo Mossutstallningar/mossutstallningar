@@ -6,6 +6,7 @@ class CustomMarkdown < Redcarpet::Render::HTML
 
   def preprocess(content)
     content = content_with_image_chaos(content) if has_resource?
+    content = content_with_attachment(content)
     content = content_with_vimeo(content)
     content = content_with_youtube(content)
     content = content_with_caption_images(content)
@@ -61,6 +62,20 @@ class CustomMarkdown < Redcarpet::Render::HTML
       html << '</span>'
 
       html
+    end
+  end
+
+  def content_with_attachment(content)
+    # match [attachment:id]
+    content.gsub(/\[attachment:(.*)\]/) do
+      id = "#{$1}".to_i
+      if id > 0
+        attachment = Attachment.find_by_id id
+
+        if attachment.present?
+          %Q|<a href="#{attachment.url}" download>#{attachment.name}</a>|
+        end
+      end
     end
   end
 
