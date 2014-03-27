@@ -42,6 +42,19 @@ ActiveAdmin.register Project do
   end
 
   controller do
+    def update
+      old_id = params[:id]
+      new_id_candidate = params[:project][:title].parameterize
+
+      update! do |format|
+        if old_id == new_id_candidate
+          format.html { redirect_to edit_admin_project_path params[:id] }
+        else
+          format.html { redirect_to admin_projects_path }
+        end
+      end
+    end
+
     def find_resource
       scoped_collection.friendly.find(params[:id])
     end
