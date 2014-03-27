@@ -11,7 +11,7 @@ header.header
       li.header-nav-list-item
         = link_to 'Ge', '#', class: 'header-nav-link navigation-lines-link', data: { color: '#f0f' }
         = ' & '
-        = link_to 'Ta', '#', class: 'header-nav-link navigation-lines-link', data: { color: '#00f' }
+        = link_to 'Ta', takes_path, class: 'internal header-nav-link navigation-lines-link', data: { color: '#00f', :'page-slug' => "page-id-takes" }
       li.header-nav-list-item
         = link_to 'Translate', translate_link, class: 'header-nav-link navigation-lines-link', data: { color: '#ff0' }
       li.header-nav-list-item

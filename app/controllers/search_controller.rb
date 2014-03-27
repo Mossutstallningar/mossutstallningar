@@ -2,7 +2,9 @@ class SearchController < ApplicationController
   def index
     q = params[:q]
 
-    @result = Project.search(q) + Page.search(q) if q.present?
+    if q.present?
+      @result = Project.search(q) + Page.search(q) + Take.search(q)
+    end
 
     respond_to do |format|
       format.html

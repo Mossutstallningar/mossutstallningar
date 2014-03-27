@@ -1,0 +1,9 @@
+- content_for :title do
+  = @take.title
+
+.page.page-page id="page-id-#{@take.id}" tabindex="-1"
+  = render 'shared/close'
+  h1.page-title.dynamic-font-size = @take.title
+  - if @take.body.present?
+    .page-text.dynamic-font-size-children
+      = markdown @take.body, @take
