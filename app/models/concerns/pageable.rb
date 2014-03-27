@@ -13,9 +13,11 @@ module Pageable
 
     # relations
     has_many :images, as: :imageable
+    has_many :attachments, as: :attachable
 
     # nested attributes
     accepts_nested_attributes_for :images, allow_destroy: true
+    accepts_nested_attributes_for :attachments, allow_destroy: true
 
     protected
 

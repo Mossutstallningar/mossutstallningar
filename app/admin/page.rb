@@ -30,6 +30,15 @@ ActiveAdmin.register Page do
           end
         end
       end
+      f.has_many :attachments do |attachment|
+        attachment.inputs do
+          attachment.input :name
+          attachment.input :attachment, label: 'File (PDF or Zip)', as: :file, hint: (attachment.object.new_record? ? nil : attachment.object.attachment.url), required: true, required: true
+          unless attachment.object.new_record?
+            attachment.input :_destroy, as: :boolean, required: false, label: 'Remove'
+          end
+        end
+      end
     end
     f.actions
   end
@@ -50,6 +59,12 @@ ActiveAdmin.register Page do
           :description,
           :credit,
           :position,
+          :attachment,
+          :_destroy
+        ],
+        attachments_attributes: [
+          :id,
+          :name,
           :attachment,
           :_destroy
         ]
