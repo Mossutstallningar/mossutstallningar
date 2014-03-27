@@ -6,6 +6,6 @@
   h1.page-title.dynamic-font-size Ta
   .page-text.dynamic-font-size-children
     - if @takes.present?
-      ul
+      ul.page-split-list
         - @takes.each do |item|
           li = link_to item.title, item, class: 'internal navigation-lines-link', data: { :'page-slug' => "page-id-#{item.id}" }

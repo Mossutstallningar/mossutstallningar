@@ -65,3 +65,17 @@
     font-style: normal;
   }
 }
+
+.page-split-list {
+  @include reset-list;
+  font-size: 30px;
+
+  @include at-breakpoint($medium-large) {
+    @include columns(2);
+    @include column-gap(20px);
+  }
+
+  @include at-breakpoint($xx-large) {
+    font-size: 3vw;
+  }
+}
