@@ -111,7 +111,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  config.root_to = 'projects#index'
+  config.root_to = 'dashboard#index'
 
 
   # == Admin Comments
