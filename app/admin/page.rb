@@ -19,7 +19,7 @@ ActiveAdmin.register Page do
       f.input :page_category_id, as: :select, collection: PageCategory.all.map {|f| [f.name, f.id]}
       f.input :published
       f.has_many :images do |image|
-        image.inputs 'Image' do
+        image.inputs do
           image.input :description
           image.input :credit
           image.input :position

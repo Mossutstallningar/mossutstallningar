@@ -10,7 +10,7 @@ ActiveAdmin.register Project do
       f.input :body
       f.input :published
       f.has_many :images do |image|
-        image.inputs 'Image' do
+        image.inputs do
           image.input :description
           image.input :credit
           image.input :position
