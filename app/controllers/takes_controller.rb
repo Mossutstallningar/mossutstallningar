@@ -1,6 +1,6 @@
 class TakesController < ApplicationController
   def index
-    @takes = Take.all
+    @takes = Take.published
 
     respond_to do |format|
       format.html
