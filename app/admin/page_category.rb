@@ -1,5 +1,4 @@
 ActiveAdmin.register PageCategory do
-  config.breadcrumb = false
   actions :index, :update, :edit, :new, :create, :destroy
   menu priority: 4
 
