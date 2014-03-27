@@ -40,6 +40,9 @@ Create a development and test database, and quit psql:
 4. Install gems `bundle install`
 5. Migrate database `foreman run rake db:migrate`
 6. Setup test database `foreman run rake db:test:prepare`
+7. [Paperclip](https://github.com/thoughtbot/paperclip) is used for model attachments. It uses [ImageMagick](http://www.imagemagick.org/) as an image processor, so you need to have that installed for working with images. Install with [Homebrew](http://brew.sh/) on Mac OS X:
+
+        brew install imagemagick
 
 ## Commands you probably need
 Start server:
