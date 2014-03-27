@@ -43,7 +43,7 @@ class CustomMarkdown < Redcarpet::Render::HTML
 
       @resource.images.each_with_index do |image, i|
         html << %Q|<li class="image-chaos-item" data-image-index="#{i}" data-image-large="#{image.large}" data-image-credit="#{image.credit}">|
-        html << %Q|<img src="#{image.small}" alt="#{image.description}" class="image-chaos-image">|
+        html << %Q|<img src="#{image.small}" alt="#{image.description}" class="image-chaos-image" crossorigin="anonymous">|
         html << '</li>'
       end
 
@@ -57,7 +57,7 @@ class CustomMarkdown < Redcarpet::Render::HTML
     content.gsub(/\[image:(.*)\|(.*)\|(.*)\]/) do
       html = ''
       html << '<span class="image-with-caption">'
-      html << %Q|<img src="#{$1}" alt="#{$2}" class="image-with-caption-image">|
+      html << %Q|<img src="#{$1}" alt="#{$2}" class="image-with-caption-image" crossorigin="anonymous">|
       html << %Q|<span class="image-with-caption-caption">#{$3}</span>|
       html << '</span>'
 

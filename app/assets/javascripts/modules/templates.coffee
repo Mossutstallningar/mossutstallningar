@@ -3,7 +3,7 @@
   Templates =
 
     image:
-      '<img src="{src}" alt="{alt}" class="{class}">'
+      '<img src="{src}" alt="{alt}" class="{class}" crossorigin="anonymous">'
 
     gallery:
       '<div ' +

@@ -76,6 +76,7 @@
 
       html2canvas(@$page.get(0),
         background: undef # transparent
+        useCORS: true
         onrendered: (canvas) =>
           $canvas = @getCanvasWithAttributes canvas
           @removeGhost()
