@@ -1,4 +1,5 @@
 ActiveAdmin.register Page do
+  config.breadcrumb = false
   actions :index, :update, :edit, :new, :create, :destroy
   menu priority: 2
 

@@ -1,4 +1,5 @@
 ActiveAdmin.register Project do
+  config.breadcrumb = false
   actions :index, :update, :edit, :new, :create, :destroy
   menu priority: 1
 

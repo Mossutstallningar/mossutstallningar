@@ -1,4 +1,6 @@
 ActiveAdmin.register User do
+  config.breadcrumb = false
+
   index do
     id_column
     column :email
