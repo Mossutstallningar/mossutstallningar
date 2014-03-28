@@ -9,6 +9,7 @@ module ActiveAdmin::ViewsHelper
         image.input :description
         image.input :credit
         image.input :position
+        image.input :for_gallery
         image.input :attachment, as: :file, hint: (image.object.new_record? ? nil : image.template.image_tag(image.object.attachment.url(:small))), required: true
         unless image.object.new_record?
           image.input :_destroy, as: :boolean, required: false, label: 'Remove'

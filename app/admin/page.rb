@@ -57,6 +57,7 @@ ActiveAdmin.register Page do
           :credit,
           :position,
           :attachment,
+          :for_gallery,
           :_destroy
         ],
         attachments_attributes: [

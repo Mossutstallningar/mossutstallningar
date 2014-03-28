@@ -56,6 +56,7 @@ ActiveAdmin.register Project do
           :credit,
           :position,
           :attachment,
+          :for_gallery,
           :_destroy
         ],
         attachments_attributes: [
