@@ -20,6 +20,10 @@ ActiveAdmin.register Take do
     column :id
     column :title
     column :published
+    column 'Link' do |take|
+      link_to take.title, take_sv_path(take)
+    end
+
     actions
   end
 

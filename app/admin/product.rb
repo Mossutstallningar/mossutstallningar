@@ -20,6 +20,10 @@ ActiveAdmin.register Product do
     column :id
     column :title
     column :published
+    column 'Link' do |product|
+      link_to product.title, product_sv_path(product)
+    end
+
     actions
   end
 

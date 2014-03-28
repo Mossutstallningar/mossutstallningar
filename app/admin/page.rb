@@ -7,6 +7,9 @@ ActiveAdmin.register Page do
     column :id
     column :title
     column :published
+    column 'Link' do |page|
+      link_to page.title, page_sv_path(page)
+    end
     actions
   end
 

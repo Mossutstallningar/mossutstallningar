@@ -20,6 +20,10 @@ ActiveAdmin.register Project do
     column :id
     column :title
     column :published
+    column 'Link' do |project|
+      link_to project.title, project_sv_path(project)
+    end
+
     actions
   end
 
