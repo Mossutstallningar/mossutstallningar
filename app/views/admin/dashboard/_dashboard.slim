@@ -1,90 +1,86 @@
 h2 Markdown cheet sheat
+
 p Markdown’s syntax is intended for one purpose: to be used as a format for writing for the web.
-p A paragraph is simply one or more consecutive lines of text, separated by one or more blank lines. (A blank line is any line that looks like a blank line — a line containing nothing but spaces or tabs is considered blank.) Normal paragraphs should not be indented with spaces or tabs.
+
+hr
+
+h3 Text formatting
+
+h4 Emphasis
 p
-  |
-    When you do want to insert a <code>&lt;br&gt;</code> break tag using Markdown, you end a line with two or more spaces, then type return.
+  code = "*asterisks*"
+
+h4 Strong emphasis
 p
-  |
-    ## Headline 2
-    <br>
-    ### Headline 3
+  code = "**double asterisks**"
 
-    <br>
-    <br>
+h4 Insert a link
+p
+  code = "[Example link](http://example.com)"
 
-    * List item
-    <br>
-    * Another list item
-    <br>
-    * Yada yada
+h4 Headlines
+p
+  code ## Headline 2
+  br
+  code ### Headline 3
 
-    <br>
-    <br>
+h4 Unordered list
+p
+  code
+    |
+      * List item
+      <br>
+      * Another list item
+      <br>
+      * Yada yada
 
-    1. One
-    <br>
-    2. Two
-    <br>
-    3. Three
+h4 Ordered list
+p
+  code
+    |
+      1. One
+      <br>
+      2. Two
+      <br>
+      3. Three
 
-    <br>
-    <br>
+h4 New line
+p When you do want to insert a <code>&lt;br&gt;</code> break tag using Markdown, you end a line with <b>two or more spaces</b>, then type return.
 
-    Insert a link:
-    <br>
-    [Example link](http://example.com)
+hr
 
-    <br>
-    <br>
+h3 Images
 
-    Insert a Vimeo video:
-    <br>
-    <code>[vimeo:2202918]</code>
+h4 Insert a image with caption
+p
+  code = "[image:123]"
 
-    <br>
-    <br>
+h4 Insert a image gallery of all images belonging to the project or page
+p
+  code = "[images]"
 
-    Insert a YouTube video:
-    <br>
-    <code>[youtube:HguL2bIri1Q]</code>
+hr
 
-    <br>
-    <br>
+h3 Video
 
-    Insert a image with caption
-    <br>
-    <code>[image:http://placehold.it/600x200|Alternate text|Image catption]</code>
-    <br>
-    <small>The alt attribute provides alternative information for an image if a user for some reason cannot view it (because of slow connection, an error in the src attribute, or if the user uses a screen reader).</small>
+h4 Insert a Vimeo video
+p
+  code = "[vimeo:2202918]"
 
-    <br>
-    <br>
+h4 Insert a YouTube video
+p
+  code = "[youtube:HguL2bIri1Q]"
 
-    Insert a image gallery of all images belonging to the project or page
-    <br>
-    <code>[images]</code>
+hr
 
-    <br>
-    <br>
+h3 Attachments
 
-    Insert an attachment
-    <br>
-    <code>[attachment:123]</code>
+h4 Insert an attachment
+code = "[attachment:123]"
 
-    <br>
-    <br>
+hr
 
-    Emphasis
-    <br>
-    <code>*asterisks*</code>
-
-    <br>
-    <br>
-
-    Strong emphasis
-    <br>
-    <code>**double asterisks**</code>
+h3 More
 
 p
   |
