@@ -37,18 +37,22 @@ class CustomMarkdown < Redcarpet::Render::HTML
   def content_with_image_chaos(content)
     # match [images]
     content.gsub(/(\[images\])/) do
-      html = ''
-      html << '<div class="image-chaos">'
-      html << '<ul class="image-chaos-items">'
+      images = @resource.images.for_gallery
 
-      @resource.images.for_gallery.order_by_position.each_with_index do |image, i|
-        html << %Q|<li class="image-chaos-item" data-image-index="#{i}" data-image-large="#{image.large}" data-image-credit="#{image.credit}">|
-        html << %Q|<img src="#{image.small}" alt="#{image.description}" class="image-chaos-image" crossorigin="anonymous">|
-        html << '</li>'
+      if images.present?
+        html = ''
+        html << '<div class="image-chaos">'
+        html << '<ul class="image-chaos-items">'
+
+        images.order_by_position.each_with_index do |image, i|
+          html << %Q|<li class="image-chaos-item" data-image-index="#{i}" data-image-large="#{image.large}" data-image-credit="#{image.credit}">|
+          html << %Q|<img src="#{image.small}" alt="#{image.description}" class="image-chaos-image" crossorigin="anonymous">|
+          html << '</li>'
+        end
+
+        html << '</ul>'
+        html << '</div>'
       end
-
-      html << '</ul>'
-      html << '</div>'
     end
   end
 
