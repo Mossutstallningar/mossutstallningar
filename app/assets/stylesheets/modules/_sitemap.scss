@@ -29,20 +29,14 @@
 }
 
 .sitemap-category {
-  @include reset-list;
-  margin: 0 0 20px;
-  @include at-breakpoint($medium) {
-    margin: 0 0 30px;
-  }
-  @include at-breakpoint($large) {
-    margin: 0 0 40px;
-  }
-  @include at-breakpoint($xx-large) {
-    margin: 0 0 50px;
-  }
+  margin: 0 0 1em;
   &:last-child {
     margin: 0;
   }
+}
+
+.sitemap-category-list {
+  @include reset-list;
 }
 
 .sitemap-category-item {
