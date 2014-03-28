@@ -11,7 +11,7 @@ class Image < ActiveRecord::Base
   validates_attachment_presence :attachment
   validates_attachment_content_type :attachment, content_type: /\Aimage/
 
-  default_scope { order(:position) }
+  scope :order_by_position, -> { order(position: :desc) }
 
   def small
     attachment.url(:small)
