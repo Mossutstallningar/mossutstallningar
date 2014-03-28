@@ -29,10 +29,14 @@
             @setReadyState()
 
         setupCavnas: (width, height) ->
+          # round to two decimals
+          paddingBottom = Math.round(((height / width) * 100) * 100) / 100
           @$image.after(
-            '<canvas width="' + width + '" height="' + height + '"></canvas>'
+            '<div class="glitch-canvas-wrapper" style="padding-bottom: ' + paddingBottom + '%;">' +
+              '<canvas class="glitch-canvas" width="' + width + '" height="' + height + '"></canvas>' +
+            '</div>'
           )
-          @$canvas = @$image.next()
+          @$canvas = @$image.next().find('.glitch-canvas')
           @canvas = @$canvas.get 0
           @ctx = @canvas.getContext '2d'
 
