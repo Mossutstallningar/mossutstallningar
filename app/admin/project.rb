@@ -10,12 +10,14 @@ ActiveAdmin.register Project do
       f.input :published
       f.has_many :images do |image|
         image.inputs do
+          unless image.object.new_record?
+            image.input :id, input_html: { disabled: true }
+          end
           image.input :description
           image.input :credit
           image.input :position
           image.input :attachment, as: :file, hint: (image.object.new_record? ? nil : image.template.image_tag(image.object.attachment.url(:small))), required: true
           unless image.object.new_record?
-            image.input :large, label: 'URL', input_html: { disabled: true }
             image.input :_destroy, as: :boolean, required: false, label: 'Remove'
           end
         end

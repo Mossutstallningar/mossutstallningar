@@ -53,15 +53,23 @@ class CustomMarkdown < Redcarpet::Render::HTML
   end
 
   def content_with_caption_images(content)
-    # match [image:src|alt|caption]
-    content.gsub(/\[image:(.*)\|(.*)\|(.*)\]/) do
-      html = ''
-      html << '<span class="image-with-caption">'
-      html << %Q|<img src="#{$1}" alt="#{$2}" class="image-with-caption-image" crossorigin="anonymous">|
-      html << %Q|<span class="image-with-caption-caption">#{$3}</span>|
-      html << '</span>'
+    # match [image:id]
+    content.gsub(/\[image:(.*)\]/) do
+      id = "#{$1}".to_i
 
-      html
+      if id > 0
+        image = Image.find_by_id id
+
+        if image.present?
+          html = ''
+          html << '<span class="image-with-caption">'
+          html << %Q|<img src="#{image.large}" alt="#{image.description}" class="image-with-caption-image" crossorigin="anonymous">|
+          html << %Q|<span class="image-with-caption-caption">#{image.credit}</span>|
+          html << '</span>'
+
+          html
+        end
+      end
     end
   end
 
