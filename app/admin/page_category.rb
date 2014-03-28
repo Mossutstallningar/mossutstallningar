@@ -1,6 +1,6 @@
 ActiveAdmin.register PageCategory do
   actions :index, :update, :edit, :new, :create, :destroy
-  menu priority: 4
+  menu priority: 5
 
   index do
     selectable_column

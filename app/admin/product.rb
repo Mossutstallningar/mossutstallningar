@@ -1,10 +1,10 @@
-ActiveAdmin.register Take do
+ActiveAdmin.register Product do
   actions :index, :update, :edit, :new, :create, :destroy
-  menu priority: 4
+  menu priority: 3
 
   form html: { enctype: 'multipart/form-data' } do |f|
     f.semantic_errors *f.object.errors.keys
-    f.inputs 'Take details' do
+    f.inputs 'Product details' do
       f.input :title
       f.input :body
       f.input :published
@@ -47,13 +47,13 @@ ActiveAdmin.register Take do
   controller do
     def update
       old_id = params[:id]
-      new_id_candidate = params[:take][:title].parameterize
+      new_id_candidate = params[:product][:title].parameterize
 
       update! do |format|
         if old_id == new_id_candidate
-          format.html { redirect_to edit_admin_take_path params[:id] }
+          format.html { redirect_to edit_admin_product_path params[:id] }
         else
-          format.html { redirect_to admin_takes_path }
+          format.html { redirect_to admin_products_path }
         end
       end
     end
@@ -63,7 +63,7 @@ ActiveAdmin.register Take do
     end
 
     def permitted_params
-      params.permit take: [
+      params.permit product: [
         :title,
         :body,
         :published,
