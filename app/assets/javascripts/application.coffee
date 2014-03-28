@@ -7,6 +7,7 @@
 #= require plugins/jquery-ui-1.10.4.custom
 #= require plugins/jquery.debouncedresize
 #= require plugins/jquery.columnizer
+#= require plugins/jquery.glitch
 
 #= require modules/utils
 #= require modules/templates
@@ -23,5 +24,6 @@
 #= require modules/fallback_columns
 #= require modules/ghost
 #= require modules/overlay
+#= require modules/glitch
 
 #= require init

@@ -9,6 +9,7 @@ $ =>
   if Modernizr.canvas
     App.NavigationLines.init() if App.options.showNavigationLines
     App.Ghost.init() if App.options.showGhost
+    App.Glitch.init()
 
   unless ie < 9
     App.DynamicFontSize.init()

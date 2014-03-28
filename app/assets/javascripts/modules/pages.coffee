@@ -123,6 +123,7 @@
       else
         @setZeroPagesState()
         @reset()
+      App.$doc.trigger 'PageClose'
 
     bringToFront: ($page) ->
       id = $page.attr 'id'
@@ -139,6 +140,7 @@
       @$pages.html ''
       @pages = []
       @pageCount = 0
+      App.$doc.trigger 'PageClose'
 
     setZeroPagesState: ->
       # todo: make dynamic
