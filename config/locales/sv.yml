@@ -2,5 +2,6 @@ sv:
   routes:
     projects: projekt
     pages: sidor
+    products: produkter
     takes: ta
     search: sök

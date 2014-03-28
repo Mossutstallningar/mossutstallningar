@@ -7,6 +7,7 @@ Mossutstallningar::Application.routes.draw do
   localized do
     resources :projects, only: [:show]
     resources :pages, only: [:show]
+    resources :products, only: [:index, :show]
     resources :takes, only: [:index, :show]
 
     get 'search', to: 'search#index', as: 'search'

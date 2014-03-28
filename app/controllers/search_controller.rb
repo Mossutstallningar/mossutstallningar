@@ -3,7 +3,7 @@ class SearchController < ApplicationController
     q = params[:q]
 
     if q.present?
-      @result = Project.search(q) + Page.search(q) + Take.search(q)
+      @result = Project.search(q) + Page.search(q) + Take.search(q) + Product.search(q)
     end
 
     respond_to do |format|
