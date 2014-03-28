@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_filter :authenticate if ENV["AUTHENTICATE"] == "true" && !Rails.env.development?
+  before_filter :authenticate if ENV['AUTHENTICATE'] == 'true' && !Rails.env.development?
   before_filter :set_locale
   before_action :load_global_resources
 
@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
-      username == ENV["HTTP_AUTH_USER"] && password == ENV["HTTP_AUTH_PASS"]
+      username == ENV['HTTP_AUTH_USER'] && password == ENV['HTTP_AUTH_PASS']
     end
   end
 
