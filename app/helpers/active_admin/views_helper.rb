@@ -6,7 +6,7 @@ module ActiveAdmin::ViewsHelper
         unless image.object.new_record?
           image.input :id, input_html: { disabled: true }
         end
-        image.input :description
+        image.input :alt_text
         image.input :credit
         image.input :position
         image.input :for_gallery

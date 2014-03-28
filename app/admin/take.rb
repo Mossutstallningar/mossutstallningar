@@ -52,7 +52,7 @@ ActiveAdmin.register Take do
         :published,
         images_attributes: [
           :id,
-          :description,
+          :alt_text,
           :credit,
           :position,
           :attachment,

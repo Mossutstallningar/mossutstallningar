@@ -53,7 +53,7 @@ ActiveAdmin.register Page do
         :page_category_id,
         images_attributes: [
           :id,
-          :description,
+          :alt_text,
           :credit,
           :position,
           :attachment,

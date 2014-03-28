@@ -46,7 +46,7 @@ class CustomMarkdown < Redcarpet::Render::HTML
 
         images.order_by_position.each_with_index do |image, i|
           html << %Q|<li class="image-chaos-item" data-image-index="#{i}" data-image-large="#{image.large}" data-image-credit="#{image.credit}">|
-          html << %Q|<img src="#{image.small}" alt="#{image.description}" class="image-chaos-image" crossorigin="anonymous">|
+          html << %Q|<img src="#{image.small}" alt="#{image.alt_text}" class="image-chaos-image" crossorigin="anonymous">|
           html << '</li>'
         end
 
@@ -67,7 +67,7 @@ class CustomMarkdown < Redcarpet::Render::HTML
         if image.present?
           html = ''
           html << '<span class="image-with-caption">'
-          html << %Q|<img src="#{image.large}" alt="#{image.description}" class="image-with-caption-image" crossorigin="anonymous">|
+          html << %Q|<img src="#{image.large}" alt="#{image.alt_text}" class="image-with-caption-image" crossorigin="anonymous">|
           html << %Q|<span class="image-with-caption-caption">#{image.credit}</span>|
           html << '</span>'
 
