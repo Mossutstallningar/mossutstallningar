@@ -1,9 +1,7 @@
 .image-chaos {
   position: relative;
-  @include at-breakpoint($medium) {
-    .js & {
-      height: 500px;
-    }
+  .js & {
+    height: 500px;
   }
 }
 
@@ -17,11 +15,9 @@
   &:last-child {
     margin: 0;
   }
-  @include at-breakpoint($medium) {
-    .js & {
-      position: absolute !important;
-      margin: 0;
-    }
+  .js & {
+    position: absolute !important;
+    margin: 0;
   }
 }
 

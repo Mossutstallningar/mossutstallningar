@@ -8,6 +8,7 @@
       $imageChaos = $ '.image-chaos'
 
       @eventListeners()
+      @hasDraggable = false
       @setup $imageChaos if !!$imageChaos.length
 
     eventListeners: ->
@@ -24,6 +25,8 @@
       $imageChaos.each ->
         $el = $ @
         $items = $el.find '.image-chaos-item'
+
+        _.enableOrDisableDrag $items
         _.setLayout $el, $items
 
     onPageAdd: ($page) ->
@@ -37,10 +40,17 @@
 
       @setupItemEvents $el, $items
       @layoutWhenReady $el, $items
+      @enableOrDisableDrag $items
 
       $items.mousedown ->
         if App.Breakpoints.isMedium && !_.galleryOpen($el)
           _.bringToFront $items, $(@), count
+
+    enableOrDisableDrag: ($items) ->
+      if @allowDrag() && !@hasDraggable
+        @enableDrag $items
+      else if @hasDraggable && !@allowDrag()
+        @disableDrag $items
 
     bringToFront: ($items, $item, count) ->
       $item.data 'image-index', count + 1
@@ -73,13 +83,27 @@
       @setupDrag $items
       @setupClickEvents $el, $items
 
+    enableDrag: ($items) ->
+      $items.draggable 'enable'
+      @hasDraggable = true
+
+    disableDrag: ($items) ->
+      $items
+        .removeAttr('style')
+        .draggable 'disable'
+      @hasDraggable = false
+
     setupDrag: ($items) ->
+      @hasDraggable = true
       $items.draggable(
         {
           containment: 'document'
           scroll: false
         }
       )
+
+    allowDrag: ->
+      App.Breakpoints.isMedium
 
     setupClickEvents: ($el, $items) ->
       _ = @
