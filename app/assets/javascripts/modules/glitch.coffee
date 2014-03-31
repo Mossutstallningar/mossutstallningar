@@ -10,8 +10,11 @@
       @eventListeners()
 
     eventListeners: ->
-      App.$doc.mousemove =>
-        @onMovement()
+      App.$doc.mousemove(
+        $.throttle(100, =>
+          @onMovement()
+        )
+      )
 
       App.$doc.on 'PageAdd': (e, page) =>
         @onPageAdd $(page)
@@ -19,13 +22,17 @@
       App.$doc.on 'PageClose': () =>
         @onPageClose()
 
-      App.$win.scroll =>
-        @onMovement()
+      App.$win.scroll(
+        $.throttle(100, =>
+          @onMovement()
+        )
+      )
 
     onMovement: ->
-      @$els.each ->
-        $el = $ @
-        $el.data('Glitch').draw() if $el.data 'GlitchReady'
+      if !!@$els.length
+        @$els.each ->
+          $el = $ @
+          $el.data('Glitch').draw() if $el.data 'GlitchReady'
 
     onPageAdd: ($page) ->
       $els = $page.find @imgSelector

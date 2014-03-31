@@ -8,6 +8,7 @@
 #= require plugins/jquery.debouncedresize
 #= require plugins/jquery.columnizer
 #= require plugins/jquery.glitch
+#= require plugins/jquery.ba-throttle-debounce
 
 #= require modules/utils
 #= require modules/templates
