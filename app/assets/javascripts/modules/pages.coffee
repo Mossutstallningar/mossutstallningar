@@ -175,7 +175,7 @@
 
     setPageState: (state) ->
       @setTitle state.title
-      @setMetaDescription state.stateDescription
+      @setMetaDescription state.metaDescription
       @setMetaImage state.ogMetaImage
       @setMetaUrl()
       history.pushState state, state.title, state.href
