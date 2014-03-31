@@ -7,6 +7,8 @@ html.no-js
     == stylesheet_link_tag 'application', media: nil
     == javascript_include_tag 'libs/modernizr'
     == csrf_meta_tags
+    - if content_for?(:meta)
+      = yield :meta
   body
     = render 'shared/loader'
 

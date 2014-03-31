@@ -1,5 +1,8 @@
 - content_for :title do
   = @product.title
+- unless @product.published
+  - content_for :meta do
+    meta name='robots' content='noindex, nofollow'
 
 .page.page-page id="page-id-#{@product.id}" tabindex='-1'
   = render 'shared/close'
