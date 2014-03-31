@@ -2,7 +2,7 @@ doctype html
 html.no-js
   head
     meta charset='utf-8'
-    title=yield(:title).present? ? ("#{yield(:title)} / Mossutställningar").html_safe : 'Mossutställningar'
+    title = content_for?(:title) ? ("#{yield(:title)} / Mossutställningar").html_safe : 'Mossutställningar'
     meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'
     == stylesheet_link_tag 'application', media: nil
     == javascript_include_tag 'libs/modernizr'
