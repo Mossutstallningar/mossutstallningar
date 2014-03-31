@@ -15,6 +15,7 @@
 .gallery-image-image {
   @include page-shadow(rgba(255, 0, 255, 0.75));
   display: inline-block;
+  max-width: 1000px\9; // <= IE8
 }
 
 .gallery-image-credit {
