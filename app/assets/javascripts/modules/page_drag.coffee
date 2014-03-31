@@ -45,6 +45,8 @@
     setupDrag: ($page) ->
       @hasDraggable = true
       $page.draggable(
+        containment: 'document'
+        scroll: false
         drag: =>
           App.$doc.trigger 'PageDragDrag'
       )
