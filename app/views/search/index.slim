@@ -1,5 +1,4 @@
-- content_for :title do
-  = "#{params[:q]} / Sök"
+- content_for :title, "#{params[:q]} / Sök"
 
 .page.page-search id='page-id-search'
   = render 'shared/close'

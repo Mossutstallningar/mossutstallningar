@@ -1,5 +1,4 @@
-- content_for :title do
-  = @page.title
+- content_for :title, @page.title
 - unless @page.published
   - content_for :meta do
     meta name='robots' content='noindex, nofollow'
