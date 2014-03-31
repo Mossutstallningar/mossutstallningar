@@ -7,7 +7,7 @@
   - content_for :meta do
     meta name='robots' content='noindex, nofollow'
 
-.page.page-project id="page-id-#{resource.id}" tabindex='-1'
+div class=["page page-#{type}"] id="page-id-#{resource.id}" tabindex='-1'
   = render 'shared/close'
   h1.page-title.dynamic-font-size = resource.title
   - if resource.body.present?

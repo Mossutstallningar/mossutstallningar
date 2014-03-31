@@ -13,7 +13,9 @@
   }
 }
 
-.page-page {
+.page-page,
+.page-take,
+.page-product {
   @include page-shadow(rgba(255, 0, 255, 0.75));
 }
 
