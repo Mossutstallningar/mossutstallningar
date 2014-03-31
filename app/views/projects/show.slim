@@ -1,15 +1,1 @@
-- content_for :title, @project.title
-- if @project.body.present?
-  - content_for :meta_description, truncate(@project.body, length: 150)
-- if @project.featured_image.present?
-  - content_for :meta_image, @project.featured_image.small
-- unless @project.published
-  - content_for :meta do
-    meta name='robots' content='noindex, nofollow'
-
-.page.page-page id="page-id-#{@project.id}" tabindex='-1'
-  = render 'shared/close'
-  h1.page-title.dynamic-font-size = @project.title
-  - if @project.body.present?
-    .page-text.dynamic-font-size-children
-      = markdown @project.body, @project
+= render 'pageable/show', resource: @project

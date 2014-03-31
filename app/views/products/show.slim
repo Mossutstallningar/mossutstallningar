@@ -1,15 +1,1 @@
-- content_for :title, @product.title
-- if @product.body.present?
-  - content_for :meta_description, truncate(@product.body, length: 150)
-- if @product.featured_image.present?
-  - content_for :meta_image, @product.featured_image.small
-- unless @product.published
-  - content_for :meta do
-    meta name='robots' content='noindex, nofollow'
-
-.page.page-page id="page-id-#{@product.id}" tabindex='-1'
-  = render 'shared/close'
-  h1.page-title.dynamic-font-size = @product.title
-  - if @product.body.present?
-    .page-text.dynamic-font-size-children
-      = markdown @product.body, @product
+= render 'pageable/show', resource: @product
