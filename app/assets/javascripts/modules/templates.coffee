@@ -7,7 +7,7 @@
 
     gallery:
       '<div ' +
-        'class="gallery" ' +
+        'class="{elClass}" ' +
         'data-image-index="0" ' +
         'data-images="{images}" ' +
         'data-image-credits="{imageCredits}" ' +

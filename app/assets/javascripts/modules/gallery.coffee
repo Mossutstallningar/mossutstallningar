@@ -42,11 +42,18 @@
         _.positionImage $(@)
 
     setup: ($el) ->
+      images = $el.data 'images'
+      imageCredits = $el.data 'image-credits'
+      imageCount = images.split(',').length
+      elClass = 'gallery '
+      elClass += if imageCount > 1 then 'gallery-multiple' else 'gallery-one'
+
       galleryHTML = App.Utils.template(
         App.Templates.gallery,
         {
-          images: $el.data('images')
-          imageCredits: $el.data('image-credits')
+          elClass: elClass
+          images: images
+          imageCredits: imageCredits
         }
       )
 
@@ -54,7 +61,7 @@
       $el.data 'hasInitalizedGallery', true
       $gallery = $el.find '.gallery'
 
-      @setupPrevAndNextButton $gallery
+      @setupPrevAndNextButton $gallery if imageCount > 1
 
     destroy: ->
       $('.gallery').remove()

@@ -40,6 +40,13 @@
   }
 }
 
+.gallery-prev,
+.gallery-next {
+  .gallery-one & {
+    display: none;
+  }
+}
+
 .gallery-prev {
   right: auto;
   left: 20px;
