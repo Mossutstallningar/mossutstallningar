@@ -1,10 +1,10 @@
 class Image < ActiveRecord::Base
   belongs_to :imageable, polymorphic: true
 
+  # http://www.imagemagick.org/script/command-line-processing.php#geometry
   has_attached_file :attachment, styles: {
-    small:  '400x400',
-    medium: '800x450',
-    large:  '1600x900'
+    small:  '400x400>',
+    large:  '1000x1000>'
   }
 
   validates :position, presence: true
@@ -16,10 +16,6 @@ class Image < ActiveRecord::Base
 
   def small
     attachment.url(:small)
-  end
-
-  def medium
-    attachment.url(:medium)
   end
 
   def large
