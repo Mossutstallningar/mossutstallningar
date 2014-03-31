@@ -5,6 +5,27 @@
     image:
       '<img src="{src}" alt="{alt}" class="{class}" crossorigin="anonymous">'
 
+    imageButtons:
+      '<a ' +
+        'href="https://www.facebook.com/sharer.php?u={src}&t={credit}" ' +
+        'class="button share-facebook" ' +
+      '>' +
+        '<i class="fa fa-facebook-square"></i>' +
+        '<span class="button-text">Dela på Facebook</span>' +
+      '</a>' +
+      '<a ' +
+          'href="http://www.pinterest.com/pin/create/button/' +
+          '?url={src}' +
+          '&media={src}' +
+          '&description={credit}" ' +
+          'data-pin-do="buttonPin" ' +
+          'data-pin-config="above" ' +
+          'class="button share-pinterest" ' +
+      '>' +
+        '<i class="fa fa-pinterest-square"></i>' +
+        '<span class="button-text">Spara på Pinterest</span>' +
+      '</a>'
+
     gallery:
       '<div ' +
         'class="{elClass}" ' +

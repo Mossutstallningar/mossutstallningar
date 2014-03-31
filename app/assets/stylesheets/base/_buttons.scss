@@ -27,3 +27,15 @@
 .button-text {
   @extend %visuallyhidden;
 }
+
+.share-facebook {
+  right: 70px;
+  top: auto;
+  bottom: 20px;
+}
+
+.share-pinterest {
+  right: 20px;
+  top: auto;
+  bottom: 20px;
+}

@@ -46,6 +46,15 @@ html.no-js
     script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js'
     | <!--<![endif]-->
 
+    script
+      |
+        (function(d){
+            var f = d.getElementsByTagName('script')[0], p = d.createElement('script');
+            p.async = true;
+            p.src = '//assets.pinterest.com/js/pinit.js';
+            f.parentNode.insertBefore(p, f);
+        }(document));
+
     javascript:
       App = {
         options: {

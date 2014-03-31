@@ -74,19 +74,34 @@
       $gallery.hide()
 
     display: ($gallery, $item) ->
+      $imageWrapper = $gallery.find '.gallery-image-wrapper'
+      $imageCredit = $gallery.find '.gallery-image-credit'
+
+      imageSrc = $item.data 'image-large'
+      imageCredit = $item.data 'image-credit'
+
       image = App.Utils.template(
         App.Templates.image,
         {
-          src: $item.data('image-large')
+          src: imageSrc
           alt: '',
           class: 'gallery-image-image'
         }
       )
-      $imageWrapper = $gallery.find '.gallery-image-wrapper'
-      $imageCredit = $gallery.find '.gallery-image-credit'
+      imageButtons = App.Utils.template(
+        App.Templates.imageButtons,
+        {
+          src: encodeURIComponent(imageSrc)
+          credit: encodeURIComponent(imageCredit)
+        }
+      )
+
+      imageAndButtons = image + imageButtons
+
       $imageWrapper.css 'visibility', 'none'
-      $imageWrapper.html image
-      $imageCredit.html $item.data 'image-credit'
+
+      $imageCredit.html imageCredit
+      $imageWrapper.html imageAndButtons
 
       $image = $imageWrapper.find '.gallery-image-image'
 
