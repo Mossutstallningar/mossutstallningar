@@ -43,7 +43,7 @@
       @enableOrDisableDrag $items
 
       $items.mousedown ->
-        if App.Breakpoints.isMedium && !_.galleryOpen($el)
+        unless _.galleryOpen($el)
           _.bringToFront $items, $(@), count
 
     enableOrDisableDrag: ($items) ->
