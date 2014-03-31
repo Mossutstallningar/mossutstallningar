@@ -52,8 +52,9 @@
 
       $el.append galleryHTML
       $el.data 'hasInitalizedGallery', true
+      $gallery = $el.find '.gallery'
 
-      @setupNextButton $el.find('.gallery')
+      @setupPrevAndNextButton $gallery
 
     destroy: ->
       $('.gallery').remove()
@@ -111,21 +112,27 @@
     hasInitalized: ($el) ->
       !!$el.data 'hasInitalizedGallery'
 
-    setupNextButton: ($gallery) ->
-      $button = $gallery.find '.gallery-next'
+    setupPrevAndNextButton: ($gallery) ->
+      _ = @
+      $buttons = $gallery.find '.gallery-prev, .gallery-next'
+
       images = $gallery.data('images').split ','
-      imageCredits = $gallery.data('image-credits').split ','
+      imageCredits = $gallery.data('image-credits').split '|||'
 
-      $button.click =>
-        index = $gallery.data('image-index') + 1
+      $buttons.click ->
+        isNext = $(@).hasClass 'gallery-next'
 
-        unless images[index]
-          index = 0
+        if isNext
+          index = $gallery.data('image-index') + 1
+          unless images[index]
+            index = 0
+        else
+          index = $gallery.data('image-index') - 1
+          unless images[index]
+            index = images.length - 1
 
         $gallery.data 'image-index', index
-        @changeImage $gallery, images[index], imageCredits[index]
-
-
+        _.changeImage $gallery, images[index], imageCredits[index]
 
   win.App.Gallery = Gallery
 

@@ -66,7 +66,8 @@
       $item
         .closest('.image-chaos')
         .data('images', images.reverse().join(','))
-        .data('image-credits', imageCredits.reverse().join(','))
+        # since image credits can contain commas, join with tripple pipe
+        .data('image-credits', imageCredits.reverse().join('|||'))
 
     setupItemEvents: ($el, $items) ->
       @setupDrag $items

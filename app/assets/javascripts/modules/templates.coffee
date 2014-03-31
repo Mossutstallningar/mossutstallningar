@@ -13,6 +13,10 @@
         'data-image-credits="{imageCredits}" ' +
       '>' +
         '<div class="gallery-inner">' +
+          '<button class="button gallery-prev">' +
+            '<i class="fa fa-chevron-left"></i>' +
+            '<span class="button-text">Föregående</span>' +
+          '</button>' +
           '<button class="button gallery-next">' +
             '<i class="fa fa-chevron-right"></i>' +
             '<span class="button-text">Nästa</span>' +
