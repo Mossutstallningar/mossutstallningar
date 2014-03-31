@@ -27,10 +27,13 @@
 
 .page-title {
   margin: 0 0 30px;
-  font-size: 70px;
   line-height: 0.9;
+  font-size: 50px;
+  @include at-breakpoint($large) {
+    font-size: 65px;
+  }
   @include at-breakpoint($xx-large) {
-    font-size: 5.8vw;
+    font-size: 5vw;
   }
 }
 
