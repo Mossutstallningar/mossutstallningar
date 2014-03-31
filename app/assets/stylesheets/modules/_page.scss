@@ -6,7 +6,7 @@
   border-radius: 11px 6px 19px 8px / 443px 663px 151px 510px;
   color: $teal;
   @include at-breakpoint($small) {
-    padding: 3% 5%;
+    padding: 4% 5%;
   }
   &:focus {
     outline: none;
