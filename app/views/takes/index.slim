@@ -6,6 +6,7 @@
   h1.page-title.dynamic-font-size Ta
   .page-text.dynamic-font-size-children
     - if @takes.present?
-      ul.page-split-list
+      ul.page-split-list.sitemap-category-list
         - @takes.each do |item|
-          li = link_to item.title, item, class: 'internal navigation-lines-link', data: { :'page-slug' => "page-id-#{item.id}" }
+          li.sitemap-category-item
+            = link_to fa_icon('chevron-right', text: item.title), item, class: 'internal sitemap-link page-index-link', data: { :'page-slug' => "page-id-#{item.id}" }
