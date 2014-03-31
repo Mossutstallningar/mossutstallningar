@@ -1,4 +1,8 @@
 - content_for :title, @take.title
+- if @take.body.present?
+  - content_for :meta_description, truncate(@take.body, length: 150)
+- if @take.featured_image.present?
+  - content_for :meta_image, @take.featured_image.small
 - unless @take.published
   - content_for :meta do
     meta name='robots' content='noindex, nofollow'

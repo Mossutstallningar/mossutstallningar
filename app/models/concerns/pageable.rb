@@ -19,6 +19,10 @@ module Pageable
     accepts_nested_attributes_for :images, allow_destroy: true
     accepts_nested_attributes_for :attachments, allow_destroy: true
 
+    def featured_image
+      images.first
+    end
+
     protected
 
     def should_generate_new_friendly_id?

@@ -1,4 +1,8 @@
 - content_for :title, @product.title
+- if @product.body.present?
+  - content_for :meta_description, truncate(@product.body, length: 150)
+- if @product.featured_image.present?
+  - content_for :meta_image, @product.featured_image.small
 - unless @product.published
   - content_for :meta do
     meta name='robots' content='noindex, nofollow'
