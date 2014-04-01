@@ -39,9 +39,15 @@
             paddingBottom = Math.round(((height / width) * 100) * 100) / 100
 
           @$image.after(
-            '<div class="glitch-canvas-wrapper" style="width: ' + wrapperWidth + '%; padding-bottom: ' + paddingBottom + '%;">' +
-              '<canvas class="glitch-canvas" width="' + width + '" height="' + height + '"></canvas>' +
-            '</div>'
+            App.Utils.template(
+              App.Templates.glitch,
+              {
+                wrapperWidth: wrapperWidth
+                paddingBottom: paddingBottom
+                width: width
+                height: height
+              }
+            )
           )
           @$canvas = @$image.next().find('.glitch-canvas')
           @canvas = @$canvas.get 0
