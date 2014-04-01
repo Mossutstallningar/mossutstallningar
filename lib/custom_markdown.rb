@@ -66,10 +66,10 @@ class CustomMarkdown < Redcarpet::Render::HTML
 
         if image.present?
           html = ''
-          html << '<span class="image-with-caption">'
+          html << '<div class="image-with-caption">'
           html << %Q|<img src="#{image.large}" alt="#{image.alt_text}" class="image-with-caption-image" crossorigin="anonymous">|
           html << %Q|<span class="image-with-caption-caption">#{image.credit}</span>|
-          html << '</span>'
+          html << '</div>'
 
           html
         end
