@@ -1,0 +1,11 @@
+.preload {
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  width: 1px;
+  height: 1px;
+}
+
+#preload-0 { background: asset-url("backgrounds/1.jpg"); }
+#preload-1 { background: asset-url("backgrounds/2.jpg"); }
+#preload-2 { background: asset-url("backgrounds/3.jpg"); }

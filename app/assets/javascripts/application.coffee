@@ -14,6 +14,7 @@
 #= require modules/analytics
 #= require modules/templates
 #= require modules/breakpoints
+#= require modules/preload
 #= require modules/pages
 #= require modules/page_style
 #= require modules/loader

@@ -19,3 +19,6 @@ $ =>
     App.Loader.init()
 
   App.FallbackColumns.init() unless Modernizr.csscolumns
+
+App.$win.load ->
+  App.Preload.init()
