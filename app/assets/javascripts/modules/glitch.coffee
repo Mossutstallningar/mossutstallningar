@@ -46,7 +46,31 @@
       @$els = $ @imgSelector
 
     setup: ($els) ->
-      $els.glitch()
+      _ = @
+
+      $els.each ->
+        $el = $(@)
+        $el.glitch()
+        $el.imagesLoaded ->
+          setTimeout ->
+            _.setupShare $el
+          , 100
+
+    setupShare: ($el) ->
+      $glitchCanvasWrapper = $el.siblings '.glitch-canvas-wrapper'
+
+      src = $el.attr('src')
+      credit = $el.siblings('.image-with-caption-caption').text()
+
+      imageButtons = App.Utils.template(
+        App.Templates.imageButtons,
+        {
+          src: src
+          credit: credit
+        }
+      )
+
+      $glitchCanvasWrapper.append imageButtons
 
   App.Glitch = Glitch
 
