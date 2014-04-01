@@ -1,6 +1,8 @@
 - if @page.page_category.id == 1
   - content_for :body_class, 'page-type-about'
+  - type = 'about'
 - if @page.page_category.id == 2
   - content_for :body_class, 'page-type-svt'
+  - type = 'svt'
 
-= render 'pageable/show', resource: @page, type: 'page'
+= render 'pageable/show', resource: @page, type: type

@@ -13,14 +13,21 @@
   }
 }
 
-.page-page,
-.page-take,
-.page-product {
-  @include page-shadow(rgba(255, 0, 255, 0.75));
+.page-project {
+  @include page-shadow(rgba(57, 88, 252, 0.75));
 }
 
-.page-project {
-  @include page-shadow(rgba(0, 255, 255, 0.75));
+.page-about {
+  @include page-shadow(rgba(246, 0, 151, 0.75));
+}
+
+.page-svt {
+  @include page-shadow(rgba(139, 0, 219, 0.75));
+}
+
+.page-take,
+.page-product {
+  @include page-shadow(rgba(246, 114, 30, 0.75));
 }
 
 .page-search {
