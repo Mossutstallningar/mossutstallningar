@@ -11,6 +11,7 @@
 #= require plugins/jquery.ba-throttle-debounce
 
 #= require modules/utils
+#= require modules/analytics
 #= require modules/templates
 #= require modules/breakpoints
 #= require modules/pages

@@ -106,6 +106,7 @@
       @reArrangePositions()
 
       data =
+        href: href
         $page: $page
 
       App.$doc.trigger 'PageAdd', data

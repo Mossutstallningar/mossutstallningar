@@ -1,5 +1,6 @@
 $ =>
   App.Breakpoints.init()
+  App.Analytics.init() if _gaq?
   App.Pages.init() if Modernizr.history
   App.Search.init()
   App.ImageChaos.init()
