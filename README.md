@@ -37,6 +37,8 @@ Create a development and test database, and quit psql:
         AWS_ACCESS_KEY=<aws access key id>
         AWS_SECRET_ACCESS_KEY=<aws secret access key>
 
+        GOOGLE_ANALYTICS_ID=<google ananlytics id>
+
 4. Install gems `bundle install`
 5. Migrate database `foreman run rake db:migrate`
 6. Setup test database `foreman run rake db:test:prepare`
