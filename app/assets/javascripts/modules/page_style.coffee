@@ -6,8 +6,8 @@
       @eventListeners()
 
     eventListeners: ->
-      App.$doc.on 'PageAdd': (e, page) =>
-        @onPageAdd $(page)
+      App.$doc.on 'PageAdd': (e, data) =>
+        @onPageAdd data.$page
 
     onPageAdd: ($page) ->
       @setBorderRadius $page

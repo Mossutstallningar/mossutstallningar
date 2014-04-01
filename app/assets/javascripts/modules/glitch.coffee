@@ -16,8 +16,8 @@
         )
       )
 
-      App.$doc.on 'PageAdd': (e, page) =>
-        @onPageAdd $(page)
+      App.$doc.on 'PageAdd': (e, data) =>
+        @onPageAdd data.$page
 
       App.$doc.on 'PageClose': =>
         @onPageClose()

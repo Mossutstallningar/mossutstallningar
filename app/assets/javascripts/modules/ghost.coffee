@@ -21,8 +21,8 @@
       App.$win.scroll =>
         @clearAndFadeout()
 
-      App.$doc.on 'PageFocus': (e, page) =>
-        @$page = $(page)
+      App.$doc.on 'PageFocus': (e, data) =>
+        @$page = data.$page
 
       App.$doc.on 'PageZero': =>
         @$page = $()

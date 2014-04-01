@@ -104,7 +104,11 @@
 
       @pageCount++
       @reArrangePositions()
-      App.$doc.trigger 'PageAdd', $page
+
+      data =
+        $page: $page
+
+      App.$doc.trigger 'PageAdd', data
       @setTabsFocusTo $page
       @scrollToTop()
 
@@ -206,7 +210,9 @@
       prevScrollPos = App.$win.scrollTop()
       $page.focus()
       App.$win.scrollTop prevScrollPos
-      App.$doc.trigger 'PageFocus', $page
+      data =
+        $page: $page
+      App.$doc.trigger 'PageFocus', data
 
   win.App.Pages = Pages
 

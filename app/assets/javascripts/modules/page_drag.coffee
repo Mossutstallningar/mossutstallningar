@@ -18,8 +18,8 @@
         App.$body.draggable 'disable'
 
     eventListeners: ->
-      App.$doc.on 'PageAdd': (e, page) =>
-        @setupDrag $(page)
+      App.$doc.on 'PageAdd': (e, data) =>
+        @setupDrag data.$page
 
       App.$win.on 'debouncedresize', =>
         $page = $('.page')
