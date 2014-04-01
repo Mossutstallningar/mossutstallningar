@@ -29,10 +29,17 @@
             @setReadyState()
 
         setupCavnas: (width, height) ->
-          # round to two decimals
-          paddingBottom = Math.round(((height / width) * 100) * 100) / 100
+          if width < height
+            # round to two decimals
+            wrapperWidth = Math.round(((width / height) * 100) * 100) / 100
+            paddingBottom = 100
+          else
+            wrapperWidth = 100
+            # round to two decimals
+            paddingBottom = Math.round(((height / width) * 100) * 100) / 100
+
           @$image.after(
-            '<div class="glitch-canvas-wrapper" style="padding-bottom: ' + paddingBottom + '%;">' +
+            '<div class="glitch-canvas-wrapper" style="width: ' + wrapperWidth + '%; padding-bottom: ' + paddingBottom + '%;">' +
               '<canvas class="glitch-canvas" width="' + width + '" height="' + height + '"></canvas>' +
             '</div>'
           )
