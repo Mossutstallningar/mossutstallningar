@@ -20,7 +20,7 @@ html.no-js
     == stylesheet_link_tag 'application', media: nil
     == javascript_include_tag 'libs/modernizr'
     == csrf_meta_tags
-  body
+  body class="#{content_for?(:body_class) ? " " + yield(:body_class) : nil}"
     = render 'shared/loader'
 
     main#main

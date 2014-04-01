@@ -11,6 +11,7 @@
       @pages = @getOpenPages()
       @isInitialPopstateEvent = true
       @initialPageState = @getInitialPageState()
+      @pageTypeRegEx = /page-type-[a-z]+/i
       if !!@pageCount
         @setInitialPageState()
         @setTabsFocusTo @$page
@@ -88,11 +89,13 @@
       if @pageCount > 5
         @pageCount = 0
 
+      pageTypeClass = @getPageTypeClassByString(data)
+
       $html = $('<div>').append($.parseHTML(data))
       $page = $html.find '.page'
       id = $page.attr 'id'
 
-      state = @getPageState $html
+      state = @getPageState $html, pageTypeClass
       state.href = href
 
       $page.addClass("page-#{@pageCount}").data 'state', state
@@ -150,6 +153,7 @@
     setZeroPagesState: ->
       # todo: make dynamic
       state =
+        pageTypeClass: ''
         title: 'Mossutställningar'
         metaDescription: 'Mossutställningar'
         ogMetaImage: ''
@@ -159,7 +163,9 @@
 
     getInitialPageState: ->
       $html = $ 'html'
-      state = @getPageState $html
+      $body = $ 'body'
+      pageTypeClass = @getPageTypeClassByEl $body
+      state = @getPageState $html, pageTypeClass
       state.href = win.location.pathname
 
       state
@@ -172,8 +178,9 @@
 
       $page.data 'state', state
 
-    getPageState: ($html) ->
+    getPageState: ($html, pageTypeClass) ->
       state =
+        pageTypeClass: pageTypeClass
         title: $html.find('title').text()
         metaDescription: $html.find('meta[name="description"]').attr 'content'
         ogMetaImage: $html.find('meta[property="og:image"]').attr 'content'
@@ -183,6 +190,7 @@
       @setMetaDescription state.metaDescription
       @setMetaImage state.ogMetaImage
       @setMetaUrl()
+      @setPageTypeClass state.pageTypeClass
       history.pushState state, state.title, state.href
 
     setTitle: (title) ->
@@ -204,6 +212,15 @@
       ogMetaUrlSelector = 'meta[property="og:url"]'
       App.$doc.find(ogMetaUrlSelector).attr 'content', win.location.href
 
+    setPageTypeClass: (pageTypeClass) ->
+      bodyClass = App.$body.attr('class')
+      matches = bodyClass.match @pageTypeRegEx
+
+      if matches
+        App.$body.removeClass(matches[0])
+
+      App.$body.addClass pageTypeClass
+
     scrollToTop: ->
       $('html, body').scrollTop 0
 
@@ -214,6 +231,24 @@
       data =
         $page: $page
       App.$doc.trigger 'PageFocus', data
+
+    getPageTypeClassByString: (data) ->
+      $doc = $ doc.createElement('html')
+      $doc.get(0).innerHTML = data
+      $body = $doc.find 'body'
+
+      @getPageTypeClassByEl $body
+
+    getPageTypeClassByEl: ($body) ->
+      bodyClass = $body.attr('class') || ''
+      matches = bodyClass.match @pageTypeRegEx
+
+      if matches
+        pageTypeClass = matches[0]
+      else
+        pageTypeClass = ''
+
+      pageTypeClass
 
   win.App.Pages = Pages
 

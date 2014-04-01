@@ -6,10 +6,16 @@
   height: 100%;
   left: 0;
   top: 0;
-  background: asset-url("overlay.png") repeat center center;
+  background: asset-url("overlays/1.png") repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   pointer-events: none;
+  .page-type-about & {
+    background-image: asset-url("overlays/2.png");
+  }
+  .page-type-svt & {
+    background-image: asset-url("overlays/3.png");
+  }
 }

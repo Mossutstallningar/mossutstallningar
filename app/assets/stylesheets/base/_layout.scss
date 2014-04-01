@@ -4,23 +4,27 @@
   @include box-sizing(border-box);
 }
 
-html {
-  background: asset-url("background.jpg") repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  overflow-x: hidden;
-}
-
 html,
 body {
   height: 100%;
 }
 
 body {
+  @include transition (background-image 2.0s ease-in-out);
   max-width: 1000px\9; // <= IE8
   margin: 0 auto\9; // <= IE8
+  background: asset-url("backgrounds/1.jpg") repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow-x: hidden;
+  &.page-type-about {
+    background-image: asset-url("backgrounds/2.jpg");
+  }
+  &.page-type-svt {
+    background-image: asset-url("backgrounds/3.jpg");
+  }
 }
 
 .wrapper {
