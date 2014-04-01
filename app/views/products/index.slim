@@ -1,7 +1,8 @@
-- content_for :title, 'Ge'
+- content_for :title, 'Shop'
 
 .page.page-search id='page-id-products' tabindex='-1'
   = render 'shared/close'
+  h1.page-title.dynamic-font-size Shop
   .page-text.dynamic-font-size-children
     - if @products.present?
       ul.page-split-list.sitemap-category-list
