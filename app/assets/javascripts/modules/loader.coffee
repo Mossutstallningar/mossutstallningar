@@ -7,10 +7,10 @@
       @eventListeners()
 
     eventListeners: ->
-      App.$doc.on 'PageLoad': () =>
+      App.$doc.on 'PageLoad': =>
         @onPageLoad()
 
-      App.$doc.on 'PageAdd': () =>
+      App.$doc.on 'PageAdd': =>
         @onPageAdd()
 
     onPageLoad: ->

@@ -15,7 +15,7 @@
       App.$win.on 'debouncedresize', =>
         @rePaint()
 
-      App.$doc.on 'PageAdd': () =>
+      App.$doc.on 'PageAdd': =>
         @setElements()
 
     rePaint: ->

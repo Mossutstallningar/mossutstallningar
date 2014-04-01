@@ -24,11 +24,11 @@
       App.$doc.on 'PageFocus': (e, page) =>
         @$page = $(page)
 
-      App.$doc.on 'PageZero': () =>
+      App.$doc.on 'PageZero': =>
         @$page = $()
         @fadeOutGhost() if @hasGhost()
 
-      App.$doc.on 'PageDragDrag': () =>
+      App.$doc.on 'PageDragDrag': =>
         @clearAndFadeout()
 
     setupTimeout: ->

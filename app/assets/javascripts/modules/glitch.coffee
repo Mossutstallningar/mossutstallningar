@@ -19,7 +19,7 @@
       App.$doc.on 'PageAdd': (e, page) =>
         @onPageAdd $(page)
 
-      App.$doc.on 'PageClose': () =>
+      App.$doc.on 'PageClose': =>
         @onPageClose()
 
       App.$win.scroll(
