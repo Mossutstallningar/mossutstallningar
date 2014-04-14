@@ -49,7 +49,7 @@
       _ = @
 
       $els.each ->
-        $el = $(@)
+        $el = $ @
         $el.glitch()
         $el.imagesLoaded ->
           setTimeout ->
@@ -59,7 +59,7 @@
     setupShare: ($el) ->
       $glitchCanvasWrapper = $el.siblings '.glitch-canvas-wrapper'
 
-      src = $el.attr('src')
+      src = $el.attr 'src'
       credit = $el.siblings('.image-with-caption-caption').text()
 
       imageButtons = App.Utils.template(
