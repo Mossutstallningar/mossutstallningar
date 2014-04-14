@@ -17,6 +17,9 @@ html.no-js
     - if content_for?(:meta)
       = yield :meta
 
+    - if ENV['NO_INDEX'] == 'true'
+      meta name='robots' content='noindex, nofollow'
+
     == stylesheet_link_tag 'application', media: nil
     == javascript_include_tag 'libs/modernizr'
     == csrf_meta_tags
