@@ -22,21 +22,29 @@
           @$canvas = null
           @canvas = null
           @ctx = null
+          @width = null
+          @height = null
+          @naturalWidth = null
+          @naturalHeight = null
 
           @$image.imagesLoaded =>
-            @setupCavnas(@$image.width(), @$image.height())
+            @width = @$image.width()
+            @height = @$image.height()
+            @naturalWidth = @image.naturalWidth
+            @naturalHeight = @image.naturalHeight
+            @setupCavnas()
             @drawOriginalToCanvas()
             @setReadyState()
 
-        setupCavnas: (width, height) ->
-          if width < height
+        setupCavnas: ->
+          if @width < @height
             # round to two decimals
-            wrapperWidth = Math.round(((width / height) * 100) * 100) / 100
+            wrapperWidth = Math.round(((@width / @height) * 100) * 100) / 100
             paddingBottom = 100
           else
             wrapperWidth = 100
             # round to two decimals
-            paddingBottom = Math.round(((height / width) * 100) * 100) / 100
+            paddingBottom = Math.round(((@height / @width) * 100) * 100) / 100
 
           @$image.after(
             App.Utils.template(
@@ -44,8 +52,8 @@
               {
                 wrapperWidth: wrapperWidth
                 paddingBottom: paddingBottom
-                width: width
-                height: height
+                width: @width
+                height: @height
               }
             )
           )
@@ -54,7 +62,17 @@
           @ctx = @canvas.getContext '2d'
 
         drawOriginalToCanvas: ->
-          @ctx.drawImage @image, 0, 0
+          @ctx.drawImage(
+            @image,
+            0,
+            0,
+            @naturalWidth,
+            @naturalHeight,
+            0,
+            0,
+            @width,
+            @height
+          )
 
           imgData = @canvas.toDataURL 'image/jpeg'
 
