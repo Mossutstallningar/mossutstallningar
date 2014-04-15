@@ -4,6 +4,7 @@
 
     init: ->
       @$canvas = $ '#navigation-lines'
+      @$dashboard = $ '.dashboard'
       @ctx = @$canvas.get(0).getContext '2d'
       @lastX = null
       @lastY = null
@@ -47,7 +48,7 @@
 
     setCanvasSize: ->
       width = App.$win.width()
-      height = App.$doc.height()
+      height = @$dashboard.height()
 
       @$canvas
         .attr 'width', width * 2
