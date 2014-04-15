@@ -20,6 +20,15 @@
     top: 120px;
     height: 1px;
   }
+  a {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+    &.sitemap-link {
+      text-decoration: none;
+    }
+  }
 }
 
 .page-project {

@@ -11,10 +11,10 @@ textarea {
 }
 
 a {
-  color: $link-color;
+  color: $teal;
   text-decoration: none;
   &:hover {
-    color: darken($link-color, 10%);
+    color: darken($teal, 10%);
     text-decoration: underline;
   }
 }
