@@ -4,6 +4,8 @@ Mossutstallningar::Application.routes.draw do
 
   root 'static_pages#start'
 
+  get 'svt', to: 'static_pages#svt', as: 'svt'
+
   localized do
     resources :projects, only: [:show]
     resources :pages, only: [:show]

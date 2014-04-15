@@ -1,0 +1,11 @@
+- if @svt_category.present?
+  - content_for :title, @svt_category.name
+
+  .page.page-search id='page-id-svt-index'
+    = render 'shared/close'
+    h1.page-title.dynamic-font-size = @svt_category.name
+    .page-text.dynamic-font-size-children
+      ul.page-split-list.sitemap-category-list
+        - @svt_category.pages.published.each do |item|
+          li.sitemap-category-item
+            = link_to fa_icon('chevron-right', text: item.title), item, class: 'internal sitemap-link page-index-link', data: { :'page-slug' => "page-id-#{item.id}" }
