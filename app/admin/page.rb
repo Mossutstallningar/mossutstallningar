@@ -6,6 +6,7 @@ ActiveAdmin.register Page do
     selectable_column
     column :id
     column :title
+    column :position
     column :published
     column 'Link' do |page|
       link_to page.title, page_sv_path(page)
@@ -19,6 +20,7 @@ ActiveAdmin.register Page do
       f.input :title
       f.input :body
       f.input :page_category_id, as: :select, collection: PageCategory.all.map {|f| [f.name, f.id]}
+      f.input :position
       f.input :published
 
       images f
@@ -49,6 +51,7 @@ ActiveAdmin.register Page do
       params.permit page: [
         :title,
         :body,
+        :position,
         :published,
         :page_category_id,
         images_attributes: [

@@ -4,4 +4,6 @@ class Page < ActiveRecord::Base
   include Pageable
 
   belongs_to :page_category
+
+  scope :order_by_position, -> { order(position: :asc) }
 end
