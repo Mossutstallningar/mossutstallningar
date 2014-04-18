@@ -54,13 +54,14 @@
 
 .page-title {
   margin: 0 0 30px;
-  line-height: 0.9;
-  font-size: 50px;
+  line-height: 1;
+  font-size: 40px;
+  font-family: $mossbook;
   @include at-breakpoint($large) {
-    font-size: 65px;
+    font-size: 45px;
   }
   @include at-breakpoint($xx-large) {
-    font-size: 5vw;
+    font-size: 3.4vw;
   }
 }
 
