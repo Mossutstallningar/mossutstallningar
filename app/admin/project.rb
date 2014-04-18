@@ -7,6 +7,7 @@ ActiveAdmin.register Project do
     f.inputs 'Project details' do
       f.input :title
       f.input :body
+      f.input :position
       f.input :published
 
       images f
@@ -19,6 +20,7 @@ ActiveAdmin.register Project do
     selectable_column
     column :id
     column :title
+    column :position
     column :published
     column 'Link' do |project|
       link_to project.title, project_sv_path(project)
@@ -49,6 +51,7 @@ ActiveAdmin.register Project do
       params.permit project: [
         :title,
         :body,
+        :position,
         :published,
         images_attributes: [
           :id,

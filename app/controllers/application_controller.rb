@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     unless in_admin?
       @about_category = PageCategory.find_by_id(1)
       @svt_category = PageCategory.find_by_id(2)
-      @projects = Project.published
+      @projects = Project.published.order_by_position
     end
   end
 
