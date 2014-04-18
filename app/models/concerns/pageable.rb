@@ -9,7 +9,7 @@ module Pageable
     validates :title, presence: true
 
     # scopes
-    scope :published, -> { where(published: true).order(id: :desc) }
+    scope :published, -> { where(published: true) }
 
     # relations
     has_many :images, as: :imageable
