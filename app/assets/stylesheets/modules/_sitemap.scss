@@ -1,7 +1,7 @@
 .sitemap {
   @include reset-list;
   padding: 4.5% 0 3%;
-  font-size: 28px;
+  font-size: $small-font-size;
   @include at-breakpoint($small) {
     @include columns(2);
     @include column-gap(20px);

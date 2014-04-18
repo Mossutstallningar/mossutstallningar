@@ -76,7 +76,7 @@
   h5,
   h6 {
     margin-top: 0;
-    font-size: 28px;
+    font-size: $small-font-size;
     line-height: 1.2;
     @include at-breakpoint($xx-large) {
       font-size: $large-font-size;
