@@ -15,7 +15,7 @@
 .logotype {
   @extend %base-link;
   font-family: $mossbook;
-  font-size: 30px;
+  font-size: 28px;
   letter-spacing: 2px;
   @include at-breakpoint($small) {
     letter-spacing: 3px;
@@ -37,7 +37,7 @@
 
 .header-nav {
   @include base-color;
-  font-size: 30px;
+  font-size: 28px;
   @include at-breakpoint($medium-large) {
     position: absolute;
     right: 0;
@@ -47,7 +47,7 @@
     bottom: 15px;
   }
   @include at-breakpoint($xx-large) {
-    font-size: 2.5vw;
+    font-size: $large-font-size;
   }
 }
 

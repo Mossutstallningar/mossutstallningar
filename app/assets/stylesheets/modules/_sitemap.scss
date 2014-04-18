@@ -16,7 +16,7 @@
   }
 
   @include at-breakpoint($xx-large) {
-    font-size: 2.5vw;
+    font-size: $large-font-size;
   }
 }
 
