@@ -12,4 +12,4 @@ div class=["page page-#{type}"] id="page-id-#{resource.id}" tabindex='-1'
   h1.page-title.dynamic-font-size = resource.title
   - if resource.body.present?
     .page-text.dynamic-font-size-children
-      = markdown resource.body, resource
+      = page_markdown resource.body, resource

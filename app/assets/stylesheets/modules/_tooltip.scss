@@ -7,4 +7,12 @@
   margin: 20px 0 0 20px;
   background: #fff;
   font-size: 20px;
+  color: $teal;
+  img,
+  p {
+    margin: 0 0 20px;
+    &:last-child {
+      margin: 0;
+    }
+  }
 }

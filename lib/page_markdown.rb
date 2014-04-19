@@ -1,4 +1,4 @@
-class CustomMarkdown < Redcarpet::Render::HTML
+class PageMarkdown < Redcarpet::Render::HTML
   def initialize(*args)
     @resource = args[0][:resource]
     super
