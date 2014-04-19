@@ -28,5 +28,6 @@
 #= require modules/ghost
 #= require modules/overlay
 #= require modules/glitch
+#= require modules/tooltip
 
 #= require init

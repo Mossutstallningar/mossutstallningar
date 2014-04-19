@@ -6,6 +6,7 @@ $ =>
   App.ImageChaos.init()
   App.Gallery.init()
   App.Overlay.init() if App.options.showOverlay
+  App.Tooltip.init() unless Modernizr.touch
 
   if Modernizr.canvas
     App.NavigationLines.init() if App.options.showNavigationLines

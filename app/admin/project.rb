@@ -6,6 +6,7 @@ ActiveAdmin.register Project do
     f.semantic_errors *f.object.errors.keys
     f.inputs 'Project details' do
       f.input :title
+      f.input :description
       f.input :body
       f.input :position
       f.input :published
@@ -20,6 +21,9 @@ ActiveAdmin.register Project do
     selectable_column
     column :id
     column :title
+    column 'Description', sortable: :description do |project|
+      project.description.truncate(20) if project.description.present?
+    end
     column :position
     column :published
     column 'Link' do |project|
@@ -50,6 +54,7 @@ ActiveAdmin.register Project do
     def permitted_params
       params.permit project: [
         :title,
+        :description,
         :body,
         :position,
         :published,
