@@ -3,5 +3,5 @@ class Project < ActiveRecord::Base
   include Searchable
   include Pageable
 
-  scope :order_by_position, -> { order(position: :asc) }
+  scope :order_by_position, -> { order(position: :asc, id: :desc) }
 end

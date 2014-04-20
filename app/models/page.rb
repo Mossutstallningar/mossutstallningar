@@ -5,5 +5,5 @@ class Page < ActiveRecord::Base
 
   belongs_to :page_category
 
-  scope :order_by_position, -> { order(position: :asc) }
+  scope :order_by_position, -> { order(position: :asc, id: :desc) }
 end
