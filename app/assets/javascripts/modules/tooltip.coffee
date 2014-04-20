@@ -5,6 +5,8 @@
     init: ->
       @$tooltipTrigger = $ '.tooltip-trigger'
       @$tooltip = $()
+      @tooltipWidth = 330
+      @winWidth = App.$win.width()
       @eventListeners()
 
     eventListeners: ->
@@ -21,6 +23,9 @@
       @$tooltipTrigger.mousemove (e) ->
         _.move e.pageX, e.pageY
 
+      App.$win.on 'debouncedresize', =>
+        @winWidth = App.$win.width()
+
     show: ->
       @$tooltip.show()
 
@@ -28,9 +33,15 @@
       @$tooltip.hide()
 
     move: (x, y) ->
+      if x > (@winWidth - @tooltipWidth)
+        left = x - @tooltipWidth
+      else
+        left = x
+      top = y
+
       @$tooltip.css(
-        left: x
-        top: y
+        left: left
+        top: top
       )
 
   App.Tooltip = Tooltip
