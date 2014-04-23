@@ -213,7 +213,7 @@
       App.$doc.find(ogMetaUrlSelector).attr 'content', win.location.href
 
     setPageTypeClass: (pageTypeClass) ->
-      bodyClass = App.$body.attr('class')
+      bodyClass = App.$body.attr('class') || ''
       matches = bodyClass.match @pageTypeRegEx
 
       if matches
