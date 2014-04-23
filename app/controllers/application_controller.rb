@@ -5,9 +5,15 @@ class ApplicationController < ActionController::Base
 
   before_filter :authenticate if ENV['AUTHENTICATE'] == 'true' && !Rails.env.development?
   before_filter :set_locale
+  before_filter :fix_caching_problem
   before_action :load_global_resources
 
   helper_method :in_admin?
+
+  # http://erlingur.is/post/68977749545/safari-7-blank-page-problem
+  def fix_caching_problem
+    headers['Last-Modified'] = Time.now.httpdate
+  end
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
