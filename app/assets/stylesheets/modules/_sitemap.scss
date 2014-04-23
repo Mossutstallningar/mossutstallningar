@@ -54,10 +54,9 @@
   .fa {
     position: absolute;
     left: 0;
-    top: 10px;
+    top: 8px;
     font-size: 15px;
     @include at-breakpoint($xx-large) {
-      top: 15px;
       font-size: 1.5vw;
     }
   }
