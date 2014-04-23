@@ -1,7 +1,7 @@
 sv:
   routes:
-    projects: projekt
+    projects: konst
     pages: sidor
-    products: produkter
-    takes: ta
+    products: köp
+    takes: bortskänkes
     search: sök
