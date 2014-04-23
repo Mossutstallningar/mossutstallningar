@@ -27,12 +27,6 @@
   @include at-breakpoint($medium-large) {
     letter-spacing: 6px;
   }
-  @include at-breakpoint($large) {
-    letter-spacing: 8px;
-  }
-  @include at-breakpoint($xx-large) {
-    letter-spacing: 9px;
-  }
 }
 
 .header-nav {

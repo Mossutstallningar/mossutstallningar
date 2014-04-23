@@ -57,6 +57,7 @@
   line-height: 1;
   font-size: 40px;
   font-family: $mossbook;
+  letter-spacing: 3px;
   @include at-breakpoint($large) {
     font-size: 45px;
   }
