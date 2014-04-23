@@ -40,13 +40,16 @@
       @$tooltip.height()
 
     move: (x, y) ->
-      if x > (@winWidth - @tooltipWidth)
+      xMax = @winWidth - @tooltipWidth
+      yMax = @winHeight - @tooltipHeight
+
+      if x > xMax
         left = x - @tooltipWidth
       else
         left = x
 
-      if y > (@winHeight - @tooltipHeight)
-        top = y - @tooltipHeight
+      if y > yMax
+        top = yMax - 60
       else
         top = y
 
