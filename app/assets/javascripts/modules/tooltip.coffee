@@ -41,7 +41,7 @@
 
     move: (x, y) ->
       xMax = @winWidth - @tooltipWidth
-      yMax = @winHeight - @tooltipHeight
+      yMax = @winHeight - @tooltipHeight - 60
 
       if x > xMax
         left = x - @tooltipWidth
@@ -49,7 +49,7 @@
         left = x
 
       if y > yMax
-        top = yMax - 60
+        top = yMax
       else
         top = y
 
