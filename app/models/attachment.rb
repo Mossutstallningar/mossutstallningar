@@ -5,7 +5,7 @@ class Attachment < ActiveRecord::Base
 
   validates :name, presence: true
   validates_attachment_presence :attachment
-  validates_attachment_content_type :attachment, content_type: ['application/zip', 'application/pdf']
+  validates_attachment_content_type :attachment, content_type: ['application/zip', 'application/pdf', 'audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio']
 
   def url
     attachment.url
