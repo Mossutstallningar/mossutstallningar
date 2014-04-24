@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_filter :authenticate if ENV['AUTHENTICATE'] == 'true' && !Rails.env.development?
   before_filter :set_locale
   before_filter :fix_caching_problem
+  before_filter :check_for_closed if ENV['CLOSED'] == 'true'
   before_action :load_global_resources
 
   helper_method :in_admin?
@@ -15,9 +15,9 @@ class ApplicationController < ActionController::Base
     headers['Last-Modified'] = Time.now.httpdate
   end
 
-  def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      username == ENV['HTTP_AUTH_USER'] && password == ENV['HTTP_AUTH_PASS']
+  def check_for_closed
+    unless user_signed_in? || in_admin?
+      redirect_to closed_url, status: 302
     end
   end
 

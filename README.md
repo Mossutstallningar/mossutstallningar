@@ -26,9 +26,7 @@ Create a development and test database, and quit psql:
 
         # Variables needed in staging & production
         NO_INDEX=<true/false>
-        AUTHENTICATE=<true/false>
-        HTTP_AUTH_USER=<username>
-        HTTP_AUTH_PASS=<password>
+        CLOSED=<true/false>
 
         SECRET_TOKEN=<secret token>
         DEVISE_SECRET_KEY=<devise secret token>

@@ -13,5 +13,7 @@ Mossutstallningar::Application.routes.draw do
     resources :takes, only: [:index, :show]
 
     get 'search', to: 'search#index', as: 'search'
+
+    get 'closed', to: 'static_pages#closed', as: 'closed'
   end
 end
