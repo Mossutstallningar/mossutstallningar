@@ -1,6 +1,6 @@
 ul.sitemap-category-list
   - items.each do |item|
     li.sitemap-category-item
-      = link_to fa_icon('chevron-right', text: item.title), item, class: "internal navigation-lines-link sitemap-link#{(item.kind_of?(Project) && item.description.present?)? ' tooltip-trigger' : ''}", data: { :'page-slug' => "page-id-#{item.id}", color: color }
-      - if item.kind_of?(Project) && item.description.present?
+      = link_to fa_icon('chevron-right', text: item.title), item, class: "internal navigation-lines-link sitemap-link#{((item.kind_of?(Project) || item.kind_of?(Page)) && item.description.present?)? ' tooltip-trigger' : ''}", data: { :'page-slug' => "page-id-#{item.id}", color: color }
+      - if (item.kind_of?(Project) || item.kind_of?(Page)) && item.description.present?
         div.tooltip = tooltip_markdown item.description

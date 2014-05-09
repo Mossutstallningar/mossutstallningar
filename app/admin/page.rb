@@ -6,6 +6,9 @@ ActiveAdmin.register Page do
     selectable_column
     column :id
     column :title
+    column 'Description', sortable: :description do |page|
+      page.description.truncate(20) if page.description.present?
+    end
     column :position
     column :published
     column 'Link' do |page|
@@ -18,6 +21,7 @@ ActiveAdmin.register Page do
     f.semantic_errors *f.object.errors.keys
     f.inputs 'Page details' do
       f.input :title
+      f.input :description
       f.input :body
       f.input :page_category_id, as: :select, collection: PageCategory.all.map {|f| [f.name, f.id]}
       f.input :position
@@ -50,6 +54,7 @@ ActiveAdmin.register Page do
     def permitted_params
       params.permit page: [
         :title,
+        :description,
         :body,
         :position,
         :published,
