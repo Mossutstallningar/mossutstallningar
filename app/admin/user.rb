@@ -1,4 +1,6 @@
 ActiveAdmin.register User do
+  menu priority: 6
+
   index do
     id_column
     column :email
