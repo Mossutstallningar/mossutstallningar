@@ -32,24 +32,24 @@
 }
 
 .page-project {
-  @include page-shadow(rgba(57, 88, 252, 0.75));
+  @include page-shadow($project-shadow-color);
 }
 
 .page-about {
-  @include page-shadow(rgba(246, 0, 151, 0.75));
+  @include page-shadow($about-shadow-color);
 }
 
 .page-svt {
-  @include page-shadow(rgba(139, 0, 219, 0.75));
+  @include page-shadow($svt-shadow-color);
 }
 
 .page-take,
 .page-product {
-  @include page-shadow(rgba(246, 114, 30, 0.75));
+  @include page-shadow($product-shadow-color);
 }
 
 .page-search {
-  @include page-shadow(rgba(0, 0, 0, 0.75));
+  @include page-shadow($search-shadow-color);
 }
 
 .page-title {
