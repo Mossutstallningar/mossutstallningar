@@ -2,9 +2,9 @@
 
 header.header
   - if current_page?(root_url)
-    h1 = render 'shared/logotype'
+    h1.logotype-wrapper = render 'shared/logotype'
   - else
-    = render 'shared/logotype'
+    .logotype-wrapper = render 'shared/logotype'
 
   nav.header-nav.dynamic-font-size
     ul.header-nav-list

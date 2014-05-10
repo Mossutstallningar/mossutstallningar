@@ -24,7 +24,18 @@
         _.$tooltip = $()
 
       @$tooltipTrigger.mousemove (e) ->
-        _.move e.pageX, e.pageY
+        $el = $ @
+
+        isRelative = !!$el.data 'tooltip-relative'
+
+        x = e.pageX
+        y = e.pageY
+
+        if isRelative
+          elOffset = $el.offset()
+          x = x - elOffset.left
+          y = y - elOffset.top
+        _.move x, y
 
       App.$win.on 'debouncedresize', =>
         @winWidth = App.$win.width()

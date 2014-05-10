@@ -1,3 +1,5 @@
 #encoding: utf-8
 
-= link_to 'Mossutställningar', root_path, class: 'page-reset logotype dynamic-font-size'
+= link_to 'Mossutställningar', root_path, class: "page-reset logotype dynamic-font-size#{@settings.logo_text.present? ? ' tooltip-trigger' : '' }", data: { 'tooltip-relative' => true }
+- if @settings.logo_text.present?
+  .tooltip = markdown(@settings.logo_text)

@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
       @about_category = PageCategory.find_by_id(1)
       @svt_category = PageCategory.find_by_id(2)
       @projects = Project.published.order_by_position
+      @settings = SiteSettings.new Setting.all
     end
   end
 
