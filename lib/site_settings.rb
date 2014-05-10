@@ -11,6 +11,6 @@ class SiteSettings
 
   def get_value(key)
     s = @settings.detect { |k| k['key'] == key }
-    s.value
+    s.value if s.present?
   end
 end
