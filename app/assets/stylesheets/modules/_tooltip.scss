@@ -29,4 +29,14 @@
   .logotype-wrapper & {
     box-shadow: 4px 4px 2px $logotype-shadow-color;
   }
+  .header-nav-list-item-products &,
+  .header-nav-list-item-giveaways & {
+    box-shadow: 4px 4px 2px $product-shadow-color;
+  }
+  .header-nav-list-item-translate & {
+    box-shadow: 4px 4px 2px $translate-shadow-color;
+  }
+  .header-nav-list-item-search & {
+    box-shadow: 4px 4px 2px $search-shadow-color;
+  }
 }

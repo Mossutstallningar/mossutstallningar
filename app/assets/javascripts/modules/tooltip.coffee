@@ -35,7 +35,13 @@
           elOffset = $el.offset()
           x = x - elOffset.left
           y = y - elOffset.top
-        _.move x, y
+          xMax = _.winWidth - elOffset.left - _.tooltipWidth
+          yMax = _.winHeight - elOffset.top - _.tooltipHeight - 60
+        else
+          xMax = _.winWidth - _.tooltipWidth
+          yMax = _.winHeight - _.tooltipHeight - 60
+
+        _.move x, y, xMax, yMax
 
       App.$win.on 'debouncedresize', =>
         @winWidth = App.$win.width()
@@ -50,10 +56,7 @@
     getTooltipHeight: ->
       @$tooltip.height()
 
-    move: (x, y) ->
-      xMax = @winWidth - @tooltipWidth
-      yMax = @winHeight - @tooltipHeight - 60
-
+    move: (x, y, xMax, yMax) ->
       if x > xMax
         left = x - @tooltipWidth
       else

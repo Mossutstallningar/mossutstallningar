@@ -8,15 +8,23 @@ header.header
 
   nav.header-nav.dynamic-font-size
     ul.header-nav-list
-      li.header-nav-list-item
-        = link_to 'Köp', products_path, class: 'internal header-nav-link navigation-lines-link', data: { color: '#f0f', :'page-slug' => 'page-id-products' }
-      li.header-nav-list-item
-        = link_to 'Bortskänkes', takes_path, class: 'internal header-nav-link navigation-lines-link', data: { color: '#00f', :'page-slug' => 'page-id-takes' }
-      li.header-nav-list-item
-        = link_to 'Översätt', translate_link, class: 'header-nav-link navigation-lines-link', data: { color: '#ff0' }
-      li.header-nav-list-item
+      li.header-nav-list-item.header-nav-list-item-products
+        = link_to 'Köp', products_path, class: "internal header-nav-link navigation-lines-link#{@settings.buy_text.present? ? ' tooltip-trigger' : '' }", data: { color: '#f0f', :'page-slug' => 'page-id-products', 'tooltip-relative' => true }
+        - if @settings.buy_text.present?
+          .tooltip = markdown(@settings.buy_text)
+      li.header-nav-list-item.header-nav-list-item-giveaways
+        = link_to 'Bortskänkes', takes_path, class: "internal header-nav-link navigation-lines-link#{@settings.giveaways_text.present? ? ' tooltip-trigger' : '' }", data: { color: '#00f', :'page-slug' => 'page-id-takes', 'tooltip-relative' => true }
+        - if @settings.giveaways_text.present?
+          .tooltip = markdown(@settings.giveaways_text)
+      li.header-nav-list-item.header-nav-list-item-translate
+        = link_to 'Översätt', translate_link, class: "header-nav-link navigation-lines-link#{@settings.translate_text.present? ? ' tooltip-trigger' : '' }", data: { color: '#ff0', 'tooltip-relative' => true }
+        - if @settings.translate_text.present?
+          .tooltip = markdown(@settings.translate_text)
+      li.header-nav-list-item.header-nav-list-item-search
         .search class=[params[:q].present? ? 'search-open' : 'search-closed']
-          button.search-opener.header-nav-link.navigation-lines-link data-color='#000' Sök
+          button class="search-opener header-nav-link navigation-lines-link#{@settings.search_text.present? ? ' tooltip-trigger' : '' }" data-color='#000' data-tooltip-relative='true' Sök
+          - if @settings.search_text.present?
+            .tooltip = markdown(@settings.search_text)
           = form_tag search_path, method: 'get', class: 'search-form internal-form', data: { :'page-slug' => 'page-id-search' } do
             = label_tag :q, 'Sök:', class: 'search-label'
             = search_field_tag :q, params[:q], placeholder: 'Sök', class: 'search-query'
