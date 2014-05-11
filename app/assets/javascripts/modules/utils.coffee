@@ -22,6 +22,18 @@
         v ? ""
       )
 
+    isRetina: ->
+      mediaQuery = '(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx)'
+      isRetina = false
+
+      if win.devicePixelRatio > 1
+        isRetina = true
+
+      if win.matchMedia && win.matchMedia(mediaQuery).matches
+        isRetina = true
+
+      isRetina
+
   win.App.Utils = Utils
 
 )(window, document, jQuery)
