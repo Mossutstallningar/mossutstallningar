@@ -11,8 +11,6 @@ body {
 
 body {
   @include transition (background-image 2.0s ease-in-out);
-  max-width: 1000px\9; // <= IE8
-  margin: 0 auto\9; // <= IE8
   background: asset-url("backgrounds/1.jpg") repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
