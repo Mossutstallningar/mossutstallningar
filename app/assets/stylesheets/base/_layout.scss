@@ -37,11 +37,6 @@ body {
   top: 250px;
   left: 20px;
   right: 20px;
-
-  width: 800px\9; // <= IE8
-  left: 50%\9; // <= IE8
-  right: auto\9; // <= IE8
-  margin-left: -400px\9; // <= IE8
   @include at-breakpoint($large) {
     left: 16.5%;
     right: auto;
