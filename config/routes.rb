@@ -6,6 +6,8 @@ Mossutstallningar::Application.routes.draw do
 
   get 'svt', to: 'static_pages#svt', as: 'svt'
 
+  get 'cts', to: redirect('/sidor/cts')
+
   localized do
     resources :projects, only: [:show]
     resources :pages, only: [:show]
