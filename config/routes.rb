@@ -6,7 +6,7 @@ Mossutstallningar::Application.routes.draw do
 
   get 'svt', to: 'static_pages#svt', as: 'svt'
 
-  get 'cts', to: redirect('/sidor/cts')
+  get 'cts', to: redirect('/sidor/inauguration-of-studio-mossutstallningar-closing-of-creative-time-summit-stockholm')
 
   localized do
     resources :projects, only: [:show]
