@@ -4,7 +4,7 @@
 #= require libs/imagesloaded
 #= require libs/html2canvas
 
-#= require plugins/jquery-ui-1.10.4.custom
+#= require plugins/jquery-ui-1.11.2.custom
 #= require plugins/jquery.debouncedresize
 #= require plugins/jquery.columnizer
 #= require plugins/jquery.glitch

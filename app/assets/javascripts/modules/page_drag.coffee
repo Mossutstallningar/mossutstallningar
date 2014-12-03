@@ -4,18 +4,7 @@
 
     init: ->
       @setupDrag $('.page')
-      @fixDraggableScrollBug()
       @eventListeners()
-
-    # http://bugs.jqueryui.com/ticket/9315
-    # https://forum.jquery.com/topic/jquery-draggable-bug-wrong-offset#14737000004925557
-    fixDraggableScrollBug: ->
-      safariAgent = /Safari/.test(navigator.userAgent)
-      appleVendor = /Apple Computer/.test(navigator.vendor)
-
-      unless safariAgent && appleVendor
-        App.$body.draggable()
-        App.$body.draggable 'disable'
 
     eventListeners: ->
       App.$doc.on 'PageAdd': (e, data) =>
