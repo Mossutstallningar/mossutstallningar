@@ -11,7 +11,7 @@ $ =>
   if Modernizr.canvas
     App.NavigationLines.init() if App.options.showNavigationLines
     App.Ghost.init() if App.options.showGhost && App.Breakpoints.isMedium
-    App.Glitch.init()
+    App.Glitch.init() if App.Breakpoints.isMedium
 
   unless ie < 9
     App.DynamicFontSize.init()
