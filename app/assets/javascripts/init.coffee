@@ -5,7 +5,7 @@ $ =>
   App.Search.init()
   App.ImageChaos.init()
   App.Gallery.init()
-  App.Overlay.init() if App.options.showOverlay
+  App.Overlay.init() if App.options.showOverlay && App.Breakpoints.isMedium
   App.Tooltip.init() unless Modernizr.touch
 
   if Modernizr.canvas
