@@ -10,7 +10,7 @@ $ =>
 
   if Modernizr.canvas
     App.NavigationLines.init() if App.options.showNavigationLines
-    App.Ghost.init() if App.options.showGhost
+    App.Ghost.init() if App.options.showGhost && App.Breakpoints.isMedium
     App.Glitch.init()
 
   unless ie < 9
