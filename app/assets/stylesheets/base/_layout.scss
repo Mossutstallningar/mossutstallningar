@@ -17,11 +17,13 @@ body {
   -o-background-size: cover;
   background-size: cover;
   overflow-x: hidden;
-  &.page-type-about {
-    background-image: asset-url("backgrounds/2.jpg");
-  }
-  &.page-type-svt {
-    background-image: asset-url("backgrounds/3.jpg");
+  @include at-breakpoint($small) {
+    &.page-type-about {
+      background-image: asset-url("backgrounds/2.jpg");
+    }
+    &.page-type-svt {
+      background-image: asset-url("backgrounds/3.jpg");
+    }
   }
 }
 
