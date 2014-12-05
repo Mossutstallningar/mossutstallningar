@@ -1,11 +1,11 @@
 .button {
   position: absolute;
   z-index: 1;
-  top: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  font-size: 40px;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
   line-height: 0;
   text-align: center;
   color: $teal;
@@ -21,6 +21,13 @@
   &::-moz-focus-inner {
     padding: 0;
     border: 0;
+  }
+  @include at-breakpoint($small) {
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
   }
 }
 
