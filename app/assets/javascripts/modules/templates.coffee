@@ -9,6 +9,7 @@
       '<a ' +
         'href="https://www.facebook.com/sharer.php?u={src}&t={credit}" ' +
         'class="button share-facebook" ' +
+        'target="_blank" ' +
       '>' +
         '<i class="fa fa-facebook-square"></i>' +
         '<span class="button-text">Dela på Facebook</span>' +
@@ -21,6 +22,7 @@
           'data-pin-do="buttonPin" ' +
           'data-pin-config="above" ' +
           'class="button share-pinterest" ' +
+          'target="_blank" ' +
       '>' +
         '<i class="fa fa-pinterest-square"></i>' +
         '<span class="button-text">Spara på Pinterest</span>' +
