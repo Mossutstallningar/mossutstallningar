@@ -18,6 +18,7 @@ gem 'paperclip'
 gem 'font-awesome-rails'
 gem 'route_translator'
 gem 'redcarpet'
+gem 'pg_search'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
