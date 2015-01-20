@@ -17,7 +17,7 @@ header.header
         - if @settings.giveaways_text.present?
           .tooltip = markdown(@settings.giveaways_text)
       li.header-nav-list-item.header-nav-list-item-translate
-        = link_to 'Översätt', translate_link, class: "header-nav-link navigation-lines-link#{@settings.translate_text.present? ? ' tooltip-trigger' : '' }", data: { color: '#ff0', 'tooltip-relative' => true }
+        = link_to 'Translate', translate_link, class: "header-nav-link navigation-lines-link#{@settings.translate_text.present? ? ' tooltip-trigger' : '' }", data: { color: '#ff0', 'tooltip-relative' => true }
         - if @settings.translate_text.present?
           .tooltip = markdown(@settings.translate_text)
       li.header-nav-list-item.header-nav-list-item-search
