@@ -28,9 +28,6 @@
         @$page = $()
         @fadeOutGhost() if @hasGhost()
 
-      App.$doc.on 'PageDragDrag': =>
-        @clearAndFadeout()
-
     setupTimeout: ->
       clearTimeout @timeout
       @timeout = null

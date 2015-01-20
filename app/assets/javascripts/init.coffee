@@ -15,7 +15,6 @@ $ =>
 
   unless ie < 9
     App.DynamicFontSize.init()
-    App.PageDrag.init()
     App.PageStyle.init()
     App.Loader.init()
 

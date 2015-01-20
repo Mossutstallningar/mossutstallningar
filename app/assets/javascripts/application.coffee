@@ -21,7 +21,6 @@
 #= require modules/navigation_lines
 #= require modules/search
 #= require modules/dynamic_font_size
-#= require modules/page_drag
 #= require modules/image_chaos
 #= require modules/gallery
 #= require modules/fallback_columns
