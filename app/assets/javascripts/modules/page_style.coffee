@@ -31,8 +31,8 @@
 
     setStartPos: ($page) ->
       offset = $page.offset()
-      min = -50
-      max = 50
+      min = -100
+      max = 100
 
       $page.css(
         left: offset.left + App.Utils.getRandomInt(min, max)
