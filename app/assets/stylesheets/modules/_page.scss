@@ -122,3 +122,18 @@
 .page-index-link {
   color: $teal;
 }
+
+.page-footer {
+  margin-top: 30px;
+  font-size: 20px;
+  .button {
+    font-size: 30px;
+    position: static;
+    margin-left: 10px;
+  }
+}
+
+.page-footer-share {
+  position: relative;
+  top: -5px;
+}

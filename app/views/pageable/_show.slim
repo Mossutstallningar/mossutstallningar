@@ -13,3 +13,8 @@ div class=["page page-#{type}"] id="page-id-#{resource.id}" tabindex='-1'
   - if resource.body.present?
     .page-text.dynamic-font-size-children
       = page_markdown resource.body, resource
+  footer.page-footer
+    span.page-footer-share Dela sidan:
+    a.button.share-facebook href="https://www.facebook.com/sharer.php?u=#{URI.escape(request.original_url)}&t=#{URI.escape(resource.title)}" target="_blank"
+      i.fa.fa-facebook-square
+      .span.button-text Dela på Facebook
