@@ -10,29 +10,11 @@
       @eventListeners()
 
     eventListeners: ->
-      App.$doc.mousemove(
-        $.throttle(100, =>
-          @onMovement()
-        )
-      )
-
       App.$doc.on 'PageAdd': (e, data) =>
         @onPageAdd data.$page
 
       App.$doc.on 'PageClose': =>
         @onPageClose()
-
-      App.$win.scroll(
-        $.throttle(100, =>
-          @onMovement()
-        )
-      )
-
-    onMovement: ->
-      if !!@$els.length
-        @$els.each ->
-          $el = $ @
-          $el.data('Glitch').draw() if $el.data 'GlitchReady'
 
     onPageAdd: ($page) ->
       $els = $page.find @imgSelector
@@ -53,8 +35,17 @@
         $el.glitch()
         $el.imagesLoaded ->
           setTimeout ->
+            _.setupMousemove $el
             _.setupShare $el
           , 100
+
+    setupMousemove: ($el) ->
+      $glitchCanvasWrapper = $el.siblings '.glitch-canvas-wrapper'
+      $glitchCanvasWrapper.mousemove($.throttle(300, =>
+          console.log('gli')
+          $el.data('Glitch').draw() if $el.data 'GlitchReady'
+        )
+      )
 
     setupShare: ($el) ->
       $glitchCanvasWrapper = $el.siblings '.glitch-canvas-wrapper'
