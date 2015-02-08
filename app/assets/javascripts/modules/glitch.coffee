@@ -42,7 +42,6 @@
     setupMousemove: ($el) ->
       $glitchCanvasWrapper = $el.siblings '.glitch-canvas-wrapper'
       $glitchCanvasWrapper.mousemove($.throttle(300, =>
-          console.log('gli')
           $el.data('Glitch').draw() if $el.data 'GlitchReady'
         )
       )
