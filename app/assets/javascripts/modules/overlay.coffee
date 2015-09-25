@@ -3,7 +3,7 @@
   Overlay =
 
     options:
-      delay: 15000
+      delay: 30000
 
     init: ->
       @$overlay = $ '.overlay'
