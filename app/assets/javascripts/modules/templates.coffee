@@ -49,21 +49,6 @@
         '</div>' +
       '</div>'
 
-    glitch:
-      '<div ' +
-        'class="glitch-canvas-wrapper" ' +
-        'style="width:{wrapperWidth}%;' +
-          'padding-bottom:{paddingBottom}%;' +
-        '"' +
-      '>' +
-        '<canvas ' +
-          'class="glitch-canvas" ' +
-          'width="{width}" ' +
-          'height="{height}" ' +
-        '>' +
-        '</canvas>' +
-      '</div>'
-
   win.App.Templates = Templates
 
 )(window)

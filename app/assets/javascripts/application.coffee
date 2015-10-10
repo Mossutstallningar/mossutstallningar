@@ -7,7 +7,6 @@
 #= require plugins/jquery-ui-1.11.2.custom
 #= require plugins/jquery.debouncedresize
 #= require plugins/jquery.columnizer
-#= require plugins/jquery.glitch
 #= require plugins/jquery.ba-throttle-debounce
 
 #= require modules/utils
@@ -26,7 +25,6 @@
 #= require modules/fallback_columns
 #= require modules/ghost
 #= require modules/overlay
-#= require modules/glitch
 #= require modules/tooltip
 
 #= require init
