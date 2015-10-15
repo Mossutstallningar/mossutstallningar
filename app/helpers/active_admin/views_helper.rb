@@ -25,7 +25,7 @@ module ActiveAdmin::ViewsHelper
           attachment.input :id, input_html: { disabled: true }
         end
         attachment.input :name
-        attachment.input :attachment, label: 'File (PDF or Zip)', as: :file, required: true, required: true
+        attachment.input :attachment, label: 'File (PDF or Zip)', as: :file, required: true
         unless attachment.object.new_record?
           attachment.input :_destroy, as: :boolean, required: false, label: 'Remove'
         end
