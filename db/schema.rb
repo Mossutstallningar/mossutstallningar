@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140509125658) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attachments", force: true do |t|
+  create_table "attachments", force: :cascade do |t|
     t.string   "name"
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140509125658) do
     t.datetime "updated_at"
   end
 
-  create_table "images", force: true do |t|
+  create_table "images", force: :cascade do |t|
     t.string   "alt_text"
     t.string   "credit"
     t.integer  "position",                default: 0,     null: false
@@ -43,13 +43,13 @@ ActiveRecord::Schema.define(version: 20140509125658) do
     t.boolean  "for_gallery",             default: false
   end
 
-  create_table "page_categories", force: true do |t|
+  create_table "page_categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "pages", force: true do |t|
+  create_table "pages", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "page_category_id"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20140509125658) do
 
   add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true, using: :btree
 
-  create_table "products", force: true do |t|
+  create_table "products", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.text     "slug"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20140509125658) do
     t.datetime "updated_at"
   end
 
-  create_table "projects", force: true do |t|
+  create_table "projects", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.string   "slug"
@@ -85,14 +85,14 @@ ActiveRecord::Schema.define(version: 20140509125658) do
 
   add_index "projects", ["slug"], name: "index_projects_on_slug", unique: true, using: :btree
 
-  create_table "settings", force: true do |t|
+  create_table "settings", force: :cascade do |t|
     t.string   "key"
     t.text     "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "takes", force: true do |t|
+  create_table "takes", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.text     "slug"
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 20140509125658) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
