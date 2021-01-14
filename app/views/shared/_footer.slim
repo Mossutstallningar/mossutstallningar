@@ -4,7 +4,7 @@ footer.footer.dynamic-font-size
   .contact-row
     = 'Mossutställningar'
   .contact-row
-    = "Stora Skuggans väg 9A, 115 42 Stockholm, #{content_tag(:span, mail_to('info@mossutstallningar.com', 'info@mossutstallningar.com', class: 'footer-contact-link'), class: 'contact-row-email')}".html_safe
+    = "Lilla Sällskapets väg 58, 127 61 Skärholmen, #{content_tag(:span, mail_to('info@mossutstallningar.com', 'info@mossutstallningar.com', class: 'footer-contact-link'), class: 'contact-row-email')}".html_safe
   - if user_signed_in?
     .additional-links
       = link_to 'Admin', admin_root_path, class: 'additional-link'
