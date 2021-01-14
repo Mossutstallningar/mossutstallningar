@@ -17,7 +17,7 @@ gem 'devise', '~> 3.5.2'
 gem 'paperclip', '~> 4.3.1'
 gem 'font-awesome-rails', '~> 4.4.0.0'
 gem 'route_translator', '~> 4.1.0'
-gem 'redcarpet', '~> 3.3.1'
+gem 'redcarpet', '~> 3.5.1'
 gem 'pg_search', '~> 1.0.5'
 gem 'thread_safe', '~> 0.3.5'
 
